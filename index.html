@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Differents - Charleston's Premier Rock & SoulCover Band</title>
+    <script src="https://kit.fontawesome.com/d7e8961540.js" crossorigin="anonymous"></script>
+    <!-- Add Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0">
+    </script>
+    <!-- Add YouTube API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 30px 0 0 0;
+            background: linear-gradient(
+                -45deg,
+                #0a192f,
+                #172a45,
+                #1a365d,
+                #2d5a8b
+            );
+            background-size: 150% 150%;
+            animation: gradientFlow 10s ease infinite;
+            background-attachment: fixed;
+            position: relative;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        /* Remove old overlays */
+        body::before {
+            display: none;
+        }
+        
+        .parallax-overlay {
+            display: none;
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            transition: transform 0.2s ease-out;
+        }
+
+        .band-image-container {
+            margin: 2rem auto;
+            max-width: 600px;
+            position: relative;
+            perspective: 1000px;
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+
+        .band-image {
+            width: 100%;
+            height: auto;
+            transform: rotateX(5deg) rotateY(-5deg);
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .band-image:hover {
+            transform: rotateX(0deg) rotateY(0deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            min-width: 150px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button:active {
+            transform: scale(0.98);
+        }
+
+        .cta-button svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .tip-button {
+            background-color: #bc9c24; /* Logo yellow/gold */
+            color: white;
+        }
+
+        .book-button {
+            background-color: #bc1b24; /* Logo red */
+            color: white;
+        }
+
+        .follow-button {
+            background-color: #7cb4e3; /* Logo blue */
+            color: #000;
+        }
+
+        .tip-button svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .social-feeds {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-out 0.9s backwards;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-sizing: border-box;
+        }
+
+        .feed {
+            flex: 1;
+            min-width: 0;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 15px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .feed-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .feed iframe {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .facebook-container {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .facebook-container iframe {
+            max-width: 500px !important;
+            min-width: 340px;
+            width: 100% !important;
+            margin: 0 auto;
+        }
+
+        .youtube-container {
+            width: 100%;
+        }
+
+        .youtube-container iframe {
+            width: 100%;
+        }
+
+        /* Updated responsive breakpoints */
+        @media (max-width: 1024px) {
+            .social-feeds {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+
+            .feed {
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .social-feeds {
+                padding: 1rem;
+            }
+
+            .feed {
+                min-height: 600px;
+                margin-bottom: 1rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .facebook-container iframe {
+                width: 100% !important;
+            }
+        }
+
+        /* Add cursor parallax effect */
+        .parallax-section {
+            position: relative;
+        }
+
+        /* Add parallax background overlay */
+        .parallax-overlay {
+            position: fixed;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle at 50% 50%, 
+                rgba(0, 0, 0, 0.4), 
+                rgba(0, 0, 0, 0) 70%);
+            pointer-events: none;
+            z-index: 1;
+            transition: transform 0.2s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax-overlay"></div>
+    <div class="header">
+        <div>
+            <img src="images/logo.png" alt="The Differents Logo" class="logo">
+        </div>
+        <div class="band-image-container">
+            <img src="images/TheDifferents.jpg" alt="The Differents Band" class="band-image">
+        </div>
+    </div>
+
+    <div class="cta-container">
+        <a href="https://www.venmo.com/u/TheDifferentsCharleston" class="cta-button tip-button">
+            <svg viewBox="0 0 1024 1024">
+                <path d="M541.7 768v-45.3c46.3-2.4 81.5-15 108.7-37.8 27.2-22.8 40.8-53.1 40.8-88.2 0-37.8-11-65.7-35.3-83.4-24.6-20.1-59.8-35.4-111.6-45.3h-2.6V351.8c35.3 5.1 65.3 15 95.1 35.4l43.6-55.5c-43.6-27.9-89.9-42.9-138.8-45.3V256h-40.8v30.3c-40.8 2.4-76.3 15-103.5 37.8-27.2 22.8-40.8 53.1-40.8 88.2s11 63 35.3 80.7c21.7 17.7 59.8 32.7 108.7 42.9v118.5c-38.2-5.1-76.3-22.8-114.2-53.1l-48.9 53.1c48.9 40.5 103.5 63 163.3 68.1V768h41zm2.6-219.6c27.2 7.5 43.6 15 54.4 22.8 8.1 10.2 13.6 20.1 13.6 35.4s-5.5 25.2-19.1 35.4c-13.6 10.2-30.1 15-48.9 17.7V548.4zM449.2 440c-8.1-7.5-13.6-20.1-13.6-32.7 0-15 5.5-25.2 16.2-35.4 13.6-10.2 27.2-15 48.9-17.7v108.6c-27.2-7.8-43.4-15.3-51.5-22.8z"/>
+            </svg>
+            Tip Jar
+        </a>
+        <a href="mailto:differents.charleston@gmail.com" class="cta-button book-button">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            Book Now
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61556583480665" class="cta-button follow-button">
+            <svg viewBox="0 0 24 24">
+                <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/>
+            </svg>
+            Follow
+        </a>
+    </div>
+
+    <div class="social-feeds">
+        <div class="feed">
+            <!-- Facebook Feed -->
+            <div class="feed-container facebook-container">
+                <iframe 
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61556583480665&tabs=timeline&width=500&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&lazy=true" 
+                    height="800" 
+                    style="border:none;overflow:hidden" 
+                    scrolling="no" 
+                    frameborder="0" 
+                    allowfullscreen="true" 
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+            </div>
+        </div>
+        <div class="feed">
+            <!-- YouTube Feed -->
+            <div class="feed-container youtube-container">
+                <iframe 
+                    height="800" 
+                    src="https://www.youtube.com/embed/?list=UCGSIhO4pZJrf2cQWMI_QO1Q&index=1"
+                    title="The Differents YouTube Channel"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update parallax effect for background
+        document.addEventListener('mousemove', (e) => {
+            const overlay = document.querySelector('.parallax-overlay');
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            const moveX = (e.clientX - centerX) / 30;
+            const moveY = (e.clientY - centerY) / 30;
+
+            if (overlay) {
+                overlay.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+            }
+        });
+
+        function updateFeedSizes() {
+            const feeds = document.querySelectorAll('.feed');
+            feeds.forEach(feed => {
+                const container = feed.querySelector('.feed-container');
+                if (container) {
+                    // Get the parent width accounting for padding
+                    const parentWidth = Math.floor(feed.clientWidth - 32);
+                    container.style.width = parentWidth + 'px';
+
+                    // For Facebook, update iframe src with new width
+                    const fbIframe = container.querySelector('iframe[src*="facebook"]');
+                    if (fbIframe) {
+                        const width = Math.min(parentWidth, 500);
+                        const currentSrc = fbIframe.src;
+                        const newSrc = currentSrc.replace(/width=\d+/, `width=${width}`);
+                        if (currentSrc !== newSrc) {
+                            fbIframe.src = newSrc;
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initial size update with a slight delay to ensure proper sizing
+        window.addEventListener('load', () => setTimeout(updateFeedSizes, 500));
+        
+        // Debounced resize handler with longer delay for Facebook reload
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(updateFeedSizes, 1000);
+        });
+    </script>
+</body>
+</html> 
