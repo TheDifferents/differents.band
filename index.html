@@ -336,7 +336,8 @@
             <!-- Facebook Feed -->
             <div class="feed-container facebook-container">
                 <iframe 
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61556583480665&tabs=timeline&width=500&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&lazy=true" 
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61556583480665&tabs=timeline&width=500&height=800&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&lazy=true" 
+                    width="500"
                     height="800" 
                     style="border:none;overflow:hidden" 
                     scrolling="no" 
@@ -361,62 +362,62 @@
         </div>
     </div>
 
+    <!-- Scripts moved to end of body -->
+    <script defer src="https://www.youtube.com/iframe_api"></script>
     <script>
         // Image rotation based on cursor position
-        document.addEventListener('mousemove', (e) => {
-            const image = document.querySelector('.band-image');
-            const rect = image.getBoundingClientRect();
-            const imageX = rect.left + rect.width / 2;
-            const imageY = rect.top + rect.height / 2;
-            
-            // Calculate angle between cursor and image center
-            const deltaX = e.clientX - imageX;
-            const deltaY = e.clientY - imageY;
-            
-            // Convert to degrees and limit rotation
-            const rotateX = Math.min(Math.max(deltaY * -0.01, -10), 10);
-            const rotateY = Math.min(Math.max(deltaX * 0.01, -10), 10);
-            
-            image.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cursor effects
+            document.addEventListener('mousemove', (e) => {
+                const image = document.querySelector('.band-image');
+                const rect = image.getBoundingClientRect();
+                const imageX = rect.left + rect.width / 2;
+                const imageY = rect.top + rect.height / 2;
+                
+                const deltaX = e.clientX - imageX;
+                const deltaY = e.clientY - imageY;
+                
+                const rotateX = Math.min(Math.max(deltaY * -0.01, -10), 10);
+                const rotateY = Math.min(Math.max(deltaX * 0.01, -10), 10);
+                
+                image.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
 
-        // Reset rotation when cursor leaves window
-        document.addEventListener('mouseleave', () => {
-            const image = document.querySelector('.band-image');
-            image.style.transform = 'rotateX(0deg) rotateY(0deg)';
-        });
+            document.addEventListener('mouseleave', () => {
+                const image = document.querySelector('.band-image');
+                image.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            });
 
-        function updateFeedSizes() {
-            const feeds = document.querySelectorAll('.feed');
-            feeds.forEach(feed => {
-                const container = feed.querySelector('.feed-container');
-                if (container) {
-                    // Get the parent width accounting for padding
-                    const parentWidth = Math.floor(feed.clientWidth - 32);
-                    container.style.width = parentWidth + 'px';
+            function updateFeedSizes() {
+                const feeds = document.querySelectorAll('.feed');
+                feeds.forEach(feed => {
+                    const container = feed.querySelector('.feed-container');
+                    if (container) {
+                        const parentWidth = Math.floor(feed.clientWidth - 32);
+                        container.style.width = parentWidth + 'px';
 
-                    // For Facebook, update iframe src with new width
-                    const fbIframe = container.querySelector('iframe[src*="facebook"]');
-                    if (fbIframe) {
-                        const width = Math.min(parentWidth, 500);
-                        const currentSrc = fbIframe.src;
-                        const newSrc = currentSrc.replace(/width=\d+/, `width=${width}`);
-                        if (currentSrc !== newSrc) {
-                            fbIframe.src = newSrc;
+                        const fbIframe = container.querySelector('iframe[src*="facebook"]');
+                        if (fbIframe) {
+                            const width = Math.min(parentWidth, 500);
+                            const currentSrc = fbIframe.src;
+                            const newSrc = currentSrc.replace(/width=\d+/, `width=${width}`);
+                            if (currentSrc !== newSrc) {
+                                fbIframe.src = newSrc;
+                            }
                         }
                     }
-                }
-            });
-        }
+                });
+            }
 
-        // Initial size update with a slight delay to ensure proper sizing
-        window.addEventListener('load', () => setTimeout(updateFeedSizes, 500));
-        
-        // Debounced resize handler with longer delay for Facebook reload
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(updateFeedSizes, 1000);
+            // Initial size update
+            setTimeout(updateFeedSizes, 500);
+            
+            // Debounced resize handler
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(updateFeedSizes, 250);
+            });
         });
     </script>
 </body>
