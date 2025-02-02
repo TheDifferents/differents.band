@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Differents - Connect With Us!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background: white !important;
+            }
+            .container {
+                box-shadow: none !important;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 8.5in;
+            height: 11in;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .qr-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .qr-code {
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+        }
+
+        .action-item {
+            position: absolute;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 24px;
+            color: #bc1b24;
+        }
+
+        .action-item::after {
+            content: '';
+            position: absolute;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,50 Q50,90 90,50" stroke="%23bc1b24" fill="none" stroke-width="5"/></svg>');
+            background-repeat: no-repeat;
+            width: 100px;
+            height: 50px;
+        }
+
+        .tip {
+            top: -80px;
+            left: -180px;
+        }
+
+        .tip::after {
+            transform: rotate(30deg);
+            top: 40px;
+            left: 80px;
+        }
+
+        .follow {
+            bottom: -80px;
+            left: -180px;
+        }
+
+        .follow::after {
+            transform: rotate(-30deg);
+            bottom: 40px;
+            left: 80px;
+        }
+
+        .contact {
+            top: 50%;
+            right: -180px;
+            transform: translateY(-50%);
+        }
+
+        .contact::after {
+            transform: rotate(180deg);
+            top: 20px;
+            right: 80px;
+        }
+
+        .url {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #0a192f;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .tagline {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 36px;
+            color: #bc1b24;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/logo.png" alt="The Differents Logo" class="logo">
+        <div class="tagline">Charleston's Premier Rock & Soul Cover Band</div>
+        <div class="qr-section">
+            <div class="action-item tip">Tip</div>
+            <div class="action-item follow">Follow</div>
+            <div class="action-item contact">Contact</div>
+            <img src="images/differents_qr.png" alt="QR Code" class="qr-code">
+        </div>
+        <div class="url">differents.band</div>
+    </div>
+</body>
+</html> 
