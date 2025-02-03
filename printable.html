@@ -17,6 +17,9 @@
             .container {
                 box-shadow: none !important;
             }
+            .style-selector {
+                display: none !important;
+            }
         }
 
         body {
@@ -129,9 +132,64 @@
             margin-top: 20px;
             text-align: center;
         }
+
+        .style-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .selector-group {
+            margin-bottom: 10px;
+        }
+
+        .selector-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .style-selector label {
+            display: inline-block;
+            width: 70px;
+            font-weight: 600;
+        }
+
+        .style-selector select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-family: 'Montserrat', sans-serif;
+            min-width: 150px;
+        }
     </style>
 </head>
 <body>
+    <div class="style-selector">
+        <div class="selector-group">
+            <label for="qr-style">QR Style:</label>
+            <select id="qr-style" onchange="updateQRCode()">
+                <option value="circle">Circular Dots</option>
+                <option value="rounded">Rounded Squares</option>
+                <option value="vertical">Vertical Bars</option>
+                <option value="horizontal">Horizontal Bars</option>
+                <option value="square">Classic Squares</option>
+                <option value="gapped">Gapped Squares</option>
+            </select>
+        </div>
+        <div class="selector-group">
+            <label for="qr-color">Color:</label>
+            <select id="qr-color" onchange="updateQRCode()">
+                <option value="classic">Classic Red</option>
+                <option value="blue">Dark Blue</option>
+                <option value="purple">Purple</option>
+                <option value="green">Sea Green</option>
+                <option value="orange">Orange Red</option>
+            </select>
+        </div>
+    </div>
     <div class="container">
         <img src="images/logo.png" alt="The Differents Logo" class="logo">
         <div class="tagline">Charleston's Premier Rock & Soul Cover Band</div>
@@ -139,9 +197,17 @@
             <div class="action-item tip">Tip</div>
             <div class="action-item follow">Follow</div>
             <div class="action-item contact">Contact</div>
-            <img src="images/differents_qr.png" alt="QR Code" class="qr-code">
+            <img src="images/differents_qr_circle_classic.png" alt="QR Code" class="qr-code" id="qr-image">
         </div>
         <div class="url">differents.band</div>
     </div>
+    <script>
+        function updateQRCode() {
+            const style = document.getElementById('qr-style').value;
+            const color = document.getElementById('qr-color').value;
+            const qrImage = document.getElementById('qr-image');
+            qrImage.src = `images/differents_qr_${style}_${color}.png`;
+        }
+    </script>
 </body>
 </html> 
