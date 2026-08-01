@@ -1,0 +1,987 @@
+{
+  "songs": [
+    {
+      "title": "3 A.M.",
+      "artist": "Matchbox Twenty",
+      "chords": "G#, C#",
+      "duration": "3:40",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 7,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Africa",
+      "artist": "Toto",
+      "chords": "B D#m G#m B A C#m G#m",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 1,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Ain't No Sunshine",
+      "artist": "Bill Withers",
+      "chords": "Am Em G",
+      "duration": "3:12",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Alive",
+      "artist": "Pearl Jam",
+      "chords": "A F C",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 3,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Already Gone",
+      "artist": "Eagles",
+      "chords": "G D C",
+      "duration": "4:40",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "American Girl",
+      "artist": "Tom Petty and the Heartbreakers",
+      "chords": "D E G A",
+      "duration": "3:44",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "And She Was",
+      "artist": "Talking Heads",
+      "chords": "E A D Bb F C",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 3,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Bad As I Used To Be",
+      "artist": "Chris Stapleton",
+      "chords": "Am C D",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 1,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Bad Moon Rising",
+      "artist": "Creedence Clearwater Revival",
+      "chords": "D A G",
+      "duration": null,
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Billie Jean",
+      "artist": "Michael Jackson",
+      "chords": "Em",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 7,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Breakfast at Tiffany's",
+      "artist": "Deep Blue Something",
+      "chords": "D G A, D A G",
+      "duration": "3:56",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 6,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Burning Love",
+      "artist": "Elvis Presley",
+      "chords": "D G A",
+      "duration": "3:02",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Chain Of Fools",
+      "artist": "Aretha Franklin",
+      "chords": "Bbm",
+      "duration": "3:29",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Come On Up",
+      "artist": "The Young Rascals",
+      "chords": "C Bb B F C G F G F 2:54",
+      "duration": null,
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Come Together",
+      "artist": "The Beatles",
+      "chords": "Dm B A G A",
+      "duration": "4:25",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Country Roads",
+      "artist": "John Denver",
+      "chords": "G Em D C G",
+      "duration": "3:18",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Crazy Little Thing Called Love",
+      "artist": "Queen",
+      "chords": "D",
+      "duration": "2:45",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Dani California",
+      "artist": "Red Hot Chili Peppers",
+      "chords": "Am G Dm",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 7,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Dead Flowers",
+      "artist": "The Rolling Stones",
+      "chords": "D A G D",
+      "duration": "4:20",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 6,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Don't Change",
+      "artist": "INXS / Goo Goo Dolls",
+      "chords": "A Ab F# Bm D A",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 3,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Don't You Forget About Me",
+      "artist": "Simple Minds",
+      "chords": "Em D A D",
+      "duration": "4:25",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Enjoy The Silence",
+      "artist": "Depeche Mode",
+      "chords": "Cm Ebm Ab",
+      "duration": null,
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Every Time I Roll The Dice",
+      "artist": "Delbert McClinton",
+      "chords": "G C D",
+      "duration": "4:40",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Feeling Alright",
+      "artist": "Joe Cocker",
+      "chords": "B E",
+      "duration": "4:20",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 4,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Folsom Prison Blues",
+      "artist": "Johnny Cash",
+      "chords": "E A B",
+      "duration": "2:42",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Fortunate Son",
+      "artist": "Creedence Clearwater Revival",
+      "chords": "G F C",
+      "duration": "2:50",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Friday I'm In Love",
+      "artist": "The Cure",
+      "chords": null,
+      "duration": null,
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Get Lucky",
+      "artist": "Daft Punk",
+      "chords": "Bm D F#m E",
+      "duration": null,
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Get Ready",
+      "artist": "The Temptations",
+      "chords": "D",
+      "duration": "3:05",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Give Me One Reason",
+      "artist": "Tracy Chapman",
+      "chords": "F# B C#",
+      "duration": null,
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 3,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Giving It Up For Your Love",
+      "artist": "Delbert McClinton",
+      "chords": "C Bb F, G",
+      "duration": "3:52",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Hard To Handle",
+      "artist": "The Black Crowes",
+      "chords": "B F# (AEB)",
+      "duration": "3:10",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Hey Jealousy",
+      "artist": "Gin Blossoms",
+      "chords": "D E F#m E",
+      "duration": "3:50",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 7,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "I Don't Need No Doctor",
+      "artist": "Humble Pie",
+      "chords": "E A B",
+      "duration": "3:16",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "I Got A Line On You",
+      "artist": "Spirit",
+      "chords": "B G A B",
+      "duration": "2:33",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "I Melt With You",
+      "artist": "Modern English",
+      "chords": null,
+      "duration": null,
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "I Wanna Be Sedated",
+      "artist": "Ramones",
+      "chords": "EAB, F#,B,C#",
+      "duration": "3:00",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "I Want You To Want Me",
+      "artist": "Cheap Trick",
+      "chords": "A F# D",
+      "duration": "3:14",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 4,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "I Will Survive",
+      "artist": "Gloria Gaynor",
+      "chords": "Am Dm G C F B E E7  3:20",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "I'm Looking Through You",
+      "artist": "The Beatles",
+      "chords": "D Em Bm A",
+      "duration": "2:40",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "In The Air",
+      "artist": "Phil Collins",
+      "chords": null,
+      "duration": null,
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Interstate Love Song",
+      "artist": "Stone Temple Pilots",
+      "chords": null,
+      "duration": null,
+      "sets": [],
+      "appearances": 1,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Iris",
+      "artist": "Goo Goo Dolls",
+      "chords": "D Em G Bm A G",
+      "duration": null,
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 3,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Jumpin' Jack Flash",
+      "artist": "The Rolling Stones",
+      "chords": "B",
+      "duration": "3:30",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Just What I Needed",
+      "artist": "The Cars",
+      "chords": "E B C#m G#",
+      "duration": "3:49",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 7,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Landslide",
+      "artist": "Fleetwood Mac",
+      "chords": null,
+      "duration": null,
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 3,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Learn To Fly",
+      "artist": "Foo Fighters",
+      "chords": "B F#m7 E",
+      "duration": "3:40",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Let It Rain",
+      "artist": "Eric Clapton",
+      "chords": "A G A D Am C G D",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 3,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Lie To Me",
+      "artist": "Jonny Lang",
+      "chords": "Bbm Eb",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 4,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Lonely Boy",
+      "artist": "The Black Keys",
+      "chords": "E G A",
+      "duration": "3:13",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 7,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Long Cool Woman",
+      "artist": "The Hollies",
+      "chords": "E",
+      "duration": "3:13",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Love Me Two Times",
+      "artist": "The Doors",
+      "chords": "E7 A7 D7",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 3,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Low Rider",
+      "artist": "War",
+      "chords": "G",
+      "duration": "6:16",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Maggie May",
+      "artist": "Rod Stewart",
+      "chords": "A G D",
+      "duration": "5:11",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Mary Jane's Last Dance",
+      "artist": "Tom Petty and the Heartbreakers",
+      "chords": "Am G D Am",
+      "duration": "4:16",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 6,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Molly's Chambers",
+      "artist": "Kings of Leon",
+      "chords": "F# B A F# B D",
+      "duration": "2:15",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 4,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Moneygrabber",
+      "artist": "Fitz and the Tantrums",
+      "chords": "F G Am G Em",
+      "duration": null,
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Mustang Sally",
+      "artist": "Wilson Pickett",
+      "chords": "C F G",
+      "duration": "4:45",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Mysterious Ways",
+      "artist": "U2",
+      "chords": "Bb Eb Bb F",
+      "duration": "3:52",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Never Been To Spain",
+      "artist": "Three Dog Night",
+      "chords": "E A B",
+      "duration": "3:52",
+      "sets": [
+        "Acoustic",
+        "Electric"
+      ],
+      "appearances": 6,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Next To Me",
+      "artist": "Emeli Sandé",
+      "chords": "A",
+      "duration": "4:34",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "No Sugar",
+      "artist": "The Guess Who",
+      "chords": "F# E",
+      "duration": "4:56",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Paranoid",
+      "artist": "Black Sabbath",
+      "chords": null,
+      "duration": null,
+      "sets": [],
+      "appearances": 1,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Pink Houses",
+      "artist": "John Mellencamp",
+      "chords": "G F C",
+      "duration": "4:38",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 4,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Pretty Vegas",
+      "artist": "INXS",
+      "chords": "C Bb F",
+      "duration": "3:33",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 4,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Pretty Woman",
+      "artist": "Roy Orbison",
+      "chords": "E – A F#m D E",
+      "duration": "2:44",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Rebel Rebel (Medley)",
+      "artist": "David Bowie",
+      "chords": "D E",
+      "duration": "4:09",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Remedy",
+      "artist": "The Black Crowes",
+      "chords": "C",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Rock And Roll",
+      "artist": "Led Zeppelin",
+      "chords": "A D E",
+      "duration": "3:34",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Rock and Roll (Medley)",
+      "artist": "Led Zeppelin",
+      "chords": "C B F",
+      "duration": "4:17",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Runnin' Down a Dream",
+      "artist": "Tom Petty and the Heartbreakers",
+      "chords": "E D, C D E",
+      "duration": "4:14",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 7,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "(Sittin' On) The Dock of the Bay",
+      "artist": "Otis Redding",
+      "chords": "G B C A",
+      "duration": null,
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 6,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Some Kind of Wonderful",
+      "artist": "Grand Funk Railroad",
+      "chords": "C F",
+      "duration": "3:16",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Spooky",
+      "artist": "The Atlanta Rhythm Section",
+      "chords": "Em7 A6 up Fm7 Bb6",
+      "duration": "4:05",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Stand By Me",
+      "artist": "Ben E. King",
+      "chords": "A F#m D E",
+      "duration": "3:15",
+      "sets": [
+        "Acoustic",
+        "Electric"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Stormy Monday",
+      "artist": "T-Bone Walker",
+      "chords": "G",
+      "duration": "4:20",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 4,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Stuck In The Middle",
+      "artist": "Stealers Wheel",
+      "chords": "D G7, A C G D",
+      "duration": "3:16",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Superstition",
+      "artist": "Stevie Wonder",
+      "chords": "E",
+      "duration": "3:55",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Sweet Emotion",
+      "artist": "Aerosmith",
+      "chords": "A D",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Sweet Jane",
+      "artist": "The Velvet Underground",
+      "chords": "D A G Bm A",
+      "duration": "4:17",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Sympathy For The Devil",
+      "artist": "The Rolling Stones",
+      "chords": "E D A",
+      "duration": null,
+      "sets": [],
+      "appearances": 1,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Take It Easy",
+      "artist": "Eagles",
+      "chords": "G D C",
+      "duration": "4:00",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 6,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Tennessee Whiskey",
+      "artist": "Chris Stapleton",
+      "chords": "A Bm",
+      "duration": null,
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 6,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "The Door",
+      "artist": "Teddy Swims",
+      "chords": "G#m E F# D#",
+      "duration": null,
+      "sets": [
+        "Acoustic",
+        "Electric"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "The Jean Genie",
+      "artist": "David Bowie",
+      "chords": "E A",
+      "duration": "4:26",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "The Seeker",
+      "artist": "The Who",
+      "chords": "A D C G",
+      "duration": "3:28",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 7,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "They Call Me The Breeze",
+      "artist": "Lynyrd Skynyrd",
+      "chords": "E A B",
+      "duration": "4:40",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 6,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Two Tickets To Paradise",
+      "artist": "Eddie Money",
+      "chords": "G A",
+      "duration": "3:35",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Use Me",
+      "artist": "Bill Withers",
+      "chords": "Em7 A",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Valerie",
+      "artist": "The Zutons",
+      "chords": null,
+      "duration": null,
+      "sets": [],
+      "appearances": 1,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Wagon Wheel",
+      "artist": "Old Crow Medicine Show",
+      "chords": "A E F#m D, A E D",
+      "duration": "4:09",
+      "sets": [
+        "Acoustic"
+      ],
+      "appearances": 5,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "Walking On Sunshine",
+      "artist": "Katrina and the Waves",
+      "chords": "G C D",
+      "duration": null,
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    },
+    {
+      "title": "Welcome To Paradise",
+      "artist": "Green Day",
+      "chords": "E D A G B",
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 7,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "What I Like About You",
+      "artist": "The Romantics",
+      "chords": "E A D A",
+      "duration": "2:52",
+      "sets": [
+        "Electric"
+      ],
+      "appearances": 8,
+      "recentlyPlayed": true
+    },
+    {
+      "title": "What's So Funny",
+      "artist": "Elvis Costello",
+      "chords": "G D C",
+      "duration": "3:44",
+      "sets": [],
+      "appearances": 4,
+      "recentlyPlayed": false
+    }
+  ],
+  "sourceCount": 8
+}

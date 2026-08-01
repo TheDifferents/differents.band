@@ -1,0 +1,40 @@
+{
+  "_comment": "Upcoming shows. Add a row per gig; anything before today drops off the site automatically. Keep rehearsals out. date = YYYY-MM-DD local.",
+  "shows": [
+    {
+      "date": "2026-08-01",
+      "time": "8:30–11:30pm",
+      "venue": "Rivertowne Public House",
+      "address": "2015 SC-41, Mount Pleasant, SC 29466",
+      "city": "Mount Pleasant, SC"
+    },
+    {
+      "date": "2026-08-29",
+      "time": "6–9pm",
+      "venue": "Mainland Container Co.",
+      "address": "1528 Ben Sawyer Blvd, Mount Pleasant, SC 29464",
+      "city": "Mount Pleasant, SC"
+    },
+    {
+      "date": "2026-09-04",
+      "time": "6–9pm",
+      "venue": "Crush Yard",
+      "address": "3365 S Morgan's Point Rd, Mount Pleasant, SC 29466",
+      "city": "Mount Pleasant, SC"
+    },
+    {
+      "date": "2026-09-11",
+      "time": "7–10pm",
+      "venue": "Bohemian Bull",
+      "address": "2668 N US-17, Mount Pleasant, SC 29464",
+      "city": "Mount Pleasant, SC"
+    },
+    {
+      "date": "2026-12-04",
+      "time": "9pm–12am",
+      "venue": "Rivertowne Public House",
+      "address": "2015 SC-41, Mount Pleasant, SC 29466",
+      "city": "Mount Pleasant, SC"
+    }
+  ]
+}

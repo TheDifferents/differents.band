@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Song List · The Differents</title>
+<meta name="description" content="The full Differents song list. Rock, soul, whatever, all searchable.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤘</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="index.html" aria-label="The Differents, home"><img src="images/logo.png" alt="The Differents" class="nav-logo" width="300" height="76"></a>
+    <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="menu">
+      <a href="about.html">About</a>
+      <a href="videos.html">Videos</a>
+      <a href="shows.html">Shows</a>
+      <a href="songs.html" aria-current="page">Songs</a>
+      <a class="btn-book" href="mailto:differents.charleston@gmail.com">Book Us</a>
+      <ul class="socials nav-socials">
+        <li><a href="https://www.instagram.com/TheDifferentsCharleston" target="_blank" rel="noopener" aria-label="The Differents on Instagram">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-instagram"/></svg></a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61556583480665" target="_blank" rel="noopener" aria-label="The Differents on Facebook">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-facebook"/></svg></a></li>
+        <li><a href="https://www.youtube.com/@TheDifferentsCharleston" target="_blank" rel="noopener" aria-label="The Differents on YouTube">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-youtube"/></svg></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <header class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">What you’ll hear</p>
+      <h1 class="reg" data-text="Songs">Songs</h1>
+      <p class="lede muted">Carefully curated for nostalgia, dance floors and sing-alongs.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="song-tools">
+        <label class="visually-hidden" for="song-search">Search songs</label>
+        <input class="song-search" id="song-search" type="search" placeholder="Search a song or artist…" autocomplete="off">
+        <div class="song-filters">
+          <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-filter="Electric" aria-pressed="false">Electric</button>
+          <button class="chip" type="button" data-filter="Acoustic" aria-pressed="false">Acoustic</button>
+        </div>
+        <p class="song-count" id="song-count"></p>
+      </div>
+      <ul class="songs" id="song-list"></ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <img src="images/logo.png" alt="The Differents" class="foot-logo" width="300" height="76">
+      <p class="muted">Rock, Soul, Whatever. Charleston-area covers for bars, breweries, and private parties.</p>
+      <ul class="socials">
+        <li><a href="https://www.instagram.com/TheDifferentsCharleston" target="_blank" rel="noopener" aria-label="The Differents on Instagram">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-instagram"/></svg></a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61556583480665" target="_blank" rel="noopener" aria-label="The Differents on Facebook">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-facebook"/></svg></a></li>
+        <li><a href="https://www.youtube.com/@TheDifferentsCharleston" target="_blank" rel="noopener" aria-label="The Differents on YouTube">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-youtube"/></svg></a></li>
+        <li><a href="https://www.venmo.com/u/TheDifferentsCharleston" target="_blank" rel="noopener" aria-label="Tip the band on Venmo">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-tip"/></svg></a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="eyebrow">Book the band</p>
+      <a class="foot-mail" href="mailto:differents.charleston@gmail.com">differents.charleston<br>@gmail.com</a>
+    </div>
+  </div>
+  <div class="wrap"><p class="foot-note">The Differents · Mount Pleasant, South Carolina</p></div>
+</footer>
+
+<script src="js/site.js" defer></script>
+</body>
+</html>

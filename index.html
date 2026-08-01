@@ -1,443 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Differents - Charleston's Premier Rock & Soul Cover Band</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤘</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Add Facebook SDK -->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" 
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0">
-    </script>
-    <!-- Add YouTube API -->
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 30px 0 0 0;
-            background: linear-gradient(
-                125deg,
-                #0a192f 0%,    /* Original dark blue */
-                #112240 25%,   /* Slightly lighter */
-                #172a45 50%,   /* Mid blue */
-                #1a365d 75%,   /* Original blue */
-                #234781 100%   /* Lighter blue but not too light */
-            );
-            background-size: 300% 300%;
-            animation: gradientFlow 20s ease infinite;
-            background-attachment: fixed;
-            position: relative;
-            color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        @keyframes gradientFlow {
-            0% {
-                background-position: 0% 50%
-            }
-            50% {
-                background-position: 100% 50%
-            }
-            100% {
-                background-position: 0% 50%
-            }
-        }
-
-        /* Remove old overlays */
-        body::before {
-            display: none;
-        }
-        
-        .parallax-overlay {
-            display: none;
-        }
-
-        /* Animation keyframes */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .header {
-            text-align: center;
-            padding: 2rem;
-            animation: fadeIn 1s ease-out;
-        }
-
-        .logo {
-            max-width: 300px;
-            height: auto;
-            transition: transform 0.2s ease-out;
-            margin-bottom: 1rem;
-        }
-
-        .band-name {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 2.5rem;
-            margin: 1rem 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            animation: fadeIn 1s ease-out 0.3s forwards;
-        }
-
-        .tagline {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            margin: 0.5rem 0;
-            opacity: 0.9;
-            text-transform: uppercase;
-        }
-
-        .band-image-container {
-            margin: 2rem auto;
-            max-width: 600px;
-            position: relative;
-            perspective: 1000px;
-            animation: fadeIn 1s ease-out 0.3s backwards;
-        }
-
-        .band-image-container::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 105%;
-            height: 105%;
-            background-image: url('images/differents-rivertown.jpg');
-            background-size: cover;
-            background-position: center;
-            transform: translate(-50%, -50%);
-            filter: blur(30px) brightness(0.9) saturate(1.1);
-            opacity: 0.8;
-            z-index: -1;
-            border-radius: 12px;
-        }
-
-        .band-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-            transition: transform 0.2s ease-out;
-            transform-style: preserve-3d;
-            position: relative;
-            z-index: 1;
-        }
-
-        .band-image:hover {
-            transform: rotateX(0deg) rotateY(0deg);
-        }
-
-        .cta-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            padding: 1rem;
-            margin-bottom: 2rem;
-            animation: fadeIn 1s ease-out 0.6s backwards;
-        }
-
-        .cta-button {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            min-width: 150px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            position: relative;
-            overflow: hidden;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-button:active {
-            transform: scale(0.98);
-        }
-
-        .cta-button i {
-            font-size: 18px;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .tip-button {
-            background-color: #bc9c24; /* Logo yellow/gold */
-            color: white;
-        }
-
-        .book-button {
-            background-color: #bc1b24; /* Logo red */
-            color: white;
-        }
-
-        .follow-button {
-            background-color: #7cb4e3; /* Logo blue */
-            color: #000;
-        }
-
-        .social-feeds {
-            display: flex;
-            gap: 2rem;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1s ease-out 0.9s backwards;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-sizing: border-box;
-        }
-
-        .feed {
-            flex: 1;
-            min-width: 0;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 1rem;
-            border-radius: 15px;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            min-height: 800px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            box-sizing: border-box;
-        }
-
-        .feed-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            box-sizing: border-box;
-        }
-
-        .feed iframe {
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .facebook-container {
-            width: 100%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-
-        .facebook-container iframe {
-            max-width: 500px !important;
-            min-width: 340px;
-            width: 100% !important;
-            margin: 0 auto;
-        }
-
-        .youtube-container {
-            width: 100%;
-        }
-
-        .youtube-container iframe {
-            width: 100%;
-        }
-
-        /* Updated responsive breakpoints */
-        @media (max-width: 1024px) {
-            .social-feeds {
-                flex-direction: column;
-                padding: 1.5rem;
-            }
-
-            .feed {
-                width: 100%;
-                margin-bottom: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .social-feeds {
-                padding: 1rem;
-            }
-
-            .feed {
-                min-height: 600px;
-                margin-bottom: 1rem;
-            }
-
-            .cta-button {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-
-        @media (max-width: 540px) {
-            .facebook-container iframe {
-                width: 100% !important;
-            }
-        }
-
-        /* Add cursor parallax effect */
-        .parallax-section {
-            position: relative;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Differents · Rock, Soul, Whatever · Charleston Cover Band</title>
+<meta name="description" content="Rock, Soul, Whatever. A five-piece cover band out of Mount Pleasant, South Carolina, with shows, videos, and the full song list.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤘</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<meta property="og:title" content="The Differents · Rock, Soul, Whatever">
+<meta property="og:description" content="Rock, Soul, Whatever. A five-piece cover band out of Mount Pleasant, South Carolina.">
+<meta property="og:image" content="https://differents.band/images/differents-rivertown.jpg">
+<meta property="og:url" content="https://differents.band/">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-    <div class="parallax-overlay"></div>
-    <div class="header">
-        <div>
-            <img src="images/logo.png" alt="The Differents Logo" class="logo">
-        </div>
-        <div class="band-image-container">
-            <img src="images/differents-rivertown.jpg" alt="The Differents Band at Rivertown" class="band-image">
-        </div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="index.html" aria-label="The Differents, home"><img src="images/logo.png" alt="The Differents" class="nav-logo" width="300" height="76"></a>
+    <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="menu">
+      <a href="about.html">About</a>
+      <a href="videos.html">Videos</a>
+      <a href="shows.html">Shows</a>
+      <a href="songs.html">Songs</a>
+      <a class="btn-book" href="mailto:differents.charleston@gmail.com">Book Us</a>
+      <ul class="socials nav-socials">
+        <li><a href="https://www.instagram.com/TheDifferentsCharleston" target="_blank" rel="noopener" aria-label="The Differents on Instagram">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-instagram"/></svg></a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61556583480665" target="_blank" rel="noopener" aria-label="The Differents on Facebook">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-facebook"/></svg></a></li>
+        <li><a href="https://www.youtube.com/@TheDifferentsCharleston" target="_blank" rel="noopener" aria-label="The Differents on YouTube">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-youtube"/></svg></a></li>
+      </ul>
     </div>
+  </div>
+</nav>
 
-    <div class="cta-container">
-        <a href="https://www.venmo.com/u/TheDifferentsCharleston" class="cta-button tip-button" target="_blank" rel="noopener noreferrer">
-            <i class="fas fa-dollar-sign"></i>
-            Tip Jar
-        </a>
-        <a href="mailto:differents.charleston@gmail.com" class="cta-button book-button" target="_blank" rel="noopener noreferrer">
-            <i class="fas fa-envelope"></i>
-            Book Now
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61556583480665" class="cta-button follow-button" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-facebook-f"></i>
-            Follow
-        </a>
+<header class="hero">
+  <div class="hero-bg">
+    <img src="images/differents-rivertown.jpg" alt="The Differents playing live at Rivertowne Public House" fetchpriority="high">
+  </div>
+  <div class="hero-in">
+    <h1><span class="line reg" data-text="The">The</span><span class="line reg" data-text="Differents">Differents</span></h1>
+    <p class="hero-sub">Rock, Soul, Whatever<span>Mount Pleasant, South Carolina</span></p>
+    <div class="hero-cta">
+      <a class="cta cta-solid" href="shows.html">
+        <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-calendar"/></svg>
+        See the dates
+      </a>
+      <a class="cta cta-ghost" href="videos.html">
+        <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-play"/></svg>
+        Watch us play
+      </a>
+      <a class="cta cta-tip" href="https://www.venmo.com/u/TheDifferentsCharleston" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-tip"/></svg>
+        Tip jar
+      </a>
     </div>
+  </div>
+</header>
 
-    <div class="social-feeds">
-        <div class="feed">
-            <!-- Facebook Feed -->
-            <div class="feed-container facebook-container">
-                <iframe 
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61556583480665&tabs=timeline&width=500&height=800&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&lazy=true" 
-                    width="500"
-                    height="800" 
-                    style="border:none;overflow:hidden" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    allowfullscreen="true" 
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                </iframe>
-            </div>
-        </div>
-        <div class="feed">
-            <!-- YouTube Feed -->
-            <div class="feed-container youtube-container">
-                <iframe 
-                    height="800" 
-                    src="https://www.youtube.com/embed/videoseries?list=PLGX0zmR180-9UuOns8QRleBn-H_pjjnpT"
-                    title="The Differents YouTube Channel"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
+<div class="tonight" id="next-show" data-when="next"></div>
+
+<main>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Live around Charleston</p>
+        <h2 class="reg" data-text="Videos">Videos</h2>
+        <p class="lede muted">Nothing beats a live show, but if you can’t wait to hear us,
+        here are some clips.</p>
+      </div>
+      <div class="videos" id="video-grid" data-limit="3"></div>
+      <p class="section-foot">
+        <a class="more" href="videos.html">Watch everything
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-arrow"/></svg></a>
+      </p>
     </div>
+  </section>
 
-    <!-- Scripts moved to end of body -->
-    <script defer src="https://www.youtube.com/iframe_api"></script>
-    <script>
-        // Image rotation based on cursor position
-        document.addEventListener('DOMContentLoaded', function() {
-            // Cursor effects
-            document.addEventListener('mousemove', (e) => {
-                const image = document.querySelector('.band-image');
-                const rect = image.getBoundingClientRect();
-                const imageX = rect.left + rect.width / 2;
-                const imageY = rect.top + rect.height / 2;
-                
-                const deltaX = e.clientX - imageX;
-                const deltaY = e.clientY - imageY;
-                
-                const rotateX = Math.min(Math.max(deltaY * -0.01, -10), 10);
-                const rotateY = Math.min(Math.max(deltaX * 0.01, -10), 10);
-                
-                image.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">About the band</p>
+        <h2><span class="reg line" data-text="Five guys,">Five guys,</span><span class="reg line" data-text="one setlist">one setlist</span></h2>
+        <p class="lede muted">Two guitars, a bass, a kit, and six decades of songs you
+        already know the words to. Johnny Cash and the Cars. Gloria Gaynor and Green Day.
+        Petty into Pearl Jam. The Differents will keep you guessing and singing along
+        all night.</p>
+      </div>
+      <p class="section-foot">
+        <a class="more" href="about.html">Meet the band
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-arrow"/></svg></a>
+      </p>
+    </div>
+  </section>
 
-            document.addEventListener('mouseleave', () => {
-                const image = document.querySelector('.band-image');
-                image.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            });
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Book the band</p>
+        <h2><span class="reg line" data-text="Get us on">Get us on</span><span class="reg line" data-text="the calendar">the calendar</span></h2>
+        <p class="lede muted">Bars, breweries, private parties. Tell us the date and how long you want us to play.</p>
+      </div>
+      <div class="hero-cta">
+        <a class="cta cta-solid" href="mailto:differents.charleston@gmail.com">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-mail"/></svg>
+          Email us
+        </a>
+        <a class="cta cta-ghost" href="songs.html">See the song list</a>
+      </div>
+    </div>
+  </section>
 
-            function updateFeedSizes() {
-                const feeds = document.querySelectorAll('.feed');
-                feeds.forEach(feed => {
-                    const container = feed.querySelector('.feed-container');
-                    if (container) {
-                        const parentWidth = Math.floor(feed.clientWidth - 32);
-                        container.style.width = parentWidth + 'px';
+</main>
 
-                        const fbIframe = container.querySelector('iframe[src*="facebook"]');
-                        if (fbIframe) {
-                            const width = Math.min(parentWidth, 500);
-                            const currentSrc = fbIframe.src;
-                            const newSrc = currentSrc.replace(/width=\d+/, `width=${width}`);
-                            if (currentSrc !== newSrc) {
-                                fbIframe.src = newSrc;
-                            }
-                        }
-                    }
-                });
-            }
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <img src="images/logo.png" alt="The Differents" class="foot-logo" width="300" height="76">
+      <p class="muted">Rock, Soul, Whatever. Charleston-area covers for bars, breweries, and private parties.</p>
+      <ul class="socials">
+        <li><a href="https://www.instagram.com/TheDifferentsCharleston" target="_blank" rel="noopener" aria-label="The Differents on Instagram">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-instagram"/></svg></a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61556583480665" target="_blank" rel="noopener" aria-label="The Differents on Facebook">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-facebook"/></svg></a></li>
+        <li><a href="https://www.youtube.com/@TheDifferentsCharleston" target="_blank" rel="noopener" aria-label="The Differents on YouTube">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-youtube"/></svg></a></li>
+        <li><a href="https://www.venmo.com/u/TheDifferentsCharleston" target="_blank" rel="noopener" aria-label="Tip the band on Venmo">
+          <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-tip"/></svg></a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="eyebrow">Book the band</p>
+      <a class="foot-mail" href="mailto:differents.charleston@gmail.com">differents.charleston<br>@gmail.com</a>
+    </div>
+  </div>
+  <div class="wrap"><p class="foot-note">The Differents · Mount Pleasant, South Carolina</p></div>
+</footer>
 
-            // Initial size update
-            setTimeout(updateFeedSizes, 500);
-            
-            // Debounced resize handler
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(updateFeedSizes, 250);
-            });
-        });
-    </script>
+<script src="js/site.js" defer></script>
 </body>
-</html> 
+</html>

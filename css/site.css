@@ -1,0 +1,408 @@
+/* ═══════════════════════════════════════════════════════════════════
+   The Differents — differents.band
+   Direction: "off-register" — screenprinted gig-poster logic, built from
+   the logo's mismatched letters. One loud idea (misregistered headings),
+   everything around it kept quiet.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── tokens ──────────────────────────────────────────────────────── */
+:root{
+  --ink:#14100e;          /* warm charcoal — sampled from the venue shadows */
+  --ink-2:#1e1815;        /* raised surface */
+  --ink-3:#2a221e;        /* hairline */
+  --paper:#f4efe6;        /* warm off-white */
+  --paper-dim:#a89d90;    /* warm-biased neutral, not a dead grey */
+  --gold:#d4a91f;
+  --red:#c8202c;          /* rules and fills only — ~4:1 on ink */
+  --red-lift:#e8505b;     /* the red that survives as small text */
+  --sky:#7cb4e3;
+  --gray:#8a8a8a;
+
+  --display:'Big Shoulders Display',ui-sans-serif,system-ui,sans-serif;
+  --body:'Archivo',ui-sans-serif,system-ui,sans-serif;
+  --mono:'DM Mono',ui-monospace,SFMono-Regular,monospace;
+
+  --gut:clamp(1.25rem,5vw,4rem);
+  --maxw:1180px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  margin:0;background:var(--ink);color:var(--paper);
+  font-family:var(--body);font-size:clamp(1rem,.96rem + .2vw,1.0625rem);
+  line-height:1.65;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;min-height:100vh;
+  display:flex;flex-direction:column;
+}
+main{flex:1}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:2px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut);width:100%}
+
+h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:.88;
+  text-transform:uppercase;letter-spacing:.005em;text-wrap:balance}
+
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--paper-dim);margin:0 0 1rem}
+.muted{color:var(--paper-dim)}
+.line{display:block}
+
+.icon{width:1em;height:1em;fill:currentColor;flex:none;display:block}
+
+/* ─── the signature: off-register printing ────────────────────────── */
+.reg{position:relative;display:inline-block;color:var(--paper);isolation:isolate}
+/* a .reg span must own exactly one line — its ghosts cannot reproduce a <br>.
+   Needs to out-specify .reg's own display, which is declared right above. */
+.reg.line{display:block}
+.reg::before,.reg::after{
+  content:attr(data-text) / "";
+  position:absolute;left:0;top:0;width:100%;
+  pointer-events:none;user-select:none;z-index:-1;
+  transition:transform .85s cubic-bezier(.16,.84,.3,1);
+}
+.reg::before{color:var(--red);transform:translate(-14px,12px);opacity:.85}
+.reg::after{color:var(--sky);transform:translate(14px,-12px);opacity:.7;
+  transition-delay:.06s}
+.reg.settled::before{transform:translate(-4px,4px)}
+.reg.settled::after{transform:translate(4px,-4px)}
+@media (max-width:640px){
+  .reg.settled::before{transform:translate(-2px,2px)}
+  .reg.settled::after{transform:translate(2px,-2px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .reg::before,.reg::after{transition:none}
+  .reg::before{transform:translate(-4px,4px)}
+  .reg::after{transform:translate(4px,-4px)}
+}
+
+/* ─── nav ─────────────────────────────────────────────────────────── */
+/* The blur lives on a pseudo-element, NOT on .nav itself. An element with a
+   filter or backdrop-filter becomes the containing block for its
+   position:fixed descendants, which would trap the mobile menu overlay
+   inside the 75px nav bar instead of letting it cover the viewport. */
+.nav{position:sticky;top:0;z-index:60;border-bottom:1px solid var(--ink-3)}
+.nav::before{content:'';position:absolute;inset:0;z-index:-1;
+  background:rgba(20,16,14,.86);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.nav-in{max-width:var(--maxw);margin-inline:auto;padding:.7rem var(--gut);
+  display:flex;align-items:center;gap:1.5rem}
+.nav-logo{height:clamp(38px,4.6vw,52px);width:auto;flex:none}
+.nav-links{display:flex;gap:1.75rem;margin-left:auto;align-items:center}
+.nav-links a{font-family:var(--display);font-weight:700;font-size:1.15rem;
+  text-transform:uppercase;letter-spacing:.06em;text-decoration:none;
+  color:var(--paper);position:relative;padding:.2rem 0;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+.nav-links .btn-book::after{display:none}
+
+.btn-book{font-family:var(--display);font-weight:800;font-size:1.05rem;
+  text-transform:uppercase;letter-spacing:.06em;text-decoration:none;
+  background:var(--red);color:#fff;padding:.5rem 1.1rem;border-radius:2px;
+  transition:transform .18s,background .18s}
+.btn-book:hover{background:var(--red-lift);transform:translateY(-2px)}
+
+/* Header socials: bare glyphs, no chip — the nav stays light next to the
+   Book Us button, which is the one thing meant to be loud up there.
+   Scoped under .nav to out-specify the footer's .socials a, which is declared
+   later in this file and would otherwise win the tie. */
+.nav .nav-socials{margin:0 0 0 .35rem;gap:.15rem}
+.nav .nav-socials a{width:34px;height:34px;background:none;color:var(--paper-dim);
+  font-size:17px;border-radius:2px;padding:0}
+.nav .nav-socials a::after{display:none}
+.nav .nav-socials a:hover{transform:none;background:none}
+.nav .nav-socials li:nth-child(1) a:hover{color:var(--red-lift)}
+.nav .nav-socials li:nth-child(2) a:hover{color:var(--sky)}
+.nav .nav-socials li:nth-child(3) a:hover{color:var(--gold)}
+
+.burger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;
+  padding:.5rem;color:var(--paper)}
+.burger span{display:block;width:24px;height:2px;background:currentColor;margin:5px 0;
+  transition:transform .3s,opacity .3s}
+
+@media (max-width:860px){
+  /* the closed menu stays pinned at inset:0 — parking it off-canvas at
+     translateX(100%) doubles the document width, and overflow-x:hidden on
+     body does NOT clip fixed-position descendants */
+  /* items hug the right edge so the menu opens under the burger that summoned it */
+  .nav-links{position:fixed;inset:0;background:var(--ink);flex-direction:column;
+    justify-content:center;align-items:flex-end;text-align:right;
+    padding:0 var(--gut);gap:.25rem;
+    margin:0;opacity:0;visibility:hidden;transform:translateY(-10px);
+    /* pointer-events is deliberately NOT transitioned: it drops the instant the
+       menu closes, so a closed overlay can never swallow clicks on the page
+       even if the visibility transition misbehaves */
+    pointer-events:none;
+    transition:opacity .28s ease,transform .28s cubic-bezier(.4,0,.2,1),visibility .28s}
+  .nav-links[data-open]{opacity:1;visibility:visible;transform:none;
+    pointer-events:auto;
+    transition:opacity .28s ease,transform .28s cubic-bezier(.4,0,.2,1),visibility 0s}
+  .nav-links a{font-size:clamp(2.25rem,10vw,3.25rem)}
+  .nav-links .btn-book{margin-top:1.5rem;font-size:1.4rem;padding:.7rem 1.5rem}
+  /* in the overlay the socials get room to breathe instead of hugging the nav.
+     Negative margin is on the right now, so the icon boxes optically line up
+     with the right edge of the type above them rather than the left. */
+  .nav .nav-socials{margin:2rem -.5rem 0 0;gap:.5rem}
+  .nav .nav-socials a{width:52px;height:52px;font-size:24px;color:var(--paper)}
+  .burger{display:block;position:relative;z-index:70}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+
+/* ─── hero (home only) ────────────────────────────────────────────── */
+.hero{position:relative;min-height:min(88vh,760px);display:flex;align-items:flex-end;
+  overflow:hidden;border-bottom:1px solid var(--ink-3)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+.hero-bg::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,16,14,.55) 0%,rgba(20,16,14,.35) 40%,
+    rgba(20,16,14,.94) 88%,var(--ink) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;max-width:var(--maxw);
+  margin-inline:auto;padding:0 var(--gut) clamp(2.5rem,6vw,4.5rem)}
+.hero h1{font-size:clamp(3.4rem,15vw,10.5rem);font-weight:900;line-height:.82}
+.hero-sub{font-family:var(--mono);font-size:clamp(.8rem,2.4vw,1rem);
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin:1.5rem 0 0;line-height:1.7}
+.hero-sub span{display:block;color:var(--paper-dim)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+
+/* On a phone the hero box is portrait and the band photo is landscape, so
+   object-fit:cover threw away the two players on the ends. Below this width the
+   photo drops to its natural aspect at full bleed and the type moves underneath,
+   riding a gradient that fades the bottom of the frame into the page. */
+@media (max-width:700px){
+  .hero{display:block;min-height:0}
+  .hero-bg{position:relative;inset:auto}
+  .hero-bg img{width:100%;height:auto;object-fit:contain;object-position:center}
+  .hero-bg::after{background:linear-gradient(180deg,
+    rgba(20,16,14,.12) 0%,rgba(20,16,14,.06) 42%,
+    rgba(20,16,14,.72) 76%,rgba(20,16,14,.97) 93%,var(--ink) 100%)}
+  .hero-in{padding-top:0;margin-top:-3rem}
+  .hero-sub{margin-top:1rem}
+}
+
+.cta{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--display);
+  font-weight:800;font-size:1.15rem;text-transform:uppercase;letter-spacing:.06em;
+  text-decoration:none;padding:.7rem 1.4rem;border-radius:2px;border:2px solid transparent;
+  transition:transform .18s,background .18s,border-color .18s,color .18s}
+.cta:hover{transform:translateY(-2px)}
+.cta-solid{background:var(--gold);color:var(--ink)}
+.cta-solid:hover{background:#e8bd2c}
+.cta-ghost{border-color:var(--paper-dim);color:var(--paper)}
+.cta-ghost:hover{border-color:var(--sky);color:var(--sky)}
+.cta-tip{border-color:rgba(212,169,31,.5);color:var(--gold)}
+.cta-tip:hover{border-color:var(--gold);background:var(--gold);color:var(--ink)}
+.cta .icon{font-size:1.05rem}
+
+/* ─── page head (inner pages) ─────────────────────────────────────── */
+.page-head{padding:clamp(3rem,7vw,5.5rem) 0 clamp(2rem,4vw,3rem);
+  border-bottom:1px solid var(--ink-3)}
+.page-head h1{font-size:clamp(3rem,10vw,7rem)}
+.page-head .lede{margin-top:1.5rem}
+
+/* ─── tonight / next-show strip ───────────────────────────────────── */
+.tonight{background:var(--red);color:#fff}
+.tonight[data-when="next"]{background:var(--ink-2);color:var(--paper);
+  border-bottom:1px solid var(--ink-3)}
+.tonight-in{max-width:var(--maxw);margin-inline:auto;padding:1rem var(--gut);
+  display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.5rem}
+.pulse{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;flex:none}
+.pulse i{width:9px;height:9px;border-radius:50%;background:currentColor;
+  animation:blink 1.6s ease-in-out infinite}
+.tonight[data-when="next"] .pulse{color:var(--gold)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.pulse i{animation:none}}
+.tonight strong{font-family:var(--display);font-weight:800;font-size:1.35rem;
+  text-transform:uppercase;letter-spacing:.03em}
+.tonight .when{font-family:var(--mono);font-size:.85rem;opacity:.9;
+  font-variant-numeric:tabular-nums}
+.tonight-link{margin-left:auto;font-family:var(--display);font-weight:800;
+  text-transform:uppercase;letter-spacing:.06em;
+  border-bottom:2px solid currentColor;text-decoration:none;font-size:1.05rem;
+  opacity:.75;transition:opacity .2s}
+.tonight-link:hover{opacity:1}
+
+/* ─── sections ────────────────────────────────────────────────────── */
+.section{padding:clamp(4rem,9vw,7rem) 0}
+.section + .section{border-top:1px solid var(--ink-3)}
+.section h2{font-size:clamp(2.6rem,8vw,5rem);margin-bottom:.6rem}
+.section-head{margin-bottom:clamp(2rem,5vw,3rem);max-width:60ch}
+.lede{font-size:clamp(1.05rem,1rem + .35vw,1.3rem);color:var(--paper);
+  max-width:60ch;margin:1.25rem 0 0}
+
+/* on wide screens the lede sits beside the heading rather than stranding
+   half the row as empty space */
+@media (min-width:940px){
+  .section-head{display:grid;max-width:none;
+    grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+    column-gap:clamp(2rem,5vw,4.5rem)}
+  .section-head .eyebrow{grid-area:1/1}
+  .section-head h2{grid-area:2/1}
+  .section-head .lede{grid-area:2/2;align-self:end;margin:0;padding-bottom:.35rem}
+}
+
+.section-foot{margin-top:clamp(2rem,4vw,3rem)}
+.more{font-family:var(--display);font-weight:800;font-size:1.25rem;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--gold);
+  text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;
+  border-bottom:2px solid transparent;transition:border-color .2s,gap .2s}
+.more:hover{border-color:var(--gold);gap:.8rem}
+
+/* ─── members ─────────────────────────────────────────────────────── */
+/* 140px, not 160 — at 160 a 390px phone lands 4px short of two columns */
+.members{display:grid;gap:1.25rem;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-top:2.5rem}
+.member{background:var(--ink-2);border-radius:2px;overflow:hidden;
+  border-top:4px solid var(--gray);transition:transform .25s}
+.member:nth-child(4n+1){border-top-color:var(--gold)}
+.member:nth-child(4n+2){border-top-color:var(--red)}
+.member:nth-child(4n+3){border-top-color:var(--sky)}
+.member:nth-child(4n+4){border-top-color:var(--gray)}
+.member:hover{transform:translateY(-4px)}
+/* crops out of the one band photo — object-position has too little slack at
+   this aspect ratio, so zoom in with background-size instead */
+.member-photo{aspect-ratio:1;background-color:var(--ink-3);
+  background-image:url('../images/differents-rivertown.jpg');
+  background-size:400% auto;background-position:var(--x) var(--y);
+  filter:saturate(.72) contrast(1.06)}
+.member-body{padding:.9rem 1rem 1.1rem}
+.member-name{font-family:var(--display);font-weight:800;font-size:1.5rem;
+  text-transform:uppercase;line-height:1}
+.member-role{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);margin-top:.45rem}
+.member-bio{margin:.75rem 0 0;font-size:.92rem;color:var(--paper-dim);line-height:1.55}
+
+/* ─── videos ──────────────────────────────────────────────────────── */
+.videos{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.video{background:var(--ink-2);border-radius:2px;overflow:hidden;
+  border-top:4px solid var(--gold);text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;transition:transform .25s;
+  border-left:0;border-right:0;border-bottom:0;padding:0;font:inherit;
+  text-align:left;cursor:pointer;width:100%}
+.video:nth-child(4n+2){border-top-color:var(--red)}
+.video:nth-child(4n+3){border-top-color:var(--sky)}
+.video:nth-child(4n+4){border-top-color:var(--gray)}
+.video:hover{transform:translateY(-4px)}
+.video-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--ink-3)}
+.video-thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.85);
+  transition:transform .5s,filter .3s}
+.video:hover .video-thumb img{transform:scale(1.04);filter:saturate(1)}
+.play{position:absolute;inset:0;display:grid;place-items:center}
+.play span{width:58px;height:58px;border-radius:50%;background:rgba(200,32,44,.92);
+  display:grid;place-items:center;transition:transform .25s,background .25s;
+  box-shadow:0 6px 24px rgba(0,0,0,.45)}
+.video:hover .play span{transform:scale(1.1);background:var(--red-lift)}
+.play .icon{font-size:22px;color:#fff;margin-left:3px}
+.video-body{padding:.9rem 1rem 1.1rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.video-title{font-family:var(--display);font-weight:700;font-size:1.4rem;
+  text-transform:uppercase;line-height:1.02}
+.video-meta{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;
+  color:var(--paper-dim);text-transform:uppercase;margin-top:auto}
+
+/* lightbox — the YouTube player is only injected on click, so no YouTube
+   script or iframe loads with the page */
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(10,8,7,.94);
+  display:grid;place-items:center;padding:var(--gut);border:0}
+.lightbox::backdrop{background:rgba(10,8,7,.94)}
+.lightbox[hidden]{display:none}
+.lightbox-inner{width:min(1100px,100%);aspect-ratio:16/9;position:relative}
+.lightbox iframe{width:100%;height:100%;border:0;border-radius:2px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lightbox-close{position:absolute;top:-3rem;right:0;background:none;border:0;
+  color:var(--paper);font-family:var(--display);font-weight:800;font-size:1.2rem;
+  text-transform:uppercase;letter-spacing:.08em;cursor:pointer;padding:.4rem}
+.lightbox-close:hover{color:var(--gold)}
+
+/* ─── shows ledger ────────────────────────────────────────────────── */
+.shows{border-top:1px solid var(--ink-3)}
+.show{display:grid;grid-template-columns:5.5rem 1fr auto;gap:1rem 1.5rem;
+  align-items:baseline;padding:1.4rem 0;border-bottom:1px solid var(--ink-3);
+  transition:background .2s}
+.show:hover{background:var(--ink-2)}
+.show-date{font-family:var(--mono);font-size:.8rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--gold);font-variant-numeric:tabular-nums;
+  line-height:1.35}
+.show-date b{display:block;font-family:var(--display);font-weight:800;
+  font-size:2.1rem;color:var(--paper);letter-spacing:0;line-height:.9;
+  font-variant-numeric:tabular-nums}
+.show-venue{font-family:var(--display);font-weight:700;font-size:1.65rem;
+  text-transform:uppercase;line-height:1}
+.show-addr{font-size:.85rem;color:var(--paper-dim);margin-top:.3rem}
+.show-addr a{color:var(--sky);text-decoration:none;border-bottom:1px solid transparent}
+.show-addr a:hover{border-color:var(--sky)}
+.show-time{font-family:var(--mono);font-size:.82rem;color:var(--sky);
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.show.is-tonight .show-date b{color:var(--red-lift)}
+.show.is-past{opacity:.45}
+.tag{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;background:var(--red);color:#fff;padding:.15rem .45rem;
+  border-radius:2px;vertical-align:middle;margin-left:.5rem}
+@media (max-width:640px){
+  .show{grid-template-columns:4.25rem 1fr;gap:.75rem 1rem}
+  .show-time{grid-column:2;margin-top:-.4rem}
+}
+
+/* ─── songs ───────────────────────────────────────────────────────── */
+.song-tools{display:flex;flex-wrap:wrap;gap:.75rem 1rem;align-items:center;
+  margin-bottom:2rem}
+.song-search{flex:1 1 220px;max-width:340px;background:var(--ink-2);
+  border:1px solid var(--ink-3);border-radius:2px;color:var(--paper);
+  font-family:var(--body);font-size:1rem;padding:.6rem .85rem}
+.song-search::placeholder{color:var(--paper-dim)}
+.song-filters{display:flex;gap:.4rem}
+.chip{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;
+  text-transform:uppercase;background:var(--ink-2);border:1px solid var(--ink-3);
+  color:var(--paper-dim);padding:.5rem .8rem;border-radius:2px;cursor:pointer;
+  transition:background .2s,color .2s,border-color .2s}
+.chip:hover{color:var(--paper)}
+.chip[aria-pressed="true"]{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.song-count{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--paper-dim);margin-left:auto}
+
+.songs{list-style:none;margin:0;padding:0;
+  columns:2;column-gap:clamp(2rem,5vw,4rem)}
+@media (max-width:720px){.songs{columns:1}}
+.song{break-inside:avoid;padding:.55rem 0;border-bottom:1px solid var(--ink-3);
+  display:flex;gap:.75rem;align-items:baseline}
+.song-title{font-weight:600}
+.song-artist{font-family:var(--mono);font-size:.72rem;color:var(--paper-dim);
+  margin-left:auto;text-align:right}
+.song-set{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink);background:var(--gray);
+  padding:.1rem .35rem;border-radius:2px;flex:none;align-self:center}
+.song-set[data-set="Acoustic"]{background:var(--sky)}
+.song-set[data-set="Electric"]{background:var(--gold)}
+.empty{color:var(--paper-dim);font-style:italic;padding:2rem 0}
+
+/* ─── footer ──────────────────────────────────────────────────────── */
+.foot{background:var(--ink-2);border-top:1px solid var(--ink-3);
+  padding:clamp(3rem,6vw,4.5rem) 0 2.5rem}
+.foot-grid{display:flex;flex-wrap:wrap;gap:2.5rem;align-items:flex-start;
+  justify-content:space-between}
+.foot-logo{height:44px;width:auto;margin-bottom:1rem}
+.foot p{margin:0;max-width:34ch}
+.socials{display:flex;gap:.6rem;margin:1.25rem 0 0;padding:0;list-style:none}
+.socials a{width:44px;height:44px;display:grid;place-items:center;border-radius:2px;
+  background:var(--ink-3);color:var(--paper);font-size:19px;
+  transition:background .2s,color .2s,transform .2s}
+.socials a:hover{transform:translateY(-3px);color:var(--ink)}
+.socials li:nth-child(1) a:hover{background:var(--red)}
+.socials li:nth-child(2) a:hover{background:var(--sky)}
+.socials li:nth-child(3) a:hover{background:var(--gold)}
+.socials li:nth-child(4) a:hover{background:var(--paper)}
+.foot-mail{font-family:var(--display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(1.35rem,3.2vw,2rem);color:var(--gold);text-decoration:none;
+  line-height:1.05;display:inline-block;overflow-wrap:anywhere}
+.foot-mail:hover{color:var(--paper)}
+.foot-note{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;
+  color:var(--paper-dim);margin:3rem 0 0;padding-top:1.5rem;
+  border-top:1px solid var(--ink-3);text-transform:uppercase}
