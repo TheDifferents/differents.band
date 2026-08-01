@@ -190,9 +190,7 @@
     const box = document.getElementById('lightbox');
     if (box) {
       const frameWrap = box.querySelector('.lightbox-inner');
-      let lastFocus = null;
       const open = (id, title) => {
-        lastFocus = document.activeElement;
         const iframe = document.createElement('iframe');
         iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
         iframe.title = title || 'The Differents video';
@@ -200,23 +198,24 @@
         iframe.allowFullscreen = true;
         frameWrap.querySelector('iframe')?.remove();
         frameWrap.append(iframe);
-        box.hidden = false;
+        // showModal, not a hidden toggle: it puts the dialog in the top layer,
+        // paints the real ::backdrop, traps focus, and handles Escape natively
+        box.showModal();
         document.body.style.overflow = 'hidden';
-        box.querySelector('.lightbox-close').focus();
-      };
-      const close = () => {
-        box.hidden = true;
-        frameWrap.querySelector('iframe')?.remove();  // stops playback
-        document.body.style.overflow = '';
-        lastFocus?.focus();
       };
       videoGrid.addEventListener('click', e => {
         const card = e.target.closest('.video');
         if (card) open(card.dataset.id, card.querySelector('.video-title')?.textContent);
       });
-      box.addEventListener('click', e => { if (e.target === box) close(); });
-      box.querySelector('.lightbox-close').addEventListener('click', close);
-      document.addEventListener('keydown', e => { if (e.key === 'Escape' && !box.hidden) close(); });
+      // clicking the scrim: the dialog fills the viewport, so any hit that
+      // lands on the dialog itself rather than the video is outside the player
+      box.addEventListener('click', e => { if (e.target === box) box.close(); });
+      box.querySelector('.lightbox-close').addEventListener('click', () => box.close());
+      // fires for the close button, the scrim, and Escape alike
+      box.addEventListener('close', () => {
+        frameWrap.querySelector('iframe')?.remove();  // stops playback
+        document.body.style.overflow = '';
+      });
     }
   }
 

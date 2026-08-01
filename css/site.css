@@ -310,16 +310,23 @@ h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:.88;
 
 /* lightbox — the YouTube player is only injected on click, so no YouTube
    script or iframe loads with the page */
-.lightbox{position:fixed;inset:0;z-index:100;background:rgba(10,8,7,.94);
-  display:grid;place-items:center;padding:var(--gut);border:0}
+/* Opened with showModal(), so the dialog sits in the top layer and the scrim
+   is a real ::backdrop. The explicit width/height/max-* are load-bearing: the
+   UA stylesheet gives <dialog> width:fit-content, which beats inset:0 and
+   collapses the box to the size of its contents. */
+.lightbox{position:fixed;inset:0;width:100%;height:100%;
+  max-width:100%;max-height:100%;margin:0;border:0;padding:var(--gut);
+  background:transparent;overflow:hidden;
+  display:grid;place-items:center}
+.lightbox:not([open]){display:none}
 .lightbox::backdrop{background:rgba(10,8,7,.94)}
-.lightbox[hidden]{display:none}
 .lightbox-inner{width:min(1100px,100%);aspect-ratio:16/9;position:relative}
 .lightbox iframe{width:100%;height:100%;border:0;border-radius:2px;
   box-shadow:0 20px 60px rgba(0,0,0,.6)}
-.lightbox-close{position:absolute;top:-3rem;right:0;background:none;border:0;
-  color:var(--paper);font-family:var(--display);font-weight:800;font-size:1.2rem;
-  text-transform:uppercase;letter-spacing:.08em;cursor:pointer;padding:.4rem}
+/* pinned to the viewport, not the video, so it stays reachable on short screens */
+.lightbox-close{position:fixed;top:.75rem;right:.75rem;background:none;border:0;
+  color:var(--paper);font-family:var(--display);font-weight:800;font-size:1.15rem;
+  text-transform:uppercase;letter-spacing:.08em;cursor:pointer;padding:.5rem .6rem}
 .lightbox-close:hover{color:var(--gold)}
 
 /* ─── shows ledger ────────────────────────────────────────────────── */

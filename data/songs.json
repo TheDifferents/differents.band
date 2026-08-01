@@ -45,15 +45,6 @@
       "recentlyPlayed": true
     },
     {
-      "title": "Already Gone",
-      "artist": "Eagles",
-      "chords": "G D C",
-      "duration": "4:40",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
       "title": "American Girl",
       "artist": "Tom Petty and the Heartbreakers",
       "chords": "D E G A",
@@ -140,15 +131,6 @@
       "recentlyPlayed": false
     },
     {
-      "title": "Come On Up",
-      "artist": "The Young Rascals",
-      "chords": "C Bb B F C G F G F 2:54",
-      "duration": null,
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
       "title": "Come Together",
       "artist": "The Beatles",
       "chords": "Dm B A G A",
@@ -226,24 +208,6 @@
       "recentlyPlayed": true
     },
     {
-      "title": "Enjoy The Silence",
-      "artist": "Depeche Mode",
-      "chords": "Cm Ebm Ab",
-      "duration": null,
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
-      "title": "Every Time I Roll The Dice",
-      "artist": "Delbert McClinton",
-      "chords": "G C D",
-      "duration": "4:40",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
       "title": "Feeling Alright",
       "artist": "Joe Cocker",
       "chords": "B E",
@@ -266,37 +230,10 @@
       "recentlyPlayed": true
     },
     {
-      "title": "Fortunate Son",
-      "artist": "Creedence Clearwater Revival",
-      "chords": "G F C",
-      "duration": "2:50",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
-      "title": "Friday I'm In Love",
-      "artist": "The Cure",
-      "chords": null,
-      "duration": null,
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
       "title": "Get Lucky",
       "artist": "Daft Punk",
       "chords": "Bm D F#m E",
       "duration": null,
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
-      "title": "Get Ready",
-      "artist": "The Temptations",
-      "chords": "D",
-      "duration": "3:05",
       "sets": [],
       "appearances": 4,
       "recentlyPlayed": false
@@ -311,15 +248,6 @@
       ],
       "appearances": 3,
       "recentlyPlayed": true
-    },
-    {
-      "title": "Giving It Up For Your Love",
-      "artist": "Delbert McClinton",
-      "chords": "C Bb F, G",
-      "duration": "3:52",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
     },
     {
       "title": "Hard To Handle",
@@ -344,53 +272,6 @@
       "recentlyPlayed": true
     },
     {
-      "title": "I Don't Need No Doctor",
-      "artist": "Humble Pie",
-      "chords": "E A B",
-      "duration": "3:16",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
-      "title": "I Got A Line On You",
-      "artist": "Spirit",
-      "chords": "B G A B",
-      "duration": "2:33",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
-      "title": "I Melt With You",
-      "artist": "Modern English",
-      "chords": null,
-      "duration": null,
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
-      "title": "I Wanna Be Sedated",
-      "artist": "Ramones",
-      "chords": "EAB, F#,B,C#",
-      "duration": "3:00",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
-      "title": "I Want You To Want Me",
-      "artist": "Cheap Trick",
-      "chords": "A F# D",
-      "duration": "3:14",
-      "sets": [
-        "Electric"
-      ],
-      "appearances": 4,
-      "recentlyPlayed": true
-    },
-    {
       "title": "I Will Survive",
       "artist": "Gloria Gaynor",
       "chords": "Am Dm G C F B E E7  3:20",
@@ -400,15 +281,6 @@
       ],
       "appearances": 8,
       "recentlyPlayed": true
-    },
-    {
-      "title": "I'm Looking Through You",
-      "artist": "The Beatles",
-      "chords": "D Em Bm A",
-      "duration": "2:40",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
     },
     {
       "title": "In The Air",
@@ -517,15 +389,6 @@
       "recentlyPlayed": true
     },
     {
-      "title": "Long Cool Woman",
-      "artist": "The Hollies",
-      "chords": "E",
-      "duration": "3:13",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
       "title": "Love Me Two Times",
       "artist": "The Doors",
       "chords": "E7 A7 D7",
@@ -622,24 +485,6 @@
       "recentlyPlayed": true
     },
     {
-      "title": "Next To Me",
-      "artist": "Emeli Sandé",
-      "chords": "A",
-      "duration": "4:34",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
-      "title": "No Sugar",
-      "artist": "The Guess Who",
-      "chords": "F# E",
-      "duration": "4:56",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
       "title": "Paranoid",
       "artist": "Black Sabbath",
       "chords": null,
@@ -671,24 +516,6 @@
       "recentlyPlayed": true
     },
     {
-      "title": "Pretty Woman",
-      "artist": "Roy Orbison",
-      "chords": "E – A F#m D E",
-      "duration": "2:44",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
-      "title": "Rebel Rebel (Medley)",
-      "artist": "David Bowie",
-      "chords": "D E",
-      "duration": "4:09",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
-    },
-    {
       "title": "Remedy",
       "artist": "The Black Crowes",
       "chords": "C",
@@ -709,15 +536,6 @@
       ],
       "appearances": 5,
       "recentlyPlayed": true
-    },
-    {
-      "title": "Rock and Roll (Medley)",
-      "artist": "Led Zeppelin",
-      "chords": "C B F",
-      "duration": "4:17",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
     },
     {
       "title": "Runnin' Down a Dream",
@@ -827,15 +645,6 @@
       "recentlyPlayed": false
     },
     {
-      "title": "Sympathy For The Devil",
-      "artist": "The Rolling Stones",
-      "chords": "E D A",
-      "duration": null,
-      "sets": [],
-      "appearances": 1,
-      "recentlyPlayed": false
-    },
-    {
       "title": "Take It Easy",
       "artist": "Eagles",
       "chords": "G D C",
@@ -868,15 +677,6 @@
       ],
       "appearances": 5,
       "recentlyPlayed": true
-    },
-    {
-      "title": "The Jean Genie",
-      "artist": "David Bowie",
-      "chords": "E A",
-      "duration": "4:26",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
     },
     {
       "title": "The Seeker",
@@ -972,15 +772,6 @@
       ],
       "appearances": 8,
       "recentlyPlayed": true
-    },
-    {
-      "title": "What's So Funny",
-      "artist": "Elvis Costello",
-      "chords": "G D C",
-      "duration": "3:44",
-      "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
     }
   ],
   "sourceCount": 8
