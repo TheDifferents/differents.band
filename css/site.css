@@ -375,14 +375,30 @@ h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:.88;
 .song-count{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--paper-dim);margin-left:auto}
 
-.songs{list-style:none;margin:0;padding:0;
-  columns:2;column-gap:clamp(2rem,5vw,4rem)}
-@media (max-width:720px){.songs{columns:1}}
-.song{break-inside:avoid;padding:.55rem 0;border-bottom:1px solid var(--ink-3);
-  display:flex;gap:.75rem;align-items:baseline}
+/* grid, not columns: a song expanding its fact grows only its own row
+   instead of reflowing every song after it into the other column */
+.songs{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
+  column-gap:clamp(2rem,5vw,4rem)}
+.song{border-bottom:1px solid var(--ink-3)}
+.song-main{width:100%;background:none;border:0;padding:.55rem 0;color:inherit;
+  font:inherit;text-align:left;display:flex;gap:.75rem;align-items:baseline}
+.song-main[aria-expanded]{cursor:pointer}
+.song-main[aria-expanded]:hover .song-title{color:var(--gold)}
 .song-title{font-weight:600}
 .song-artist{font-family:var(--mono);font-size:.72rem;color:var(--paper-dim);
   margin-left:auto;text-align:right}
+/* the fun fact, revealed on click */
+.song-more{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;
+  color:var(--paper-dim);flex:none;align-self:center;
+  border:1px solid var(--ink-3);border-radius:2px;padding:.05rem .3rem}
+.song-main[aria-expanded="true"] .song-more{background:var(--gold);color:var(--ink);
+  border-color:var(--gold)}
+.song-fact{margin:0 0 .7rem;padding:.6rem .8rem;background:var(--ink-2);
+  border-left:2px solid var(--gold);font-size:.88rem;line-height:1.5;
+  color:var(--paper-dim)}
+.song-fact .song-stats{display:block;font-family:var(--mono);font-size:.62rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
 .song-set{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;
   text-transform:uppercase;color:var(--ink);background:var(--gray);
   padding:.1rem .35rem;border-radius:2px;flex:none;align-self:center}

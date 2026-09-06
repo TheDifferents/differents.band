@@ -1,0 +1,102 @@
+{
+  "songs": [
+    {
+      "title": "Footloose",
+      "artist": "Kenny Loggins",
+      "year": 1984,
+      "bpm": 174,
+      "fact": "Co-written by the man who wrote the screenplay: Dean Pitchford wrote film and lyrics together, so song and plot were built to fit."
+    },
+    {
+      "title": "Jessie's Girl",
+      "artist": "Rick Springfield",
+      "year": 1981,
+      "bpm": 132,
+      "fact": "Written about a real classmate from Springfield's stained-glass class whose girlfriend he wanted. He could never find the guy again — his name was actually Gary, and \"Gary's Girl\" didn't sing."
+    },
+    {
+      "title": "Maneater",
+      "artist": "Daryl Hall & John Oates",
+      "year": 1982,
+      "bpm": 89,
+      "fact": "It started life as a reggae song before the band rebuilt it around a bassline nodding to \"You Can't Hurry Love\". Daryl Hall says it's about New York City and 80s greed, not a woman."
+    },
+    {
+      "title": "Party in the U.S.A.",
+      "artist": "Miley Cyrus",
+      "year": 2009,
+      "bpm": 96,
+      "fact": "Miley has admitted she had never actually heard a Jay-Z song when she recorded the line about one coming on. Jessie J co-wrote it before anyone knew who Jessie J was."
+    },
+    {
+      "title": "Play That Funky Music",
+      "artist": "Wild Cherry",
+      "year": 1976,
+      "bpm": 108,
+      "fact": "A white rock band was playing a mostly Black club when someone shouted \"play some funky music, white boy\". The singer wrote the song on a bar order pad that night."
+    },
+    {
+      "title": "September",
+      "artist": "Earth, Wind & Fire",
+      "year": 1978,
+      "bpm": 126,
+      "fact": "\"Ba-dee-ya\" means nothing. Co-writer Allee Willis begged Maurice White to put real words there and he refused — never let the lyric get in the way of the groove."
+    },
+    {
+      "title": "Shake It Off",
+      "artist": "Taylor Swift",
+      "year": 2014,
+      "bpm": 160,
+      "fact": "A 2017 lawsuit claimed the \"players gonna play / haters gonna hate\" couplet was lifted from 3LW's 2001 single \"Playas Gon' Play\"; after five years of appeals it was settled in 2022."
+    },
+    {
+      "title": "Shut Up and Dance",
+      "artist": "WALK THE MOON",
+      "year": 2014,
+      "bpm": 128,
+      "fact": "It's about a real night out — the singer was in a rough patch when a friend told him to shut up and dance with her. The band is named after The Police's \"Walking on the Moon\"."
+    },
+    {
+      "title": "Stayin' Alive",
+      "artist": "Bee Gees",
+      "year": 1977,
+      "bpm": 104,
+      "fact": "The drum track is two bars on a loop — their drummer had left for his mother's funeral, so the Bee Gees looped what he'd already played and credited a fictional drummer."
+    },
+    {
+      "title": "Take on Me",
+      "artist": "a-ha",
+      "year": 1985,
+      "bpm": 169,
+      "fact": "It flopped twice before anyone cared. The rotoscoped pencil-sketch video — roughly 3,000 hand-drawn frames — is what finally made it a global number one."
+    },
+    {
+      "title": "The Power of Love",
+      "artist": "Huey Lewis & The News",
+      "year": 1985,
+      "bpm": 119,
+      "fact": "The band turned down Back to the Future at first, then wrote it anyway and landed their first US number one. Huey Lewis cameos as the teacher who rejects Marty's audition."
+    },
+    {
+      "title": "Wake Me Up Before You Go-Go",
+      "artist": "Wham!",
+      "year": 1984,
+      "bpm": 168,
+      "fact": "The title is a typo. Andrew Ridgeley left a note for his parents, accidentally doubled a word, and George Michael liked the mistake enough to build the hook on it."
+    },
+    {
+      "title": "You Make My Dreams (Come True)",
+      "artist": "Daryl Hall & John Oates",
+      "year": 1980,
+      "bpm": 167,
+      "fact": "Only a modest hit at the time. It became inescapable thirty years later through film and internet use, above all the dance scene in (500) Days of Summer."
+    },
+    {
+      "title": "You Shook Me All Night Long",
+      "artist": "AC/DC",
+      "year": 1980,
+      "bpm": 127,
+      "fact": "The first single of the Brian Johnson era. The band had just lost Bon Scott, and this was the song that proved AC/DC would survive it."
+    }
+  ]
+}

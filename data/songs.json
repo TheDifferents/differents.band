@@ -8,8 +8,23 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 7,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1996,
+      "bpm": 108,
+      "fact": "Rob Thomas wrote it as a teenager about his mother's battle with cancer and the long nights during her treatment. She recovered."
+    },
+    {
+      "title": "9 to 5",
+      "artist": "Dolly Parton",
+      "chords": null,
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "status": "rotation",
+      "year": 1980,
+      "bpm": 103,
+      "fact": "Parton wrote the song's percussive rhythm by clacking her long acrylic nails together between takes, mimicking the sound of a typewriter on set."
     },
     {
       "title": "Africa",
@@ -19,8 +34,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 1,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1982,
+      "bpm": 92,
+      "fact": "Songwriter David Paich wrote it after a documentary on African suffering haunted him for weeks; he said the chorus melody arrived so fast it felt like divine channeling, not his own talent."
     },
     {
       "title": "Ain't No Sunshine",
@@ -30,8 +47,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1971,
+      "bpm": 78,
+      "fact": "The lyrics weren't finished, so Withers vamped the same phrase over two dozen times as a placeholder; producer Booker T. Jones convinced him to leave it in the final mix."
     },
     {
       "title": "Alive",
@@ -41,8 +60,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 3,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1991,
+      "bpm": 75,
+      "fact": "The lyric is autobiographical: Vedder learned as a teenager that the man who raised him wasn't his father. He later said crowds singing the chorus back joyfully had 'lifted the curse' of the song."
     },
     {
       "title": "American Girl",
@@ -52,8 +73,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1977,
+      "bpm": 115,
+      "fact": "Despite a persistent urban legend that it's about a University of Florida student who jumped from her dorm, Petty said the imagery came from traffic outside his LA apartment."
     },
     {
       "title": "And She Was",
@@ -63,8 +86,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 3,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1985,
+      "bpm": 126,
+      "fact": "David Byrne based the lyrics on a real Baltimore friend who described a transcendent LSD trip while lying in a field beside a Yoo-hoo chocolate soda factory."
     },
     {
       "title": "Bad As I Used To Be",
@@ -74,8 +99,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 1,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 2025,
+      "bpm": 114,
+      "fact": "Written for the 2025 F1 movie soundtrack, the track leans harder into rock territory, drawing comparisons to ZZ Top and Dire Straits rather than Stapleton's usual country sound."
     },
     {
       "title": "Bad Moon Rising",
@@ -85,8 +112,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1969,
+      "bpm": 178,
+      "fact": "John Fogerty wrote it after the hurricane scene in the 1941 film The Devil and Daniel Webster — an upbeat, singalong tune whose words are actually about impending catastrophe."
     },
     {
       "title": "Billie Jean",
@@ -96,8 +125,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 7,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1983,
+      "bpm": 117,
+      "fact": "Producer Quincy Jones wanted to retitle it 'Not My Lover,' worried listeners would think it referenced tennis star Billie Jean King; Jackson refused and won."
     },
     {
       "title": "Breakfast at Tiffany's",
@@ -107,8 +138,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 6,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1995,
+      "bpm": 110,
+      "fact": "Frontman Todd Pipes wrote it after watching an Audrey Hepburn film he thought was Roman Holiday; he simply liked the title Breakfast at Tiffany's better and used that instead."
     },
     {
       "title": "Burning Love",
@@ -118,8 +151,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1972,
+      "bpm": 144,
+      "fact": "Songwriter Dennis Linde wrote it alone at home in about 20 minutes, playing every instrument himself; Elvis initially resisted recording it, and it became his last Top 10 pop hit."
     },
     {
       "title": "Chain Of Fools",
@@ -127,8 +162,10 @@
       "chords": "Bbm",
       "duration": "3:29",
       "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
+      "status": "bullpen",
+      "year": 1967,
+      "bpm": 117,
+      "fact": "Don Covay wrote it as a teenager and meant it for Otis Redding; the tremolo guitar figure that opens the record was played by Joe South."
     },
     {
       "title": "Come Together",
@@ -138,8 +175,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1969,
+      "bpm": 83,
+      "fact": "A publisher sued John Lennon for borrowing a line from Chuck Berry's 'You Can't Catch Me'; the settlement required Lennon to record three Chuck Berry-associated songs for him."
     },
     {
       "title": "Country Roads",
@@ -149,8 +188,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1971,
+      "bpm": 83,
+      "fact": "None of its three writers, including Denver, had ever been to West Virginia when they wrote it — the idea came from postcards a friend mailed to co-writer Bill Danoff."
     },
     {
       "title": "Crazy Little Thing Called Love",
@@ -160,8 +201,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1979,
+      "bpm": 152,
+      "fact": "Freddie Mercury wrote the entire song in roughly ten minutes while soaking in a bathtub at a Munich hotel, composing it on guitar despite barely knowing how to play it."
     },
     {
       "title": "Dani California",
@@ -171,8 +214,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 7,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 2006,
+      "bpm": 96,
+      "fact": "On release it drew accusations of resembling Tom Petty's 'Mary Jane's Last Dance'. Petty publicly shrugged it off, saying he doubted there was any bad intent — the Differents play both."
     },
     {
       "title": "Dead Flowers",
@@ -182,8 +227,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 6,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1971,
+      "bpm": 130,
+      "fact": "The song's dark drug references, set to a breezy country shuffle, reflect Keith Richards's growing friendship with country-rock pioneer Gram Parsons during the Sticky Fingers sessions."
     },
     {
       "title": "Don't Change",
@@ -193,8 +240,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 3,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1982,
+      "bpm": 164,
+      "fact": "All six INXS members co-wrote it, and its music video was shot inside an airport hangar after bad weather scuttled the planned runway shoot in South Australia."
     },
     {
       "title": "Don't You Forget About Me",
@@ -204,8 +253,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1985,
+      "bpm": 112,
+      "fact": "Simple Minds initially refused to record this song, written for The Breakfast Club by producer Keith Forsey; Bryan Ferry also turned it down. It became their only US number-one hit."
     },
     {
       "title": "Feeling Alright",
@@ -215,8 +266,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 4,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1969,
+      "bpm": 90,
+      "fact": "In 1976, Joe Cocker performed it on SNL and John Belushi joined him onstage in an identical outfit, mimicking his every move for a legendary duet."
     },
     {
       "title": "Folsom Prison Blues",
@@ -226,8 +279,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1955,
+      "bpm": 110,
+      "fact": "Cash got the idea for the song's most infamous line while serving in the Air Force in Germany, after watching a 1951 prison movie and trying to imagine the cruelest possible motive for murder."
     },
     {
       "title": "Get Lucky",
@@ -235,8 +290,10 @@
       "chords": "Bm D F#m E",
       "duration": null,
       "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
+      "status": "bullpen",
+      "year": 2013,
+      "bpm": 116,
+      "fact": "Nile Rodgers had every other instrument muted so he could build the guitar part from scratch, forcing bassist Nathan East to re-record his entire bassline around it."
     },
     {
       "title": "Give Me One Reason",
@@ -246,8 +303,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 3,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1995,
+      "bpm": 100,
+      "fact": "A deliberate blues departure from Chapman's usual folk-rock sound, it became her biggest US hit and earned her the Grammy for Best Rock Song in 1997."
     },
     {
       "title": "Hard To Handle",
@@ -257,8 +316,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1990,
+      "bpm": 104,
+      "fact": "The searing guitar solo wasn't played by a guitarist — engineer Brendan O'Brien recorded it on producer Rick Rubin's own Les Paul after Slash's take didn't make the cut."
     },
     {
       "title": "Hey Jealousy",
@@ -268,8 +329,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 7,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1993,
+      "bpm": 153,
+      "fact": "Songwriter Doug Hopkins, who drew on his own drinking problems for the lyrics, was fired from the band before the album's release and died by suicide months after it became a hit."
     },
     {
       "title": "I Will Survive",
@@ -279,8 +342,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1978,
+      "bpm": 117,
+      "fact": "It began as a throwaway B-side to the single \"Substitute\"; club DJs flipped it into the hit, and Gaynor recorded the vocal while recovering from spinal surgery in a back brace."
     },
     {
       "title": "In The Air",
@@ -288,8 +353,10 @@
       "chords": null,
       "duration": null,
       "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
+      "status": "bullpen",
+      "year": 1981,
+      "bpm": 95,
+      "fact": "The thunderous drum fill was possible because of gated reverb, an effect Collins and engineer Hugh Padgham discovered by accident while recording a Peter Gabriel session in 1979."
     },
     {
       "title": "Interstate Love Song",
@@ -297,8 +364,10 @@
       "chords": null,
       "duration": null,
       "sets": [],
-      "appearances": 1,
-      "recentlyPlayed": false
+      "status": "bullpen",
+      "year": 1994,
+      "bpm": 85,
+      "fact": "Bassist Robert DeLeo wrote the music as a bossa nova on a cheap nylon-string guitar while riding in the band's touring Winnebago, then radioed it to bandmates on a walkie-talkie."
     },
     {
       "title": "Iris",
@@ -308,8 +377,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 3,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1998,
+      "bpm": 156,
+      "fact": "John Rzeznik wrote it in about 20 minutes for the film City of Angels, inspired by an angel who gives up immortality for one mortal day with the woman he loves."
     },
     {
       "title": "Jumpin' Jack Flash",
@@ -319,8 +390,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1968,
+      "bpm": 137,
+      "fact": "The title came from Keith Richards' gardener Jack Dyer, whose heavy rubber boots stomping past the window one morning inspired \"Jumping Jack\"; Jagger added \"Flash.\""
     },
     {
       "title": "Just What I Needed",
@@ -330,8 +403,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 7,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1978,
+      "bpm": 129,
+      "fact": "Ric Ocasek wrote it but gave lead vocals to bassist Benjamin Orr; the demo helped land The Cars their Elektra record deal and became the band's breakout single."
     },
     {
       "title": "Landslide",
@@ -341,8 +416,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 3,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1975,
+      "bpm": 80,
+      "fact": "Stevie Nicks wrote it in Aspen in 1973 after her father suggested she quit music and finish school — months before Mick Fleetwood called offering her a spot in his band."
     },
     {
       "title": "Learn To Fly",
@@ -352,8 +429,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1999,
+      "bpm": 136,
+      "fact": "The music video, a parody of Airplane! featuring Jack Black and Kyle Gass as bumbling airline mechanics, took the band a full day of self-mockery to shoot."
     },
     {
       "title": "Let It Rain",
@@ -363,8 +442,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 3,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1970,
+      "bpm": 122,
+      "fact": "Backed by Bobby Whitlock, Carl Radle and Jim Gordon on Clapton's 1970 solo debut, this session band split off right after to form Derek and the Dominos."
     },
     {
       "title": "Lie To Me",
@@ -374,8 +455,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 4,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1997,
+      "bpm": 112,
+      "fact": "Jonny Lang recorded this album as a blues prodigy from Fargo, North Dakota; it hit stores on January 28, 1997, one day before his 16th birthday."
     },
     {
       "title": "Lonely Boy",
@@ -385,8 +468,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 7,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 2011,
+      "bpm": 166,
+      "fact": "The video's now-iconic dancer, Derrick Tuggle, was cast as an extra but improvised his entire routine — a mash-up of Travolta, Michael Jackson, and Carlton Banks — in about an hour."
     },
     {
       "title": "Love Me Two Times",
@@ -396,8 +481,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 3,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1967,
+      "bpm": 133,
+      "fact": "Robby Krieger wrote both this song and 'Light My Fire' in under an hour after keyboardist Ray Manzarek challenged every band member to bring in original material."
     },
     {
       "title": "Low Rider",
@@ -405,8 +492,10 @@
       "chords": "G",
       "duration": "6:16",
       "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
+      "status": "rotation",
+      "year": 1975,
+      "bpm": 140,
+      "fact": "Vocalist Charles Miller reportedly sat down in the studio with a bottle of tequila, salt and a lemon before delivering the deadpan lead vocal, cut from an hour-plus jam session."
     },
     {
       "title": "Maggie May",
@@ -416,8 +505,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1971,
+      "bpm": 129,
+      "fact": "Mercury Records buried it as the B-side to \"Reason to Believe,\" but radio DJs kept flipping the single over until it shot to No. 1 anyway."
     },
     {
       "title": "Mary Jane's Last Dance",
@@ -427,8 +518,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 6,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1993,
+      "bpm": 85,
+      "fact": "The song began life as 'Indiana Girl' with a different chorus; Petty scrapped it at the last minute, unable to picture himself singing that line on the record."
     },
     {
       "title": "Molly's Chambers",
@@ -438,8 +531,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 4,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 2003,
+      "bpm": 146,
+      "fact": "The title nods to old slang for a brothel from a Thin Lizzy lyric, though Caleb Followill says the song is really about a woman who helped a struggling friend find hope."
     },
     {
       "title": "Moneygrabber",
@@ -447,8 +542,23 @@
       "chords": "F G Am G Em",
       "duration": null,
       "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
+      "status": "bullpen",
+      "year": 2010,
+      "bpm": 112,
+      "fact": "Frontman Michael Fitzpatrick wrote the kiss-off track about a real ex-girlfriend, later admitting, \"I know that she knows it's about her.\""
+    },
+    {
+      "title": "Mr. Brightside",
+      "artist": "The Killers",
+      "chords": null,
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "status": "rotation",
+      "year": 2004,
+      "bpm": 148,
+      "fact": "The longest-charting song in UK history. It has barely left the chart in twenty years, driven not by radio but by every wedding, club and pub in Britain."
     },
     {
       "title": "Mustang Sally",
@@ -458,8 +568,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1966,
+      "bpm": 110,
+      "fact": "Songwriter Mack Rice originally called it \"Mustang Mama\"; singer Della Reese, who wanted the car in the song, needled him into renaming it \"Mustang Sally.\""
     },
     {
       "title": "Mysterious Ways",
@@ -469,8 +581,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1991,
+      "bpm": 100,
+      "fact": "Bono called it 'a bass line in search of a song' — it started as a studio jam titled 'Sick Puppy' before The Edge's wah-pedal riff turned it into U2's funkiest track."
     },
     {
       "title": "Never Been To Spain",
@@ -481,8 +595,10 @@
         "Acoustic",
         "Electric"
       ],
-      "appearances": 6,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1971,
+      "bpm": 90,
+      "fact": "Songwriter Hoyt Axton gave Three Dog Night two of their biggest hits back to back that same year: this one and 'Joy to the World.'"
     },
     {
       "title": "Paranoid",
@@ -490,8 +606,10 @@
       "chords": null,
       "duration": null,
       "sets": [],
-      "appearances": 1,
-      "recentlyPlayed": false
+      "status": "bullpen",
+      "year": 1970,
+      "bpm": 160,
+      "fact": "Written as last-minute filler when the album ran a few minutes short, Tony Iommi built the riff in about 25 minutes and it became the band's only UK top-five single."
     },
     {
       "title": "Pink Houses",
@@ -501,8 +619,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 4,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1983,
+      "bpm": 115,
+      "fact": "Mellencamp wrote it after passing an elderly Black man sitting with a cat outside a small pink house along I-65 near Indianapolis."
     },
     {
       "title": "Pretty Vegas",
@@ -512,8 +632,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 4,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 2005,
+      "bpm": 141,
+      "fact": "J.D. Fortune wrote the lyrics alone after splitting from his teammates on reality show Rock Star: INXS — the song that won him the job as the band's new lead singer."
     },
     {
       "title": "Remedy",
@@ -523,8 +645,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1992,
+      "bpm": 160,
+      "fact": "Chris Robinson wrote it as a satirical jab at the government's war on drugs, framing the band's pro-marijuana stance as rock and roll rebellion rather than a warning."
     },
     {
       "title": "Rock And Roll",
@@ -534,8 +658,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1971,
+      "bpm": 170,
+      "fact": "Born from a jam when John Bonham drummed Little Richard's 'Keep A-Knockin'' intro during a break from recording 'Four Sticks'; original Rolling Stones pianist Ian Stewart guests on piano."
     },
     {
       "title": "Runnin' Down a Dream",
@@ -545,8 +671,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 7,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1989,
+      "bpm": 170,
+      "fact": "Its shout-out to rocker Del Shannon was bittersweet: Petty had produced Shannon's comeback album years earlier, and Shannon took his own life the year after this song came out."
     },
     {
       "title": "(Sittin' On) The Dock of the Bay",
@@ -556,8 +684,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 6,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1968,
+      "bpm": 104,
+      "fact": "Redding whistled the ending as a placeholder for unfinished lyrics; he died in a plane crash three days after recording it, and it became the first posthumous #1 in U.S. chart history."
     },
     {
       "title": "Some Kind of Wonderful",
@@ -565,8 +695,10 @@
       "chords": "C F",
       "duration": "3:16",
       "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
+      "status": "bullpen",
+      "year": 1974,
+      "bpm": 121,
+      "fact": "It's a cover: Grand Funk grew up in Flint hearing the Soul Brothers Six original on local radio, and drummer Don Brewer sang it on the tour bus for years before the band recorded it."
     },
     {
       "title": "Spooky",
@@ -576,8 +708,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1979,
+      "bpm": 105,
+      "fact": "It's a remake: three ARS members had already played on the original 1968 version with an earlier group, Classics IV, before revisiting the tune as their own comeback hit."
     },
     {
       "title": "Stand By Me",
@@ -588,8 +722,10 @@
         "Acoustic",
         "Electric"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1961,
+      "bpm": 116,
+      "fact": "Co-written with Leiber and Stoller and rooted in a gospel hymn, its instantly recognizable bass line was played by jazz double bassist Lloyd Trotman, not an electric bass."
     },
     {
       "title": "Stormy Monday",
@@ -599,8 +735,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 4,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1947,
+      "bpm": 64,
+      "fact": "Hearing this record is what convinced 22-year-old B.B. King to switch to electric guitar, crediting T-Bone Walker's tone as the sound that hooked him."
     },
     {
       "title": "Stuck In The Middle",
@@ -610,8 +748,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1973,
+      "bpm": 124,
+      "fact": "Stealers Wheel wrote it as a deliberate Bob Dylan parody — the vocal impression and folk-rock styling were so convincing that some listeners assumed it was actually a Dylan song."
     },
     {
       "title": "Superstition",
@@ -621,8 +761,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1972,
+      "bpm": 100,
+      "fact": "Wonder wrote the clavinet riff intending to give it to guitarist Jeff Beck, but Motown's Berry Gordy insisted Wonder cut it first, and his version beat Beck's to the charts."
     },
     {
       "title": "Sweet Emotion",
@@ -632,8 +774,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1975,
+      "bpm": 99,
+      "fact": "The intro's talk-box 'voice' is Joe Perry's guitar over a bass riff Tom Hamilton had carried since high school; lacking maracas in the studio, Steven Tyler shook a packet of sugar."
     },
     {
       "title": "Sweet Jane",
@@ -641,8 +785,10 @@
       "chords": "D A G Bm A",
       "duration": "4:17",
       "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
+      "status": "bullpen",
+      "year": 1970,
+      "bpm": 105,
+      "fact": "When Loaded was released in 1970, the record label cut a bridge from the song without Lou Reed's approval; the fuller version only surfaced later on live and reissued recordings."
     },
     {
       "title": "Take It Easy",
@@ -652,8 +798,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 6,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1972,
+      "bpm": 136,
+      "fact": "Jackson Browne started it and got stuck on the second verse; his downstairs neighbour Glenn Frey finished it and it became the Eagles' first single."
     },
     {
       "title": "Tennessee Whiskey",
@@ -663,8 +811,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 6,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 2015,
+      "bpm": 50,
+      "fact": "Written in 1981 and first recorded by David Allan Coe, the song didn't become a modern standard until Stapleton's slow-burn version, boosted by a viral CMA Awards duet with Justin Timberlake."
     },
     {
       "title": "The Door",
@@ -675,8 +825,10 @@
         "Acoustic",
         "Electric"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 2023,
+      "bpm": 128,
+      "fact": "Teddy Swims has said the song is about 'saving my own life' after leaving a toxic relationship — its upbeat, danceable groove deliberately contrasts with that darker subject."
     },
     {
       "title": "The Seeker",
@@ -686,8 +838,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 7,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1970,
+      "bpm": 92,
+      "fact": "Townshend called it a song of 'Divine Desperation' — its narrator seeks answers from Bob Dylan, the Beatles and Timothy Leary in turn, none of whom help."
     },
     {
       "title": "They Call Me The Breeze",
@@ -697,8 +851,23 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 6,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1974,
+      "bpm": 93,
+      "fact": "J.J. Cale wrote and recorded it first as a laid-back shuffle; Skynyrd sped it into a boogie. Royalties from covers like this one funded much of Cale's famously reclusive career."
+    },
+    {
+      "title": "Time Warp",
+      "artist": "The Rocky Horror Picture Show",
+      "chords": null,
+      "duration": null,
+      "sets": [
+        "Electric"
+      ],
+      "status": "rotation",
+      "year": 1975,
+      "bpm": 176,
+      "fact": "Writer Richard O'Brien also appears on screen as Riff Raff, the hunchbacked servant who introduces the dance craze to guests at Frank-N-Furter's castle."
     },
     {
       "title": "Two Tickets To Paradise",
@@ -708,8 +877,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1978,
+      "bpm": 129,
+      "fact": "Inspired by a real romance with a wealthy Berkeley sorority girl whose parents pushed her toward a doctor or lawyer instead of Money; he never got the trip, and she dumped him."
     },
     {
       "title": "Use Me",
@@ -719,17 +890,23 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1972,
+      "bpm": 77,
+      "fact": "Drummer James Gadson jammed the groove for about five minutes in the studio before Bill Withers spontaneously wrote the whole song on the spot."
     },
     {
       "title": "Valerie",
       "artist": "The Zutons",
       "chords": null,
       "duration": null,
-      "sets": [],
-      "appearances": 1,
-      "recentlyPlayed": false
+      "sets": [
+        "Electric"
+      ],
+      "status": "rotation",
+      "year": 2006,
+      "bpm": 169,
+      "fact": "Frontman Dave McCabe wrote it in about twenty minutes in the back of a cab, addressed to an ex-girlfriend who had been held up in the States over driving offences."
     },
     {
       "title": "Wagon Wheel",
@@ -739,8 +916,10 @@
       "sets": [
         "Acoustic"
       ],
-      "appearances": 5,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 2004,
+      "bpm": 145,
+      "fact": "The chorus and melody began as an unfinished Bob Dylan demo bootlegged from 1973 sessions; Old Crow's Ketch Secor added new verses decades later to finish it."
     },
     {
       "title": "Walking On Sunshine",
@@ -748,8 +927,10 @@
       "chords": "G C D",
       "duration": null,
       "sets": [],
-      "appearances": 4,
-      "recentlyPlayed": false
+      "status": "rotation",
+      "year": 1985,
+      "bpm": 108,
+      "fact": "Written as a ballad and reworked into an uptempo anthem; the band's own horn section couldn't play it in the original key, forcing a late change, and bandmates initially hated it."
     },
     {
       "title": "Welcome To Paradise",
@@ -759,8 +940,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 7,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1994,
+      "bpm": 178,
+      "fact": "The song first appeared on 1992's Kerplunk before being re-recorded for Dookie; it describes the band living rent-free in a squatted, abandoned house in Oakland."
     },
     {
       "title": "What I Like About You",
@@ -770,9 +953,10 @@
       "sets": [
         "Electric"
       ],
-      "appearances": 8,
-      "recentlyPlayed": true
+      "status": "rotation",
+      "year": 1979,
+      "bpm": 160,
+      "fact": "The lead vocal is drummer Jimmy Marinos, not the band's usual frontman. It stalled at No. 49 in the US on release and only became a standard through years of adverts and films."
     }
-  ],
-  "sourceCount": 8
+  ]
 }

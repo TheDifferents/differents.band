@@ -239,8 +239,28 @@
       songList.replaceChildren();
       shown.forEach(s => {
         const li = el('li', 'song');
-        li.append(el('span', 'song-title', s.title));
-        if (s.artist) li.append(el('span', 'song-artist', s.artist));
+        const main = el('button', 'song-main');
+        main.type = 'button';
+        main.append(el('span', 'song-title', s.title));
+        if (s.artist) main.append(el('span', 'song-artist', s.artist));
+        li.append(main);
+
+        // songs we know something about get an expandable fact
+        if (s.fact) {
+          const stats = [s.year, s.bpm && `${s.bpm} BPM`].filter(Boolean).join(' · ');
+          main.append(el('span', 'song-more', 'i'));
+          main.setAttribute('aria-expanded', 'false');
+          const fact = el('p', 'song-fact');
+          if (stats) fact.append(el('span', 'song-stats', stats));
+          fact.append(document.createTextNode(s.fact));
+          fact.hidden = true;
+          li.append(fact);
+          main.addEventListener('click', () => {
+            const open = main.getAttribute('aria-expanded') === 'true';
+            main.setAttribute('aria-expanded', String(!open));
+            fact.hidden = open;
+          });
+        }
         songList.append(li);
       });
       if (!shown.length) {
