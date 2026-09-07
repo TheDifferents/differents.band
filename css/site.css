@@ -341,8 +341,15 @@ h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:.88;
   border-radius:2px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);
   transition:opacity .28s ease}
 .lightbox-stage.is-fading{opacity:0}
+/* the video and its scrubber move together between the desktop stage and a
+   feed panel, so they are wrapped and positioned as one */
+.lb-media{position:absolute;inset:0}
 .lb-video{position:absolute;inset:0;width:100%;height:100%;
   display:block;background:#000;object-fit:contain}
+.lb-progress{display:none}
+/* the feed is phone-only; on desktop these never render, so their blurred
+   background images are never fetched */
+.lb-feed{display:none}
 
 .lb-arrow{flex:none;padding:0;cursor:pointer;border:0;background:none;
   width:clamp(30px,4.5vw,64px);height:clamp(90px,26vh,260px);
@@ -428,6 +435,53 @@ h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:.88;
   .lb-track{max-width:11rem}
 }
 @media (prefers-reduced-motion:reduce){.lightbox-stage{transition:none}}
+
+/* ─── the phone feed ──────────────────────────────────────────────── */
+/* One song per screen, moved through by scrolling. Scroll snapping does the
+   swiping, which means real momentum and rubber-banding rather than a
+   hand-rolled touch handler that never quite feels right. */
+@media (max-width:700px){
+  .lightbox{padding:0;display:block;overflow:hidden}
+  .lightbox-inner{display:none}
+  .lightbox-close{z-index:3;top:.5rem;right:.5rem;
+    text-shadow:0 1px 6px rgba(0,0,0,.9)}
+
+  .lb-feed{display:block;height:100%;overflow-y:auto;
+    scroll-snap-type:y mandatory;overscroll-behavior:contain;
+    scrollbar-width:none}
+  .lb-feed::-webkit-scrollbar{display:none}
+
+  .lb-panel{position:relative;height:100%;overflow:hidden;
+    scroll-snap-align:start;scroll-snap-stop:always;
+    display:grid;place-items:center}
+  /* a 16:9 clip cannot fill a portrait screen, so its own still is blown up and
+     blurred behind it — full-bleed rather than letterboxed */
+  .lb-panel-bg{position:absolute;inset:-12%;background-size:cover;
+    background-position:center;transform:scale(1.15);
+    filter:blur(30px) saturate(1.35) brightness(.5)}
+  .lb-panel-slot{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+  .lb-panel-still{position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;display:block}
+
+  .lb-progress{display:block;position:absolute;left:0;right:0;bottom:-14px;
+    height:28px;cursor:pointer;touch-action:none;z-index:2}
+  /* a 3px line is the target you see; the padding above is the target you hit */
+  .lb-progress::before{content:'';position:absolute;left:0;right:0;top:12px;
+    height:3px;background:rgba(244,239,230,.28)}
+  .lb-progress-fill{position:absolute;left:0;top:12px;height:3px;width:0;
+    background:var(--gold)}
+
+  .lb-panel-meta{position:absolute;left:0;right:0;bottom:0;z-index:2;
+    padding:1.4rem var(--gut) 2rem;
+    background:linear-gradient(transparent,rgba(10,8,7,.82) 55%)}
+  .lb-panel-title{font-family:var(--display);font-weight:800;
+    font-size:clamp(1.6rem,7vw,2.4rem);text-transform:uppercase;line-height:.98;
+    color:var(--paper);margin:0}
+  .lb-panel-artist{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--paper-dim);margin:.4rem 0 0}
+  .lb-panel-pos{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;
+    color:var(--gold);margin:.7rem 0 0}
+}
 
 /* ─── shows ledger ────────────────────────────────────────────────── */
 .shows{border-top:1px solid var(--ink-3)}

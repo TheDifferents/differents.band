@@ -162,7 +162,14 @@
     vid.controls = true;
     vid.preload = 'metadata';
     vid.setAttribute('playsinline', '');
-    stage.append(vid);
+    // the scrubber only shows in the phone feed, where native controls are off,
+    // but it rides with the video so the two never get separated
+    const bar2 = el('div', 'lb-progress');
+    const fill = el('div', 'lb-progress-fill');
+    bar2.append(fill);
+    const media = el('div', 'lb-media');
+    media.append(vid, bar2);
+    stage.append(media);
     const stageWrap = el('div', 'lb-stage-wrap');
     stageWrap.append(stage);
 
@@ -192,8 +199,15 @@
     bar.append(nowTitle, upNext, listWrap);
     const inner = el('div', 'lightbox-inner');
     inner.append(row, bar);
-    box.append(closeBtn, inner);
+    /* The phone layout. Panels are cheap — a blurred still, a poster and some
+       text — and the single <video> moves into whichever one you land on.
+       Twenty-two video elements on a phone would be brutal on data and memory. */
+    const feed = el('div', 'lb-feed');
+    box.append(closeBtn, inner, feed);
     document.body.append(box);
+
+    const onPhone = window.matchMedia('(max-width: 700px)');
+    const inFeed = () => onPhone.matches;
 
     /* ── the fade ──────────────────────────────────────────────────── */
     let fadeGuard = 0;
@@ -243,6 +257,84 @@
       vid.load();                       // releases the connection
     };
 
+    /* ── the phone feed ────────────────────────────────────────────── */
+    let settling = false;      // suppress detection during a programmatic scroll
+    let scrollIdle = 0;
+
+    // move the player into a panel and start it there
+    const activatePanel = (i) => {
+      const panel = feed.children[i];
+      if (!panel) return;
+      const slot = panel.querySelector('.lb-panel-slot');
+      if (media.parentElement !== slot) slot.append(media);
+      index = i;
+      // keep the desktop transport in step, so turning the phone sideways
+      // mid-song lands on the right title rather than the last one it saw
+      syncBar();
+      load(playlist[i]);
+    };
+
+    /* Which panel you have landed on is just arithmetic: every panel is exactly
+       one viewport tall, so the scroll offset divided by that height is the
+       index. An IntersectionObserver would do the same job with more moving
+       parts and quirkier behaviour alongside scroll snapping. */
+    const nearestPanel = () => {
+      const h = feed.clientHeight || 1;
+      return Math.max(0, Math.min(playlist.length - 1,
+                                  Math.round(feed.scrollTop / h)));
+    };
+
+    const settleToPanel = () => {
+      if (!inFeed() || settling) return;
+      const i = nearestPanel();
+      if (i !== index) activatePanel(i);
+    };
+
+    const watchPanels = () => {
+      feed.addEventListener('scroll', () => {
+        if (!inFeed() || settling) return;
+        clearTimeout(scrollIdle);
+        scrollIdle = setTimeout(settleToPanel, 90);   // wait for the flick to stop
+      }, { passive: true });
+      // fires once the snap has settled, where supported; the timer covers the rest
+      if ('onscrollend' in feed) feed.addEventListener('scrollend', settleToPanel);
+    };
+
+    const scrollToPanel = (i, smooth) => {
+      const panel = feed.children[i];
+      if (!panel) return;
+      settling = true;
+      feed.scrollTo({ top: panel.offsetTop,
+                      behavior: smooth && !slow.matches ? 'smooth' : 'auto' });
+      setTimeout(() => { settling = false; }, smooth ? 450 : 60);
+    };
+
+    // tap the video to pause and resume; the scrubber handles its own taps
+    media.addEventListener('click', (e) => {
+      if (!inFeed() || e.target.closest('.lb-progress')) return;
+      if (vid.paused) vid.play().catch(() => {}); else vid.pause();
+    });
+
+    vid.addEventListener('timeupdate', () => {
+      if (!vid.duration) return;
+      fill.style.width = `${(vid.currentTime / vid.duration) * 100}%`;
+    });
+
+    const scrub = (e) => {
+      const r = bar2.getBoundingClientRect();
+      const p = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+      if (vid.duration) vid.currentTime = p * vid.duration;
+    };
+    bar2.addEventListener('pointerdown', (e) => {
+      bar2.setPointerCapture(e.pointerId);
+      scrub(e);
+      const move = (ev) => scrub(ev);
+      const up = () => { bar2.removeEventListener('pointermove', move);
+                         bar2.removeEventListener('pointerup', up); };
+      bar2.addEventListener('pointermove', move);
+      bar2.addEventListener('pointerup', up);
+    });
+
     /* ── transport ─────────────────────────────────────────────────── */
     const clampScroll = (x) =>
       Math.max(0, Math.min(list.scrollWidth - list.clientWidth, x));
@@ -277,7 +369,19 @@
       const n = playlist.length;
       if (!n) return;
       cameHereAutomatically = !!auto;
-      index = ((i % n) + n) % n;
+      const next = ((i % n) + n) % n;
+      if (inFeed()) {
+        /* Scroll, and let the settling pick the song. Activating directly would
+           let a failed or interrupted scroll play one clip while showing
+           another; this way what you see is always what you hear. */
+        const wrapping = next === 0 && index === n - 1;
+        scrollToPanel(next, !wrapping);   // wrapping 22 screens is a jump, not a glide
+        clearTimeout(scrollIdle);
+        scrollIdle = setTimeout(() => { settling = false; settleToPanel(); },
+                                wrapping ? 80 : 520);
+        return;
+      }
+      index = next;
       syncBar();
       hideStage();
       setTimeout(() => load(playlist[index]), slow.matches ? 0 : 280);
@@ -296,6 +400,14 @@
       cameHereAutomatically = false;   // an explicit choice, not the rotation
       failRun = 0;
       showStage();
+      if (inFeed()) {
+        vid.controls = false;          // the panel supplies its own controls
+        scrollToPanel(index, false);
+        activatePanel(index);
+        return;
+      }
+      vid.controls = true;
+      if (media.parentElement !== stage) stage.append(media);
       load(playlist[index]);
     };
 
@@ -312,6 +424,21 @@
     scrollNext.addEventListener('click', () => scrollList(1));
     list.addEventListener('scroll', syncScrollArrows, { passive: true });
     window.addEventListener('resize', syncScrollArrows);
+    // turning a phone sideways crosses the breakpoint mid-song; keep playing
+    onPhone.addEventListener('change', () => {
+      if (!box.open) return;
+      const at = vid.currentTime;
+      if (inFeed()) {
+        vid.controls = false;
+        scrollToPanel(index, false);
+        activatePanel(index);
+      } else {
+        vid.controls = true;
+        stage.append(media);
+        syncBar();
+      }
+      if (at) vid.currentTime = at;
+    });
     closeBtn.addEventListener('click', () => box.close());
     // clicking the scrim: the dialog fills the viewport, so any hit that lands
     // on the dialog itself rather than its contents is outside the player
@@ -349,6 +476,28 @@
         list.append(t);
       });
       syncScrollArrows();
+
+      playlist.forEach((v, i) => {
+        const panel = el('article', 'lb-panel');
+        panel.dataset.i = String(i);
+        // blurred copy of the still, so a 16:9 clip fills a portrait screen
+        // without reading as letterboxed
+        const bg = el('div', 'lb-panel-bg');
+        if (v.self?.poster) bg.style.backgroundImage = `url("${v.self.poster}")`;
+        const slot = el('div', 'lb-panel-slot');
+        const still = el('img', 'lb-panel-still');
+        still.src = v.self?.poster || v.thumb || '';
+        still.alt = '';
+        still.loading = 'lazy';
+        slot.append(still);
+        const meta = el('div', 'lb-panel-meta');
+        meta.append(el('h3', 'lb-panel-title', v.title));
+        if (v.artist) meta.append(el('p', 'lb-panel-artist', v.artist));
+        meta.append(el('p', 'lb-panel-pos', `${i + 1} / ${playlist.length}`));
+        panel.append(bg, slot, meta);
+        feed.append(panel);
+      });
+      watchPanels();
 
       playlist.slice(0, limit).forEach(v => {
         const card = el('button', 'video');
