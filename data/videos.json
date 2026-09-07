@@ -1,34 +1,146 @@
 {
   "playlistId": "PLGX0zmR180-9UuOns8QRleBn-H_pjjnpT",
-  "count": 4,
+  "count": 20,
   "videos": [
     {
-      "id": "kdqZAQDkfTQ",
-      "title": "Last Dance With Mary Jane",
-      "thumb": "https://i.ytimg.com/vi/kdqZAQDkfTQ/hqdefault.jpg",
-      "publishedAt": null,
-      "duration": null
+      "id": "NtjNnmi-gFE",
+      "title": "What I Like about You - The Romantics",
+      "thumb": "https://i.ytimg.com/vi/NtjNnmi-gFE/maxresdefault.jpg",
+      "publishedAt": "2026-09-06T13:53:48Z",
+      "duration": "1:09"
     },
     {
-      "id": "puhRZAxv3w8",
-      "title": "What I Like About You",
-      "thumb": "https://i.ytimg.com/vi/puhRZAxv3w8/hqdefault.jpg",
-      "publishedAt": null,
-      "duration": null
+      "id": "Sr90nHInyxM",
+      "title": "Welcome to Paradise - Greenday",
+      "thumb": "https://i.ytimg.com/vi/Sr90nHInyxM/maxresdefault.jpg",
+      "publishedAt": "2026-09-06T13:53:48Z",
+      "duration": "1:28"
     },
     {
-      "id": "qf5lCRBoyEk",
-      "title": "Crazy Little Thing Called Love",
-      "thumb": "https://i.ytimg.com/vi/qf5lCRBoyEk/hqdefault.jpg",
-      "publishedAt": null,
-      "duration": null
+      "id": "EEi1POxGzUA",
+      "title": "Dani California - Red Hot Chili Peppers",
+      "thumb": "https://i.ytimg.com/vi/EEi1POxGzUA/maxresdefault.jpg",
+      "publishedAt": "2026-09-06T13:53:48Z",
+      "duration": "0:44"
     },
     {
-      "id": "ZxdZbAg4iHQ",
-      "title": "Maggie May",
-      "thumb": "https://i.ytimg.com/vi/ZxdZbAg4iHQ/hqdefault.jpg",
-      "publishedAt": null,
-      "duration": null
+      "id": "3rLsAYb3-1w",
+      "title": "Lonely Boy - Black Keys",
+      "thumb": "https://i.ytimg.com/vi/3rLsAYb3-1w/maxresdefault.jpg",
+      "publishedAt": "2026-09-06T13:53:48Z",
+      "duration": "1:03"
+    },
+    {
+      "id": "4kfDb4kjuoU",
+      "title": "Alive - Pearl Jam",
+      "thumb": "https://i.ytimg.com/vi/4kfDb4kjuoU/maxresdefault.jpg",
+      "publishedAt": "2026-09-07T15:09:51Z",
+      "duration": "1:43"
+    },
+    {
+      "id": "EIpHTA51-jY",
+      "title": "Jumpin' Jack Flash - Rolling Stones",
+      "thumb": "https://i.ytimg.com/vi/EIpHTA51-jY/maxresdefault.jpg",
+      "publishedAt": "2026-09-06T13:53:48Z",
+      "duration": "0:48"
+    },
+    {
+      "id": "IJn512j_CU4",
+      "title": "Maggie May - Rod Stewart",
+      "thumb": "https://i.ytimg.com/vi/IJn512j_CU4/maxresdefault.jpg",
+      "publishedAt": "2026-09-06T13:53:48Z",
+      "duration": "1:25"
+    },
+    {
+      "id": "bGIX_GpHO-E",
+      "title": "Tennessee Whiskey - Chris Stapleton",
+      "thumb": "https://i.ytimg.com/vi/bGIX_GpHO-E/maxresdefault.jpg",
+      "publishedAt": "2026-09-06T13:53:48Z",
+      "duration": "1:59"
+    },
+    {
+      "id": "fGYEo5y6n3A",
+      "title": "Drift Away - Dobie Gray",
+      "thumb": "https://i.ytimg.com/vi/fGYEo5y6n3A/maxresdefault.jpg",
+      "publishedAt": "2026-09-06T13:53:48Z",
+      "duration": "0:51"
+    },
+    {
+      "id": "vz8BkcrmgYg",
+      "title": "Runnin' Down a Dream - Tom Petty",
+      "thumb": "https://i.ytimg.com/vi/vz8BkcrmgYg/maxresdefault.jpg",
+      "publishedAt": "2026-09-06T13:53:48Z",
+      "duration": "1:25"
+    },
+    {
+      "id": "wHKhCI37wPY",
+      "title": "Stuck In The Middle With You - Stealer's Wheel",
+      "thumb": "https://i.ytimg.com/vi/wHKhCI37wPY/maxresdefault.jpg",
+      "publishedAt": "2026-09-06T13:53:48Z",
+      "duration": "0:40"
+    },
+    {
+      "id": "zK_5GT45cNg",
+      "title": "3am - Matchbox 20",
+      "thumb": "https://i.ytimg.com/vi/zK_5GT45cNg/maxresdefault.jpg",
+      "publishedAt": "2026-09-06T13:53:48Z",
+      "duration": "1:09"
+    },
+    {
+      "id": "6v7lpJXplVY",
+      "title": "Last Dance with Marry Jane - Tom Petty",
+      "thumb": "https://i.ytimg.com/vi/6v7lpJXplVY/maxresdefault.jpg",
+      "publishedAt": "2026-09-07T15:09:51Z",
+      "duration": "1:06"
+    },
+    {
+      "id": "CfVcoSElFcc",
+      "title": "Valerie - The Zutons",
+      "thumb": "https://i.ytimg.com/vi/CfVcoSElFcc/maxresdefault.jpg",
+      "publishedAt": "2026-09-07T15:09:51Z",
+      "duration": "1:17"
+    },
+    {
+      "id": "3qpYscTWdk4",
+      "title": "Billie Jean - Michael Jackson",
+      "thumb": "https://i.ytimg.com/vi/3qpYscTWdk4/maxresdefault.jpg",
+      "publishedAt": "2026-09-07T15:09:51Z",
+      "duration": "0:56"
+    },
+    {
+      "id": "oShK5B8CTyo",
+      "title": "Just what I needed - The Cars",
+      "thumb": "https://i.ytimg.com/vi/oShK5B8CTyo/maxresdefault.jpg",
+      "publishedAt": "2026-09-07T15:09:51Z",
+      "duration": "0:48"
+    },
+    {
+      "id": "Ds1lsUn7Db4",
+      "title": "Country Roads - John Denver",
+      "thumb": "https://i.ytimg.com/vi/Ds1lsUn7Db4/maxresdefault.jpg",
+      "publishedAt": "2026-09-07T15:09:51Z",
+      "duration": "0:32"
+    },
+    {
+      "id": "vliAxTBt1U4",
+      "title": "Use Me - Bill Withers",
+      "thumb": "https://i.ytimg.com/vi/vliAxTBt1U4/maxresdefault.jpg",
+      "publishedAt": "2026-09-07T15:09:51Z",
+      "duration": "0:45"
+    },
+    {
+      "id": "IMiIO-SXHKU",
+      "title": "Sweet Emotion - Aerosmith",
+      "thumb": "https://i.ytimg.com/vi/IMiIO-SXHKU/maxresdefault.jpg",
+      "publishedAt": "2026-09-07T15:09:51Z",
+      "duration": "0:47"
+    },
+    {
+      "id": "ZdW20EG7w60",
+      "title": "Lonely Boy - The Black Keys",
+      "thumb": "https://i.ytimg.com/vi/ZdW20EG7w60/maxresdefault.jpg",
+      "publishedAt": "2026-09-07T15:09:51Z",
+      "duration": "1:03"
     }
   ]
 }
