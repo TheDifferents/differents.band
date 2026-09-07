@@ -150,18 +150,221 @@
   const videoGrid = document.getElementById('video-grid');
   if (videoGrid) {
     const limit = Number(videoGrid.dataset.limit) || Infinity;
+    const slow = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let playlist = [];   // the whole set, even where the grid shows fewer
+    let index = 0;
+
+    /* The dialog is built here rather than written into every page, so any page
+       carrying a grid gets the same player and the markup has one home. */
+    const box = el('dialog', 'lightbox');
+    box.setAttribute('aria-label', 'Video player');
+    const closeBtn = el('button', 'lightbox-close', 'Close ✕');
+    closeBtn.type = 'button';
+
+    /* The stage keeps its box while the clip inside it swaps. That is what the
+       fade rides on — replacing the element would flash the backdrop. */
+    const stage = el('div', 'lightbox-stage');
+    const vid = el('video', 'lb-video');
+    vid.controls = true;
+    vid.preload = 'metadata';
+    vid.setAttribute('playsinline', '');
+    stage.append(vid);
+    const stageWrap = el('div', 'lb-stage-wrap');
+    stageWrap.append(stage);
+
+    // chevrons as SVG, not glyphs — a ‹ scaled to 200px tall renders as a hairline
+    const arrow = (cls, label, d) => {
+      const b = el('button', 'lb-arrow ' + cls);
+      b.type = 'button';
+      b.setAttribute('aria-label', label);
+      b.innerHTML = `<svg viewBox="0 0 24 44" aria-hidden="true"><path d="${d}"/></svg>`;
+      return b;
+    };
+    const prevBtn = arrow('lb-prev', 'Previous video', 'M19 3 5 22l14 19');
+    const nextBtn = arrow('lb-next', 'Next video', 'M5 3l14 19L5 41');
+    const row = el('div', 'lb-row');
+    row.append(prevBtn, stageWrap, nextBtn);
+
+    const nowTitle = el('div', 'lb-title');
+    const upNext = el('div', 'lb-upnext');
+    const list = el('div', 'lb-list');
+    // the setlist scrolls on its own arrows, so you can read ahead without
+    // changing what is playing — these never call go()
+    const scrollPrev = arrow('lb-scroll', 'Scroll setlist left', 'M19 3 5 22l14 19');
+    const scrollNext = arrow('lb-scroll', 'Scroll setlist right', 'M5 3l14 19L5 41');
+    const listWrap = el('div', 'lb-list-wrap');
+    listWrap.append(scrollPrev, list, scrollNext);
+    const bar = el('div', 'lightbox-bar');
+    bar.append(nowTitle, upNext, listWrap);
+    const inner = el('div', 'lightbox-inner');
+    inner.append(row, bar);
+    box.append(closeBtn, inner);
+    document.body.append(box);
+
+    /* ── the fade ──────────────────────────────────────────────────── */
+    let fadeGuard = 0;
+    const showStage = () => { clearTimeout(fadeGuard); stage.classList.remove('is-fading'); };
+    const hideStage = () => {
+      stage.classList.add('is-fading');
+      // if the next clip never reports playing, don't strand the stage blank
+      clearTimeout(fadeGuard);
+      fadeGuard = setTimeout(showStage, 2500);
+    };
+
+    /* ── playback ──────────────────────────────────────────────────── */
+    // 1080p by default; the smaller rendition on phones and thin connections
+    const pickSource = (self) => {
+      const narrow = window.matchMedia('(max-width: 900px)').matches;
+      const c = navigator.connection;
+      const thin = c && (c.saveData || /2g|3g/.test(c.effectiveType || ''));
+      const order = (narrow || thin) ? ['720', '1080'] : ['1080', '720'];
+      return order.map(k => self.sources[k]).find(Boolean);
+    };
+
+    let cameHereAutomatically = false;
+    let failRun = 0;
+
+    vid.addEventListener('playing', () => { failRun = 0; showStage(); });
+    vid.addEventListener('ended', () => go(index + 1, true));
+    vid.addEventListener('error', () => {
+      // a clip that will not load must not stall the rotation, but if someone
+      // chose it themselves, leave it be rather than jumping somewhere else
+      showStage();
+      if (cameHereAutomatically && ++failRun < playlist.length) go(index + 1, true);
+    });
+
+    const load = (v) => {
+      vid.poster = v.self.poster || '';
+      vid.src = pickSource(v.self);
+      // opening the box is itself a click, so this is normally allowed. On an
+      // automatic change a browser may refuse; the poster and controls remain.
+      const p = vid.play();
+      if (p) p.catch(() => showStage());
+    };
+
+    const stopPlayback = () => {
+      if (!vid.getAttribute('src')) return;
+      vid.pause();
+      vid.removeAttribute('src');
+      vid.load();                       // releases the connection
+    };
+
+    /* ── transport ─────────────────────────────────────────────────── */
+    const clampScroll = (x) =>
+      Math.max(0, Math.min(list.scrollWidth - list.clientWidth, x));
+
+    const syncScrollArrows = () => {
+      const max = list.scrollWidth - list.clientWidth;
+      scrollPrev.disabled = list.scrollLeft <= 1;
+      scrollNext.disabled = list.scrollLeft >= max - 1;
+    };
+
+    const syncBar = () => {
+      const v = playlist[index];
+      const nxt = playlist[(index + 1) % playlist.length];
+      nowTitle.replaceChildren(el('span', 'lb-song', v ? v.title : ''));
+      if (v && v.artist) nowTitle.append(el('span', 'lb-by', v.artist));
+      upNext.textContent = playlist.length > 1 && nxt ? `Up next · ${nxt.title}` : '';
+      [...list.children].forEach((t, i) => {
+        t.classList.toggle('is-current', i === index);
+        if (i === index) t.setAttribute('aria-current', 'true');
+        else t.removeAttribute('aria-current');
+      });
+      // centred by hand rather than with scrollIntoView, which also scrolls
+      // ancestors; instant here because it rides along with the fade
+      const t = list.children[index];
+      if (t) list.scrollLeft = clampScroll(
+        t.offsetLeft - (list.clientWidth - t.offsetWidth) / 2);
+      syncScrollArrows();
+    };
+
+    // wraps at both ends, so the last song rolls into the first
+    const go = (i, auto) => {
+      const n = playlist.length;
+      if (!n) return;
+      cameHereAutomatically = !!auto;
+      index = ((i % n) + n) % n;
+      syncBar();
+      hideStage();
+      setTimeout(() => load(playlist[index]), slow.matches ? 0 : 280);
+    };
+
+    const open = (slug) => {
+      const found = playlist.findIndex(v => v.slug === slug);
+      index = found < 0 ? 0 : found;
+      // showModal, not a hidden toggle: it puts the dialog in the top layer,
+      // paints the real ::backdrop, traps focus, and handles Escape natively
+      box.showModal();
+      document.body.style.overflow = 'hidden';
+      // after showModal, never before: a display:none dialog measures zero, so
+      // the setlist would think it had nothing to scroll
+      syncBar();
+      cameHereAutomatically = false;   // an explicit choice, not the rotation
+      failRun = 0;
+      showStage();
+      load(playlist[index]);
+    };
+
+    prevBtn.addEventListener('click', () => go(index - 1));
+    nextBtn.addEventListener('click', () => go(index + 1));
+    list.addEventListener('click', e => {
+      const t = e.target.closest('.lb-track');
+      if (t) go(Number(t.dataset.i));
+    });
+    const scrollList = (dir) => list.scrollBy(
+      { left: dir * Math.max(180, list.clientWidth * 0.8),
+        behavior: slow.matches ? 'auto' : 'smooth' });
+    scrollPrev.addEventListener('click', () => scrollList(-1));
+    scrollNext.addEventListener('click', () => scrollList(1));
+    list.addEventListener('scroll', syncScrollArrows, { passive: true });
+    window.addEventListener('resize', syncScrollArrows);
+    closeBtn.addEventListener('click', () => box.close());
+    // clicking the scrim: the dialog fills the viewport, so any hit that lands
+    // on the dialog itself rather than its contents is outside the player
+    box.addEventListener('click', e => { if (e.target === box) box.close(); });
+    box.addEventListener('keydown', e => {
+      // let the arrow keys scrub the player when it has focus
+      if (e.target === vid) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1); }
+    });
+    // fires for the close button, the scrim, and Escape alike
+    box.addEventListener('close', () => {
+      document.body.style.overflow = '';
+      stopPlayback();
+    });
+    videoGrid.addEventListener('click', e => {
+      const card = e.target.closest('.video');
+      if (card) open(card.dataset.slug);
+    });
+
     getJSON('data/videos.json').then(data => {
-      const items = (data.videos || []).slice(0, limit);
-      if (!items.length) throw new Error('empty playlist');
-      items.forEach(v => {
+      playlist = data.videos || [];
+      if (!playlist.length) throw new Error('no videos');
+
+      // no thumbnails in the setlist: every clip is the same band on the same
+      // patio, so the stills tell you nothing the title doesn't
+      playlist.forEach((v, i) => {
+        const t = el('button', 'lb-track');
+        t.type = 'button';
+        t.dataset.i = String(i);
+        t.setAttribute('aria-label', `Play ${v.title}`);
+        t.append(el('span', 'lb-track-n', String(i + 1).padStart(2, '0')),
+                 el('span', 'lb-track-t', v.title));
+        if (v.artist) t.append(el('span', 'lb-track-by', v.artist));
+        list.append(t);
+      });
+      syncScrollArrows();
+
+      playlist.slice(0, limit).forEach(v => {
         const card = el('button', 'video');
         card.type = 'button';
-        card.dataset.id = v.id;
+        card.dataset.slug = v.slug;
         card.setAttribute('aria-label', `Play ${v.title}`);
 
         const thumb = el('div', 'video-thumb');
         const img = new Image();
-        img.src = v.thumb || `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
+        img.src = v.thumb || '';
         img.alt = '';
         img.loading = 'lazy';
         const play = el('div', 'play');
@@ -179,44 +382,13 @@
       });
     }).catch(err => {
       console.error(err);
+      box.remove();
       videoGrid.append(el('p', 'empty', 'Videos aren’t loading right now. '));
-      const a = el('a', null, 'Watch the playlist on YouTube');
+      const a = el('a', null, 'Watch on YouTube');
       a.href = 'https://www.youtube.com/@TheDifferentsCharleston';
       a.target = '_blank'; a.rel = 'noopener';
       videoGrid.querySelector('.empty').append(a);
     });
-
-    /* lightbox — YouTube only loads once someone actually clicks */
-    const box = document.getElementById('lightbox');
-    if (box) {
-      const frameWrap = box.querySelector('.lightbox-inner');
-      const open = (id, title) => {
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
-        iframe.title = title || 'The Differents video';
-        iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
-        iframe.allowFullscreen = true;
-        frameWrap.querySelector('iframe')?.remove();
-        frameWrap.append(iframe);
-        // showModal, not a hidden toggle: it puts the dialog in the top layer,
-        // paints the real ::backdrop, traps focus, and handles Escape natively
-        box.showModal();
-        document.body.style.overflow = 'hidden';
-      };
-      videoGrid.addEventListener('click', e => {
-        const card = e.target.closest('.video');
-        if (card) open(card.dataset.id, card.querySelector('.video-title')?.textContent);
-      });
-      // clicking the scrim: the dialog fills the viewport, so any hit that
-      // lands on the dialog itself rather than the video is outside the player
-      box.addEventListener('click', e => { if (e.target === box) box.close(); });
-      box.querySelector('.lightbox-close').addEventListener('click', () => box.close());
-      // fires for the close button, the scrim, and Escape alike
-      box.addEventListener('close', () => {
-        frameWrap.querySelector('iframe')?.remove();  // stops playback
-        document.body.style.overflow = '';
-      });
-    }
   }
 
   /* ── songs ────────────────────────────────────────────────────── */

@@ -1,102 +1,94 @@
 #!/usr/bin/env python3
-"""Refresh data/videos.json from the band's YouTube playlist.
+"""Build data/videos.json, the file the site reads.
 
-Reads the playlist through the YouTube Data API so the site keeps the order
-you set in YouTube Studio. The API key never reaches the browser — this runs
-in CI (see .github/workflows/videos.yml) and commits the resulting JSON.
+Two inputs, both local:
 
-    YOUTUBE_API_KEY=... python3 tools/build_videos.py
+  data/clips.json  running order, titles and artists. Hand-edited.
+  data/media.json  renditions and posters. Written by tools/transcode_videos.py
+                   and tools/upload_media.py.
+
+Nothing here talks to YouTube. The clips are served from our own storage, so
+the origin comes from MEDIA_BASE_URL and is required: without it the build would
+emit a page of unplayable videos, which is worse than failing.
+
+    MEDIA_BASE_URL=https://media.differents.band python3 tools/build_videos.py
 """
-import json, os, re, sys, urllib.parse, urllib.request
+import json, os, sys
 
-PLAYLIST_ID = os.environ.get('PLAYLIST_ID', 'PLGX0zmR180-9UuOns8QRleBn-H_pjjnpT')
-API_KEY = os.environ.get('YOUTUBE_API_KEY')
-API = 'https://www.googleapis.com/youtube/v3/'
+CLIPS = 'data/clips.json'
+MEDIA = 'data/media.json'
 OUT = 'data/videos.json'
 
-# titles are "Song Name" or "Song Name | The Differents Charleston SC"
-SPLIT_TITLE = re.compile(r'\s*[|–—-]\s*The Differents.*$', re.I)
+
+def secs_to_clock(sec):
+    m, s = divmod(int(round(sec or 0)), 60)
+    h, m = divmod(m, 60)
+    return f'{h}:{m:02d}:{s:02d}' if h else f'{m}:{s:02d}'
 
 
-def api(endpoint, **params):
-    params['key'] = API_KEY
-    url = API + endpoint + '?' + urllib.parse.urlencode(params)
-    with urllib.request.urlopen(url, timeout=30) as r:
-        return json.load(r)
-
-
-def iso_to_clock(iso):
-    """PT4M16S -> 4:16 ; PT1H2M3S -> 1:02:03"""
-    m = re.match(r'^P(?:\d+D)?T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$', iso or '')
-    if not m:
-        return None
-    h, mi, s = (int(x) if x else 0 for x in m.groups())
-    return f'{h}:{mi:02d}:{s:02d}' if h else f'{mi}:{s:02d}'
-
-
-def best_thumb(thumbs):
-    for k in ('maxres', 'standard', 'high', 'medium', 'default'):
-        if k in thumbs:
-            return thumbs[k]['url']
-    return None
+def load(path, what):
+    if not os.path.exists(path):
+        sys.exit(f'{path} is missing — {what}')
+    with open(path, encoding='utf-8') as fh:
+        return json.load(fh)
 
 
 def main():
-    if not API_KEY:
-        sys.exit('YOUTUBE_API_KEY is not set. In CI it comes from repo secrets; '
-                 'locally, export it before running.')
+    base = os.environ.get('MEDIA_BASE_URL', '').rstrip('/')
+    if not base:
+        sys.exit('MEDIA_BASE_URL is not set. It is the public origin the clips '
+                 'are served from, e.g. https://media.differents.band. Set it '
+                 'to http://127.0.0.1:8777 to preview against local files.')
 
-    items, page = [], None
-    while True:
-        kw = dict(part='snippet,contentDetails', playlistId=PLAYLIST_ID, maxResults=50)
-        if page:
-            kw['pageToken'] = page
-        data = api('playlistItems', **kw)
-        items += data.get('items', [])
-        page = data.get('nextPageToken')
-        if not page:
-            break
+    order = load(CLIPS, 'it holds the running order; see tools/README.md')['clips']
+    media = {c['slug']: c for c in load(MEDIA, 'run tools/transcode_videos.py')['clips']}
 
-    videos, ids = [], []
-    for it in items:
-        sn = it['snippet']
-        vid = it.get('contentDetails', {}).get('videoId')
-        # private and deleted entries keep a slot in the playlist but have no
-        # usable snippet — skip them rather than rendering a dead tile
-        if not vid or sn.get('title') in ('Private video', 'Deleted video'):
+    videos, missing, unlisted = [], [], []
+    for entry in order:
+        clip = media.get(entry['slug'])
+        if not clip:
+            missing.append(entry['slug'])
             continue
+        rends = clip.get('renditions', {})
+        keys = {k: r.get('key') for k, r in rends.items()}
+        if not all(keys.values()) or 'poster' not in keys:
+            missing.append(entry['slug'] + ' (not uploaded)')
+            continue
+        urls = {k: f'{base}/{v}' for k, v in keys.items()}
+        poster = urls.pop('poster')
         videos.append({
-            'id': vid,
-            'title': SPLIT_TITLE.sub('', sn['title']).strip(),
-            'thumb': best_thumb(sn.get('thumbnails', {})),
-            'publishedAt': sn.get('publishedAt'),
-            'duration': None,
+            'slug': entry['slug'],
+            'title': entry.get('title') or clip['title'],
+            'artist': entry.get('artist', ''),
+            'duration': secs_to_clock(clip.get('duration')),
+            'thumb': poster,
+            'self': {'poster': poster, 'sources': urls},
         })
-        ids.append(vid)
 
-    # durations come from a separate endpoint, 50 ids per call
-    lengths = {}
-    for i in range(0, len(ids), 50):
-        chunk = api('videos', part='contentDetails', id=','.join(ids[i:i + 50]))
-        for v in chunk.get('items', []):
-            lengths[v['id']] = iso_to_clock(v['contentDetails'].get('duration'))
-    for v in videos:
-        v['duration'] = lengths.get(v['id'])
+    listed = {e['slug'] for e in order}
+    unlisted = [s for s in media if s not in listed]
 
-    payload = {'playlistId': PLAYLIST_ID, 'count': len(videos), 'videos': videos}
+    if missing:
+        print(f'{len(missing)} clip(s) skipped, no uploaded media: ' + ', '.join(missing))
+    if unlisted:
+        print(f'{len(unlisted)} clip(s) present but not in {CLIPS}, so not shown: '
+              + ', '.join(unlisted))
+    if not videos:
+        sys.exit('no playable clips — refusing to write an empty video page. '
+                 'Run tools/upload_media.py first (or --local to preview).')
 
+    payload = {'count': len(videos), 'videos': videos}
     old = None
     if os.path.exists(OUT):
-        with open(OUT, encoding='utf-8') as fh:
-            try:
+        try:
+            with open(OUT, encoding='utf-8') as fh:
                 old = json.load(fh)
-            except json.JSONDecodeError:
-                pass
+        except json.JSONDecodeError:
+            pass
     if old == payload:
         print(f'{len(videos)} videos — no change')
         return
 
-    os.makedirs('data', exist_ok=True)
     with open(OUT, 'w', encoding='utf-8') as fh:
         json.dump(payload, fh, indent=2, ensure_ascii=False)
         fh.write('\n')

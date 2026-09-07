@@ -1,0 +1,115 @@
+{
+  "note": "Running order and artist names for the video page. Hand-edited; reorder freely. Slugs must match data/media.json.",
+  "clips": [
+    {
+      "slug": "lonely-boy",
+      "title": "Lonely Boy",
+      "artist": "The Black Keys"
+    },
+    {
+      "slug": "what-i-like-about-you",
+      "title": "What I Like about You",
+      "artist": "The Romantics"
+    },
+    {
+      "slug": "last-dance-with-mary-jane",
+      "title": "Last Dance with Mary Jane",
+      "artist": "Tom Petty"
+    },
+    {
+      "slug": "welcome-to-paradise",
+      "title": "Welcome to Paradise",
+      "artist": "Greenday"
+    },
+    {
+      "slug": "dani-california",
+      "title": "Dani California",
+      "artist": "Red Hot Chili Peppers"
+    },
+    {
+      "slug": "alive",
+      "title": "Alive",
+      "artist": "Pearl Jam"
+    },
+    {
+      "slug": "jumpin-jack-flash",
+      "title": "Jumpin Jack Flash",
+      "artist": "Rolling Stones"
+    },
+    {
+      "slug": "maggie-may",
+      "title": "Maggie May",
+      "artist": "Rod Stewart"
+    },
+    {
+      "slug": "tennessee-whiskey",
+      "title": "Tennessee Whiskey",
+      "artist": "Chris Stapleton"
+    },
+    {
+      "slug": "valerie",
+      "title": "Valerie",
+      "artist": "The Zutons"
+    },
+    {
+      "slug": "drift-away",
+      "title": "Drift Away",
+      "artist": "Dobie Gray"
+    },
+    {
+      "slug": "runnin-down-a-dream",
+      "title": "Runnin Down a Dream",
+      "artist": "Tom Petty"
+    },
+    {
+      "slug": "stuck-in-the-middle-with-you",
+      "title": "Stuck In The Middle With You",
+      "artist": "Stealer's Wheel"
+    },
+    {
+      "slug": "3am",
+      "title": "3am",
+      "artist": "Matchbox 20"
+    },
+    {
+      "slug": "sweet-emotion",
+      "title": "Sweet Emotion",
+      "artist": "Aerosmith"
+    },
+    {
+      "slug": "billie-jean",
+      "title": "Billie Jean",
+      "artist": "Michael Jackson"
+    },
+    {
+      "slug": "just-what-i-needed",
+      "title": "Just what I needed",
+      "artist": "The Cars"
+    },
+    {
+      "slug": "country-roads",
+      "title": "Country Roads",
+      "artist": "John Denver"
+    },
+    {
+      "slug": "use-me",
+      "title": "Use Me",
+      "artist": "Bill Withers"
+    },
+    {
+      "slug": "africa",
+      "title": "Africa",
+      "artist": "Toto"
+    },
+    {
+      "slug": "burning-love",
+      "title": "Burning Love",
+      "artist": "Elvis Presley"
+    },
+    {
+      "slug": "superstition",
+      "title": "Superstition",
+      "artist": "Stevie Wonder"
+    }
+  ]
+}

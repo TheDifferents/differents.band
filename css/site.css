@@ -308,26 +308,126 @@ h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:.88;
 .video-meta{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;
   color:var(--paper-dim);text-transform:uppercase;margin-top:auto}
 
-/* lightbox — the YouTube player is only injected on click, so no YouTube
-   script or iframe loads with the page */
+/* lightbox — nothing from YouTube loads until someone clicks a card. The API
+   script is fetched on first open, so the page itself stays free of it. */
 /* Opened with showModal(), so the dialog sits in the top layer and the scrim
    is a real ::backdrop. The explicit width/height/max-* are load-bearing: the
    UA stylesheet gives <dialog> width:fit-content, which beats inset:0 and
    collapses the box to the size of its contents. */
 .lightbox{position:fixed;inset:0;width:100%;height:100%;
   max-width:100%;max-height:100%;margin:0;border:0;padding:var(--gut);
-  background:transparent;overflow:hidden;
-  display:grid;place-items:center}
+  background:transparent;overflow:auto;
+  display:flex;align-items:center;justify-content:center}
 .lightbox:not([open]){display:none}
-.lightbox::backdrop{background:rgba(10,8,7,.94)}
-.lightbox-inner{width:min(1100px,100%);aspect-ratio:16/9;position:relative}
-.lightbox iframe{width:100%;height:100%;border:0;border-radius:2px;
-  box-shadow:0 20px 60px rgba(0,0,0,.6)}
+/* opaque: the transport and setlist sit over this. Even at .985 the page's own
+   card titles read through as ghost text against so dark a ground. */
+.lightbox::backdrop{background:var(--ink)}
+/* wider than the page's 1180px measure on purpose: this is a player, and on a
+   large display the height budget below should be what limits it, not a cap */
+.lightbox-inner{width:min(1600px,100%);display:flex;flex-direction:column;gap:1rem}
+
+/* the arrows flank the video rather than sitting under it, so the whole side
+   of the frame is a target */
+.lb-row{display:flex;align-items:center;justify-content:center;
+  gap:clamp(.35rem,1.4vw,1.1rem);min-width:0}
+/* width follows the height budget, so the frame stays a true 16:9 and the
+   setlist below it is never pushed off a short screen */
+.lb-stage-wrap{flex:0 1 auto;min-width:0;
+  width:min(100%,calc((100vh - 2*var(--gut) - 11rem) * 16 / 9));
+  width:min(100%,calc((100dvh - 2*var(--gut) - 11rem) * 16 / 9))}
+/* the stage keeps its box while the video inside it swaps, which is the whole
+   trick behind the fade — tearing the iframe down would flash the backdrop */
+.lightbox-stage{position:relative;width:100%;aspect-ratio:16/9;background:#000;
+  border-radius:2px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);
+  transition:opacity .28s ease}
+.lightbox-stage.is-fading{opacity:0}
+.lb-video{position:absolute;inset:0;width:100%;height:100%;
+  display:block;background:#000;object-fit:contain}
+
+.lb-arrow{flex:none;padding:0;cursor:pointer;border:0;background:none;
+  width:clamp(30px,4.5vw,64px);height:clamp(90px,26vh,260px);
+  color:var(--paper-dim);display:grid;place-items:center;
+  transition:color .2s,transform .2s}
+.lb-arrow svg{width:100%;height:auto;fill:none;stroke:currentColor;
+  stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.lb-arrow:hover{color:var(--gold)}
+@media (min-width:561px){
+  .lb-prev:hover{transform:translateX(-3px)}
+  .lb-next:hover{transform:translateX(3px)}
+}
+
 /* pinned to the viewport, not the video, so it stays reachable on short screens */
 .lightbox-close{position:fixed;top:.75rem;right:.75rem;background:none;border:0;
   color:var(--paper);font-family:var(--display);font-weight:800;font-size:1.15rem;
   text-transform:uppercase;letter-spacing:.08em;cursor:pointer;padding:.5rem .6rem}
 .lightbox-close:hover{color:var(--gold)}
+
+/* now playing + setlist */
+.lightbox-bar{display:flex;flex-direction:column;min-width:0}
+.lb-title{font-family:var(--display);font-weight:800;
+  font-size:clamp(1.5rem,3.4vw,2.4rem);text-transform:uppercase;line-height:.98;
+  display:flex;align-items:baseline;gap:.65rem;flex-wrap:wrap}
+.lb-song{color:var(--paper)}
+.lb-by{font-family:var(--mono);font-weight:400;font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--paper-dim)}
+.lb-upnext{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--paper-dim);margin-top:.45rem}
+/* a setlist, not a filmstrip — every clip is the same band on the same patio,
+   so thumbnails here were nineteen copies of one picture */
+.lb-list-wrap{display:flex;align-items:stretch;gap:.35rem;margin-top:.9rem;
+  min-width:0}
+/* the native scrollbar is redundant now the list has its own arrows */
+.lb-list{display:flex;align-items:stretch;gap:.35rem;overflow-x:auto;min-width:0;
+  scrollbar-width:none}
+.lb-list::-webkit-scrollbar{display:none}
+/* scrolls the setlist only — these never change what is playing, so they read
+   as list furniture rather than as the big transport chevrons */
+.lb-scroll{width:2.2rem;height:auto;background:var(--ink-2);
+  border-top:2px solid var(--ink-3);color:var(--paper-dim)}
+.lb-scroll svg{width:10px}
+.lb-scroll:hover:not(:disabled){background:var(--ink-3);color:var(--paper)}
+.lb-scroll:disabled{opacity:.3;cursor:default}
+.lb-track{flex:none;max-width:15rem;padding:.5rem .8rem .6rem;cursor:pointer;
+  border:0;border-top:2px solid var(--ink-3);background:var(--ink-2);
+  color:var(--paper-dim);text-align:left;font:inherit;
+  transition:background .2s,color .2s,border-color .2s}
+.lb-track-n{display:block;font-family:var(--mono);font-size:.58rem;
+  letter-spacing:.16em;opacity:.75}
+.lb-track-t{display:block;font-family:var(--display);font-weight:700;
+  font-size:1.15rem;text-transform:uppercase;line-height:1.02;margin-top:.15rem;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--paper)}
+.lb-track-by{display:block;font-family:var(--mono);font-size:.56rem;
+  letter-spacing:.12em;text-transform:uppercase;margin-top:.25rem;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lb-track:hover{background:var(--ink-3)}
+.lb-track.is-current{border-top-color:var(--gold)}
+.lb-track.is-current .lb-track-t{color:var(--gold)}
+
+/* a 16:9 video plus a setlist does not fit a landscape phone — drop the list
+   rather than push the video off the top */
+@media (max-height:560px){
+  .lb-list{display:none}
+  .lb-stage-wrap{width:min(100%,calc((100dvh - 2*var(--gut) - 5rem) * 16 / 9))}
+}
+/* On a phone, arrows flanking the frame cost about a sixth of the width. Sit
+   them on the video's edges instead so the picture keeps the room. */
+@media (max-width:560px){
+  .lb-row{position:relative}
+  /* centred with auto margins rather than a transform, so the hover nudge on
+     wider screens can never fight the centring */
+  .lb-arrow{position:absolute;top:0;bottom:0;margin-block:auto;z-index:2;
+    width:38px;height:72px;color:var(--paper)}
+  .lb-arrow svg{width:15px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.9))}
+  .lb-prev{left:2px}
+  .lb-next{right:2px}
+  .lb-arrow:hover{color:var(--gold)}
+  /* the scroll arrows stay in the flow — they belong to the setlist, not the video */
+  .lb-scroll{position:static;margin-block:0;width:1.7rem;height:auto;
+    color:var(--paper-dim)}
+  .lb-scroll svg{width:10px;filter:none}
+  .lb-track{max-width:11rem}
+}
+@media (prefers-reduced-motion:reduce){.lightbox-stage{transition:none}}
 
 /* ─── shows ledger ────────────────────────────────────────────────── */
 .shows{border-top:1px solid var(--ink-3)}

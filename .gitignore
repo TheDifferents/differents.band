@@ -9,3 +9,7 @@ __pycache__/
 
 # macOS
 .DS_Store
+
+# Video working files — sources and transcodes live here, never in the repo.
+# The site publishes to GitHub Pages, capped at 1GB; finished clips go to R2.
+media/

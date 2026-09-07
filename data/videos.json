@@ -1,146 +1,313 @@
 {
-  "playlistId": "PLGX0zmR180-9UuOns8QRleBn-H_pjjnpT",
-  "count": 20,
+  "count": 22,
   "videos": [
     {
-      "id": "NtjNnmi-gFE",
-      "title": "What I Like about You - The Romantics",
-      "thumb": "https://i.ytimg.com/vi/NtjNnmi-gFE/maxresdefault.jpg",
-      "publishedAt": "2026-09-06T13:53:48Z",
-      "duration": "1:09"
+      "slug": "lonely-boy",
+      "title": "Lonely Boy",
+      "artist": "The Black Keys",
+      "duration": "1:02",
+      "thumb": "https://media.differents.band/clips/lonely-boy-522c707e.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/lonely-boy-522c707e.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/lonely-boy-1080-53b08760.mp4",
+          "720": "https://media.differents.band/clips/lonely-boy-720-87c75a88.mp4"
+        }
+      }
     },
     {
-      "id": "Sr90nHInyxM",
-      "title": "Welcome to Paradise - Greenday",
-      "thumb": "https://i.ytimg.com/vi/Sr90nHInyxM/maxresdefault.jpg",
-      "publishedAt": "2026-09-06T13:53:48Z",
-      "duration": "1:28"
+      "slug": "what-i-like-about-you",
+      "title": "What I Like about You",
+      "artist": "The Romantics",
+      "duration": "1:08",
+      "thumb": "https://media.differents.band/clips/what-i-like-about-you-787a7581.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/what-i-like-about-you-787a7581.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/what-i-like-about-you-1080-57100a50.mp4",
+          "720": "https://media.differents.band/clips/what-i-like-about-you-720-4f6b020d.mp4"
+        }
+      }
     },
     {
-      "id": "EEi1POxGzUA",
-      "title": "Dani California - Red Hot Chili Peppers",
-      "thumb": "https://i.ytimg.com/vi/EEi1POxGzUA/maxresdefault.jpg",
-      "publishedAt": "2026-09-06T13:53:48Z",
-      "duration": "0:44"
+      "slug": "last-dance-with-mary-jane",
+      "title": "Last Dance with Mary Jane",
+      "artist": "Tom Petty",
+      "duration": "1:05",
+      "thumb": "https://media.differents.band/clips/last-dance-with-mary-jane-9683f2b9.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/last-dance-with-mary-jane-9683f2b9.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/last-dance-with-mary-jane-1080-65ab6e1e.mp4",
+          "720": "https://media.differents.band/clips/last-dance-with-mary-jane-720-e26b546d.mp4"
+        }
+      }
     },
     {
-      "id": "3rLsAYb3-1w",
-      "title": "Lonely Boy - Black Keys",
-      "thumb": "https://i.ytimg.com/vi/3rLsAYb3-1w/maxresdefault.jpg",
-      "publishedAt": "2026-09-06T13:53:48Z",
-      "duration": "1:03"
+      "slug": "welcome-to-paradise",
+      "title": "Welcome to Paradise",
+      "artist": "Greenday",
+      "duration": "1:27",
+      "thumb": "https://media.differents.band/clips/welcome-to-paradise-3bb6d8c0.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/welcome-to-paradise-3bb6d8c0.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/welcome-to-paradise-1080-5d4c3ea9.mp4",
+          "720": "https://media.differents.band/clips/welcome-to-paradise-720-5d59d4ad.mp4"
+        }
+      }
     },
     {
-      "id": "4kfDb4kjuoU",
-      "title": "Alive - Pearl Jam",
-      "thumb": "https://i.ytimg.com/vi/4kfDb4kjuoU/maxresdefault.jpg",
-      "publishedAt": "2026-09-07T15:09:51Z",
-      "duration": "1:43"
+      "slug": "dani-california",
+      "title": "Dani California",
+      "artist": "Red Hot Chili Peppers",
+      "duration": "0:43",
+      "thumb": "https://media.differents.band/clips/dani-california-d2a5388a.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/dani-california-d2a5388a.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/dani-california-1080-3ebaa3d3.mp4",
+          "720": "https://media.differents.band/clips/dani-california-720-bdaf837f.mp4"
+        }
+      }
     },
     {
-      "id": "EIpHTA51-jY",
-      "title": "Jumpin' Jack Flash - Rolling Stones",
-      "thumb": "https://i.ytimg.com/vi/EIpHTA51-jY/maxresdefault.jpg",
-      "publishedAt": "2026-09-06T13:53:48Z",
-      "duration": "0:48"
+      "slug": "alive",
+      "title": "Alive",
+      "artist": "Pearl Jam",
+      "duration": "1:42",
+      "thumb": "https://media.differents.band/clips/alive-d78c3749.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/alive-d78c3749.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/alive-1080-44d648ff.mp4",
+          "720": "https://media.differents.band/clips/alive-720-f6d0f404.mp4"
+        }
+      }
     },
     {
-      "id": "IJn512j_CU4",
-      "title": "Maggie May - Rod Stewart",
-      "thumb": "https://i.ytimg.com/vi/IJn512j_CU4/maxresdefault.jpg",
-      "publishedAt": "2026-09-06T13:53:48Z",
-      "duration": "1:25"
+      "slug": "jumpin-jack-flash",
+      "title": "Jumpin Jack Flash",
+      "artist": "Rolling Stones",
+      "duration": "0:48",
+      "thumb": "https://media.differents.band/clips/jumpin-jack-flash-661bb183.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/jumpin-jack-flash-661bb183.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/jumpin-jack-flash-1080-59146265.mp4",
+          "720": "https://media.differents.band/clips/jumpin-jack-flash-720-9b11c402.mp4"
+        }
+      }
     },
     {
-      "id": "bGIX_GpHO-E",
-      "title": "Tennessee Whiskey - Chris Stapleton",
-      "thumb": "https://i.ytimg.com/vi/bGIX_GpHO-E/maxresdefault.jpg",
-      "publishedAt": "2026-09-06T13:53:48Z",
-      "duration": "1:59"
+      "slug": "maggie-may",
+      "title": "Maggie May",
+      "artist": "Rod Stewart",
+      "duration": "1:25",
+      "thumb": "https://media.differents.band/clips/maggie-may-611906a1.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/maggie-may-611906a1.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/maggie-may-1080-b6017a45.mp4",
+          "720": "https://media.differents.band/clips/maggie-may-720-00ac4b91.mp4"
+        }
+      }
     },
     {
-      "id": "fGYEo5y6n3A",
-      "title": "Drift Away - Dobie Gray",
-      "thumb": "https://i.ytimg.com/vi/fGYEo5y6n3A/maxresdefault.jpg",
-      "publishedAt": "2026-09-06T13:53:48Z",
-      "duration": "0:51"
+      "slug": "tennessee-whiskey",
+      "title": "Tennessee Whiskey",
+      "artist": "Chris Stapleton",
+      "duration": "1:59",
+      "thumb": "https://media.differents.band/clips/tennessee-whiskey-9a16e8a4.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/tennessee-whiskey-9a16e8a4.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/tennessee-whiskey-1080-ae879cc7.mp4",
+          "720": "https://media.differents.band/clips/tennessee-whiskey-720-b46eff01.mp4"
+        }
+      }
     },
     {
-      "id": "vz8BkcrmgYg",
-      "title": "Runnin' Down a Dream - Tom Petty",
-      "thumb": "https://i.ytimg.com/vi/vz8BkcrmgYg/maxresdefault.jpg",
-      "publishedAt": "2026-09-06T13:53:48Z",
-      "duration": "1:25"
+      "slug": "valerie",
+      "title": "Valerie",
+      "artist": "The Zutons",
+      "duration": "1:16",
+      "thumb": "https://media.differents.band/clips/valerie-428833ec.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/valerie-428833ec.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/valerie-1080-8c9a7363.mp4",
+          "720": "https://media.differents.band/clips/valerie-720-879ca796.mp4"
+        }
+      }
     },
     {
-      "id": "wHKhCI37wPY",
-      "title": "Stuck In The Middle With You - Stealer's Wheel",
-      "thumb": "https://i.ytimg.com/vi/wHKhCI37wPY/maxresdefault.jpg",
-      "publishedAt": "2026-09-06T13:53:48Z",
-      "duration": "0:40"
+      "slug": "drift-away",
+      "title": "Drift Away",
+      "artist": "Dobie Gray",
+      "duration": "0:50",
+      "thumb": "https://media.differents.band/clips/drift-away-43ea65dd.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/drift-away-43ea65dd.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/drift-away-1080-49b48143.mp4",
+          "720": "https://media.differents.band/clips/drift-away-720-178f6939.mp4"
+        }
+      }
     },
     {
-      "id": "zK_5GT45cNg",
-      "title": "3am - Matchbox 20",
-      "thumb": "https://i.ytimg.com/vi/zK_5GT45cNg/maxresdefault.jpg",
-      "publishedAt": "2026-09-06T13:53:48Z",
-      "duration": "1:09"
+      "slug": "runnin-down-a-dream",
+      "title": "Runnin Down a Dream",
+      "artist": "Tom Petty",
+      "duration": "1:24",
+      "thumb": "https://media.differents.band/clips/runnin-down-a-dream-7de78a67.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/runnin-down-a-dream-7de78a67.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/runnin-down-a-dream-1080-59f60618.mp4",
+          "720": "https://media.differents.band/clips/runnin-down-a-dream-720-ff0aa4c9.mp4"
+        }
+      }
     },
     {
-      "id": "6v7lpJXplVY",
-      "title": "Last Dance with Marry Jane - Tom Petty",
-      "thumb": "https://i.ytimg.com/vi/6v7lpJXplVY/maxresdefault.jpg",
-      "publishedAt": "2026-09-07T15:09:51Z",
-      "duration": "1:06"
+      "slug": "stuck-in-the-middle-with-you",
+      "title": "Stuck In The Middle With You",
+      "artist": "Stealer's Wheel",
+      "duration": "0:40",
+      "thumb": "https://media.differents.band/clips/stuck-in-the-middle-with-you-a7366234.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/stuck-in-the-middle-with-you-a7366234.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/stuck-in-the-middle-with-you-1080-e029ac80.mp4",
+          "720": "https://media.differents.band/clips/stuck-in-the-middle-with-you-720-3680842b.mp4"
+        }
+      }
     },
     {
-      "id": "CfVcoSElFcc",
-      "title": "Valerie - The Zutons",
-      "thumb": "https://i.ytimg.com/vi/CfVcoSElFcc/maxresdefault.jpg",
-      "publishedAt": "2026-09-07T15:09:51Z",
-      "duration": "1:17"
+      "slug": "3am",
+      "title": "3am",
+      "artist": "Matchbox 20",
+      "duration": "1:08",
+      "thumb": "https://media.differents.band/clips/3am-e908cdf8.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/3am-e908cdf8.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/3am-1080-0155d6dd.mp4",
+          "720": "https://media.differents.band/clips/3am-720-d76ce1bc.mp4"
+        }
+      }
     },
     {
-      "id": "3qpYscTWdk4",
-      "title": "Billie Jean - Michael Jackson",
-      "thumb": "https://i.ytimg.com/vi/3qpYscTWdk4/maxresdefault.jpg",
-      "publishedAt": "2026-09-07T15:09:51Z",
-      "duration": "0:56"
+      "slug": "sweet-emotion",
+      "title": "Sweet Emotion",
+      "artist": "Aerosmith",
+      "duration": "0:47",
+      "thumb": "https://media.differents.band/clips/sweet-emotion-4db4f261.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/sweet-emotion-4db4f261.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/sweet-emotion-1080-da81436e.mp4",
+          "720": "https://media.differents.band/clips/sweet-emotion-720-38779bdc.mp4"
+        }
+      }
     },
     {
-      "id": "oShK5B8CTyo",
-      "title": "Just what I needed - The Cars",
-      "thumb": "https://i.ytimg.com/vi/oShK5B8CTyo/maxresdefault.jpg",
-      "publishedAt": "2026-09-07T15:09:51Z",
-      "duration": "0:48"
+      "slug": "billie-jean",
+      "title": "Billie Jean",
+      "artist": "Michael Jackson",
+      "duration": "0:55",
+      "thumb": "https://media.differents.band/clips/billie-jean-b9856ccf.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/billie-jean-b9856ccf.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/billie-jean-1080-ac4599df.mp4",
+          "720": "https://media.differents.band/clips/billie-jean-720-53290771.mp4"
+        }
+      }
     },
     {
-      "id": "Ds1lsUn7Db4",
-      "title": "Country Roads - John Denver",
-      "thumb": "https://i.ytimg.com/vi/Ds1lsUn7Db4/maxresdefault.jpg",
-      "publishedAt": "2026-09-07T15:09:51Z",
-      "duration": "0:32"
+      "slug": "just-what-i-needed",
+      "title": "Just what I needed",
+      "artist": "The Cars",
+      "duration": "0:47",
+      "thumb": "https://media.differents.band/clips/just-what-i-needed-5000fc4a.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/just-what-i-needed-5000fc4a.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/just-what-i-needed-1080-e2d6ea94.mp4",
+          "720": "https://media.differents.band/clips/just-what-i-needed-720-e6f0bf46.mp4"
+        }
+      }
     },
     {
-      "id": "vliAxTBt1U4",
-      "title": "Use Me - Bill Withers",
-      "thumb": "https://i.ytimg.com/vi/vliAxTBt1U4/maxresdefault.jpg",
-      "publishedAt": "2026-09-07T15:09:51Z",
-      "duration": "0:45"
+      "slug": "country-roads",
+      "title": "Country Roads",
+      "artist": "John Denver",
+      "duration": "0:31",
+      "thumb": "https://media.differents.band/clips/country-roads-5ab7a660.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/country-roads-5ab7a660.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/country-roads-1080-5e257f72.mp4",
+          "720": "https://media.differents.band/clips/country-roads-720-d0036967.mp4"
+        }
+      }
     },
     {
-      "id": "IMiIO-SXHKU",
-      "title": "Sweet Emotion - Aerosmith",
-      "thumb": "https://i.ytimg.com/vi/IMiIO-SXHKU/maxresdefault.jpg",
-      "publishedAt": "2026-09-07T15:09:51Z",
-      "duration": "0:47"
+      "slug": "use-me",
+      "title": "Use Me",
+      "artist": "Bill Withers",
+      "duration": "0:44",
+      "thumb": "https://media.differents.band/clips/use-me-c3f26e6b.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/use-me-c3f26e6b.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/use-me-1080-40eae528.mp4",
+          "720": "https://media.differents.band/clips/use-me-720-fe4c2034.mp4"
+        }
+      }
     },
     {
-      "id": "ZdW20EG7w60",
-      "title": "Lonely Boy - The Black Keys",
-      "thumb": "https://i.ytimg.com/vi/ZdW20EG7w60/maxresdefault.jpg",
-      "publishedAt": "2026-09-07T15:09:51Z",
-      "duration": "1:03"
+      "slug": "africa",
+      "title": "Africa",
+      "artist": "Toto",
+      "duration": "0:47",
+      "thumb": "https://media.differents.band/clips/africa-7f8a2648.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/africa-7f8a2648.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/africa-1080-36beb0c0.mp4",
+          "720": "https://media.differents.band/clips/africa-720-5b4233b0.mp4"
+        }
+      }
+    },
+    {
+      "slug": "burning-love",
+      "title": "Burning Love",
+      "artist": "Elvis Presley",
+      "duration": "0:42",
+      "thumb": "https://media.differents.band/clips/burning-love-5c3d01c3.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/burning-love-5c3d01c3.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/burning-love-1080-11a985da.mp4",
+          "720": "https://media.differents.band/clips/burning-love-720-e91fae25.mp4"
+        }
+      }
+    },
+    {
+      "slug": "superstition",
+      "title": "Superstition",
+      "artist": "Stevie Wonder",
+      "duration": "1:02",
+      "thumb": "https://media.differents.band/clips/superstition-ec2b867e.jpg",
+      "self": {
+        "poster": "https://media.differents.band/clips/superstition-ec2b867e.jpg",
+        "sources": {
+          "1080": "https://media.differents.band/clips/superstition-1080-2c624c27.mp4",
+          "720": "https://media.differents.band/clips/superstition-720-ae2b081e.mp4"
+        }
+      }
     }
   ]
 }

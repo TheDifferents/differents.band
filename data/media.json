@@ -1,0 +1,511 @@
+{
+  "count": 22,
+  "clips": [
+    {
+      "slug": "3am",
+      "title": "3am",
+      "duration": 68.13,
+      "source": "3am.mp4",
+      "renditions": {
+        "1080": {
+          "file": "3am-1080.mp4",
+          "bytes": 52525203,
+          "key": "clips/3am-1080-0155d6dd.mp4"
+        },
+        "720": {
+          "file": "3am-720.mp4",
+          "bytes": 22701740,
+          "key": "clips/3am-720-d76ce1bc.mp4"
+        },
+        "poster": {
+          "file": "3am.jpg",
+          "bytes": 251875,
+          "key": "clips/3am-e908cdf8.jpg"
+        }
+      }
+    },
+    {
+      "slug": "africa",
+      "title": "Africa",
+      "duration": 47.45,
+      "source": "Africa.mp4",
+      "renditions": {
+        "1080": {
+          "file": "africa-1080.mp4",
+          "bytes": 32933351,
+          "key": "clips/africa-1080-36beb0c0.mp4"
+        },
+        "720": {
+          "file": "africa-720.mp4",
+          "bytes": 10453277,
+          "key": "clips/africa-720-5b4233b0.mp4"
+        },
+        "poster": {
+          "file": "africa.jpg",
+          "bytes": 129848,
+          "key": "clips/africa-7f8a2648.jpg"
+        }
+      }
+    },
+    {
+      "slug": "alive",
+      "title": "Alive",
+      "duration": 102.47,
+      "source": "Alive.mp4",
+      "renditions": {
+        "1080": {
+          "file": "alive-1080.mp4",
+          "bytes": 78946388,
+          "key": "clips/alive-1080-44d648ff.mp4"
+        },
+        "720": {
+          "file": "alive-720.mp4",
+          "bytes": 38986364,
+          "key": "clips/alive-720-f6d0f404.mp4"
+        },
+        "poster": {
+          "file": "alive.jpg",
+          "bytes": 251624,
+          "key": "clips/alive-d78c3749.jpg"
+        }
+      }
+    },
+    {
+      "slug": "billie-jean",
+      "title": "Billie Jean",
+      "duration": 55.26,
+      "source": "Billie Jean.mp4",
+      "renditions": {
+        "1080": {
+          "file": "billie-jean-1080.mp4",
+          "bytes": 37218846,
+          "key": "clips/billie-jean-1080-ac4599df.mp4"
+        },
+        "720": {
+          "file": "billie-jean-720.mp4",
+          "bytes": 12240021,
+          "key": "clips/billie-jean-720-53290771.mp4"
+        },
+        "poster": {
+          "file": "billie-jean.jpg",
+          "bytes": 140674,
+          "key": "clips/billie-jean-b9856ccf.jpg"
+        }
+      }
+    },
+    {
+      "slug": "burning-love",
+      "title": "Burning Love",
+      "duration": 41.64,
+      "source": "Burning Love.mp4",
+      "renditions": {
+        "1080": {
+          "file": "burning-love-1080.mp4",
+          "bytes": 28593533,
+          "key": "clips/burning-love-1080-11a985da.mp4"
+        },
+        "720": {
+          "file": "burning-love-720.mp4",
+          "bytes": 9307304,
+          "key": "clips/burning-love-720-e91fae25.mp4"
+        },
+        "poster": {
+          "file": "burning-love.jpg",
+          "bytes": 135494,
+          "key": "clips/burning-love-5c3d01c3.jpg"
+        }
+      }
+    },
+    {
+      "slug": "country-roads",
+      "title": "Country Roads",
+      "duration": 31.3,
+      "source": "Country Roads.mp4",
+      "renditions": {
+        "1080": {
+          "file": "country-roads-1080.mp4",
+          "bytes": 24054845,
+          "key": "clips/country-roads-1080-5e257f72.mp4"
+        },
+        "720": {
+          "file": "country-roads-720.mp4",
+          "bytes": 7589433,
+          "key": "clips/country-roads-720-d0036967.mp4"
+        },
+        "poster": {
+          "file": "country-roads.jpg",
+          "bytes": 142208,
+          "key": "clips/country-roads-5ab7a660.jpg"
+        }
+      }
+    },
+    {
+      "slug": "dani-california",
+      "title": "Dani California",
+      "duration": 43.04,
+      "source": "Dani California.mp4",
+      "renditions": {
+        "1080": {
+          "file": "dani-california-1080.mp4",
+          "bytes": 32916534,
+          "key": "clips/dani-california-1080-3ebaa3d3.mp4"
+        },
+        "720": {
+          "file": "dani-california-720.mp4",
+          "bytes": 13723436,
+          "key": "clips/dani-california-720-bdaf837f.mp4"
+        },
+        "poster": {
+          "file": "dani-california.jpg",
+          "bytes": 237367,
+          "key": "clips/dani-california-d2a5388a.jpg"
+        }
+      }
+    },
+    {
+      "slug": "drift-away",
+      "title": "Drift Away",
+      "duration": 50.18,
+      "source": "Drift Away.mp4",
+      "renditions": {
+        "1080": {
+          "file": "drift-away-1080.mp4",
+          "bytes": 38720831,
+          "key": "clips/drift-away-1080-49b48143.mp4"
+        },
+        "720": {
+          "file": "drift-away-720.mp4",
+          "bytes": 16546043,
+          "key": "clips/drift-away-720-178f6939.mp4"
+        },
+        "poster": {
+          "file": "drift-away.jpg",
+          "bytes": 238225,
+          "key": "clips/drift-away-43ea65dd.jpg"
+        }
+      }
+    },
+    {
+      "slug": "jumpin-jack-flash",
+      "title": "Jumpin Jack Flash",
+      "duration": 47.91,
+      "source": "Jumpin Jack Flash.mp4",
+      "renditions": {
+        "1080": {
+          "file": "jumpin-jack-flash-1080.mp4",
+          "bytes": 36049619,
+          "key": "clips/jumpin-jack-flash-1080-59146265.mp4"
+        },
+        "720": {
+          "file": "jumpin-jack-flash-720.mp4",
+          "bytes": 13641938,
+          "key": "clips/jumpin-jack-flash-720-9b11c402.mp4"
+        },
+        "poster": {
+          "file": "jumpin-jack-flash.jpg",
+          "bytes": 254009,
+          "key": "clips/jumpin-jack-flash-661bb183.jpg"
+        }
+      }
+    },
+    {
+      "slug": "just-what-i-needed",
+      "title": "Just what I needed",
+      "duration": 47.05,
+      "source": "Just what I needed.mp4",
+      "renditions": {
+        "1080": {
+          "file": "just-what-i-needed-1080.mp4",
+          "bytes": 32965076,
+          "key": "clips/just-what-i-needed-1080-e2d6ea94.mp4"
+        },
+        "720": {
+          "file": "just-what-i-needed-720.mp4",
+          "bytes": 10295604,
+          "key": "clips/just-what-i-needed-720-e6f0bf46.mp4"
+        },
+        "poster": {
+          "file": "just-what-i-needed.jpg",
+          "bytes": 129256,
+          "key": "clips/just-what-i-needed-5000fc4a.jpg"
+        }
+      }
+    },
+    {
+      "slug": "last-dance-with-mary-jane",
+      "title": "Last Dance with Mary Jane",
+      "duration": 65.03,
+      "source": "Last Dance with Marry Jane.mp4",
+      "renditions": {
+        "1080": {
+          "file": "last-dance-with-mary-jane-1080.mp4",
+          "bytes": 50027519,
+          "key": "clips/last-dance-with-mary-jane-1080-65ab6e1e.mp4"
+        },
+        "720": {
+          "file": "last-dance-with-mary-jane-720.mp4",
+          "bytes": 23556925,
+          "key": "clips/last-dance-with-mary-jane-720-e26b546d.mp4"
+        },
+        "poster": {
+          "file": "last-dance-with-mary-jane.jpg",
+          "bytes": 252935,
+          "key": "clips/last-dance-with-mary-jane-9683f2b9.jpg"
+        }
+      }
+    },
+    {
+      "slug": "lonely-boy",
+      "title": "Lonely Boy",
+      "duration": 62.16,
+      "source": "Lonely Boy.mp4",
+      "renditions": {
+        "1080": {
+          "file": "lonely-boy-1080.mp4",
+          "bytes": 47919566,
+          "key": "clips/lonely-boy-1080-53b08760.mp4"
+        },
+        "720": {
+          "file": "lonely-boy-720.mp4",
+          "bytes": 21558521,
+          "key": "clips/lonely-boy-720-87c75a88.mp4"
+        },
+        "poster": {
+          "file": "lonely-boy.jpg",
+          "bytes": 239820,
+          "key": "clips/lonely-boy-522c707e.jpg"
+        }
+      }
+    },
+    {
+      "slug": "maggie-may",
+      "title": "Maggie May",
+      "duration": 84.88,
+      "source": "Maggie May.mp4",
+      "renditions": {
+        "1080": {
+          "file": "maggie-may-1080.mp4",
+          "bytes": 65360048,
+          "key": "clips/maggie-may-1080-b6017a45.mp4"
+        },
+        "720": {
+          "file": "maggie-may-720.mp4",
+          "bytes": 28171366,
+          "key": "clips/maggie-may-720-00ac4b91.mp4"
+        },
+        "poster": {
+          "file": "maggie-may.jpg",
+          "bytes": 247794,
+          "key": "clips/maggie-may-611906a1.jpg"
+        }
+      }
+    },
+    {
+      "slug": "runnin-down-a-dream",
+      "title": "Runnin Down a Dream",
+      "duration": 84.35,
+      "source": "Runnin Down a Dream.mp4",
+      "renditions": {
+        "1080": {
+          "file": "runnin-down-a-dream-1080.mp4",
+          "bytes": 65061620,
+          "key": "clips/runnin-down-a-dream-1080-59f60618.mp4"
+        },
+        "720": {
+          "file": "runnin-down-a-dream-720.mp4",
+          "bytes": 28216468,
+          "key": "clips/runnin-down-a-dream-720-ff0aa4c9.mp4"
+        },
+        "poster": {
+          "file": "runnin-down-a-dream.jpg",
+          "bytes": 242882,
+          "key": "clips/runnin-down-a-dream-7de78a67.jpg"
+        }
+      }
+    },
+    {
+      "slug": "stuck-in-the-middle-with-you",
+      "title": "Stuck In The Middle With You",
+      "duration": 39.87,
+      "source": "Stuck In The Middle With You.mp4",
+      "renditions": {
+        "1080": {
+          "file": "stuck-in-the-middle-with-you-1080.mp4",
+          "bytes": 30785562,
+          "key": "clips/stuck-in-the-middle-with-you-1080-e029ac80.mp4"
+        },
+        "720": {
+          "file": "stuck-in-the-middle-with-you-720.mp4",
+          "bytes": 14461868,
+          "key": "clips/stuck-in-the-middle-with-you-720-3680842b.mp4"
+        },
+        "poster": {
+          "file": "stuck-in-the-middle-with-you.jpg",
+          "bytes": 250613,
+          "key": "clips/stuck-in-the-middle-with-you-a7366234.jpg"
+        }
+      }
+    },
+    {
+      "slug": "superstition",
+      "title": "Superstition",
+      "duration": 62.13,
+      "source": "Superstition.mp4",
+      "renditions": {
+        "1080": {
+          "file": "superstition-1080.mp4",
+          "bytes": 46901070,
+          "key": "clips/superstition-1080-2c624c27.mp4"
+        },
+        "720": {
+          "file": "superstition-720.mp4",
+          "bytes": 14896111,
+          "key": "clips/superstition-720-ae2b081e.mp4"
+        },
+        "poster": {
+          "file": "superstition.jpg",
+          "bytes": 135144,
+          "key": "clips/superstition-ec2b867e.jpg"
+        }
+      }
+    },
+    {
+      "slug": "sweet-emotion",
+      "title": "Sweet Emotion",
+      "duration": 46.91,
+      "source": "Sweet Emotion.mp4",
+      "renditions": {
+        "1080": {
+          "file": "sweet-emotion-1080.mp4",
+          "bytes": 36099345,
+          "key": "clips/sweet-emotion-1080-da81436e.mp4"
+        },
+        "720": {
+          "file": "sweet-emotion-720.mp4",
+          "bytes": 14277231,
+          "key": "clips/sweet-emotion-720-38779bdc.mp4"
+        },
+        "poster": {
+          "file": "sweet-emotion.jpg",
+          "bytes": 250921,
+          "key": "clips/sweet-emotion-4db4f261.jpg"
+        }
+      }
+    },
+    {
+      "slug": "tennessee-whiskey",
+      "title": "Tennessee Whiskey",
+      "duration": 118.59,
+      "source": "Tennessee Whiskey.mp4",
+      "renditions": {
+        "1080": {
+          "file": "tennessee-whiskey-1080.mp4",
+          "bytes": 91229756,
+          "key": "clips/tennessee-whiskey-1080-ae879cc7.mp4"
+        },
+        "720": {
+          "file": "tennessee-whiskey-720.mp4",
+          "bytes": 41181388,
+          "key": "clips/tennessee-whiskey-720-b46eff01.mp4"
+        },
+        "poster": {
+          "file": "tennessee-whiskey.jpg",
+          "bytes": 247949,
+          "key": "clips/tennessee-whiskey-9a16e8a4.jpg"
+        }
+      }
+    },
+    {
+      "slug": "use-me",
+      "title": "Use Me",
+      "duration": 44.01,
+      "source": "Use Me.mp4",
+      "renditions": {
+        "1080": {
+          "file": "use-me-1080.mp4",
+          "bytes": 29699948,
+          "key": "clips/use-me-1080-40eae528.mp4"
+        },
+        "720": {
+          "file": "use-me-720.mp4",
+          "bytes": 9916101,
+          "key": "clips/use-me-720-fe4c2034.mp4"
+        },
+        "poster": {
+          "file": "use-me.jpg",
+          "bytes": 129848,
+          "key": "clips/use-me-c3f26e6b.jpg"
+        }
+      }
+    },
+    {
+      "slug": "valerie",
+      "title": "Valerie",
+      "duration": 76.48,
+      "source": "Valerie.mp4",
+      "renditions": {
+        "1080": {
+          "file": "valerie-1080.mp4",
+          "bytes": 59062914,
+          "key": "clips/valerie-1080-8c9a7363.mp4"
+        },
+        "720": {
+          "file": "valerie-720.mp4",
+          "bytes": 26303685,
+          "key": "clips/valerie-720-879ca796.mp4"
+        },
+        "poster": {
+          "file": "valerie.jpg",
+          "bytes": 240730,
+          "key": "clips/valerie-428833ec.jpg"
+        }
+      }
+    },
+    {
+      "slug": "welcome-to-paradise",
+      "title": "Welcome to Paradise",
+      "duration": 87.42,
+      "source": "Welcome to Paradise.mp4",
+      "renditions": {
+        "1080": {
+          "file": "welcome-to-paradise-1080.mp4",
+          "bytes": 67318022,
+          "key": "clips/welcome-to-paradise-1080-5d4c3ea9.mp4"
+        },
+        "720": {
+          "file": "welcome-to-paradise-720.mp4",
+          "bytes": 29955588,
+          "key": "clips/welcome-to-paradise-720-5d59d4ad.mp4"
+        },
+        "poster": {
+          "file": "welcome-to-paradise.jpg",
+          "bytes": 233542,
+          "key": "clips/welcome-to-paradise-3bb6d8c0.jpg"
+        }
+      }
+    },
+    {
+      "slug": "what-i-like-about-you",
+      "title": "What I Like about You",
+      "duration": 68.0,
+      "source": "What I Like about You.mp4",
+      "renditions": {
+        "1080": {
+          "file": "what-i-like-about-you-1080.mp4",
+          "bytes": 52488583,
+          "key": "clips/what-i-like-about-you-1080-57100a50.mp4"
+        },
+        "720": {
+          "file": "what-i-like-about-you-720.mp4",
+          "bytes": 24419708,
+          "key": "clips/what-i-like-about-you-720-4f6b020d.mp4"
+        },
+        "poster": {
+          "file": "what-i-like-about-you.jpg",
+          "bytes": 240261,
+          "key": "clips/what-i-like-about-you-787a7581.jpg"
+        }
+      }
+    }
+  ]
+}
