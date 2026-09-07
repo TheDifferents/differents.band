@@ -80,8 +80,8 @@
       const all = (data.shows || [])
         .map(s => ({ ...s, _d: parseDay(s.date) }))
         .sort((a, b) => a._d - b._d);
+      // a date that has been and gone comes off the site entirely
       const upcoming = all.filter(s => s._d >= today);
-      const past = all.filter(s => s._d < today).reverse();
 
       if (strip) {
         const next = upcoming[0];
@@ -103,16 +103,16 @@
       }
 
       if (showsList) {
-        const row = (s, isPast) => {
+        const row = (s) => {
           const d = s._d;
-          const wrap = el('div', 'show' + (isPast ? ' is-past' : ''));
-          if (!isPast && d.getTime() === today.getTime()) wrap.classList.add('is-tonight');
+          const wrap = el('div', 'show');
+          if (d.getTime() === today.getTime()) wrap.classList.add('is-tonight');
           const date = el('div', 'show-date');
           date.append(DAY[d.getDay()], el('b', null, String(d.getDate()).padStart(2, '0')),
                       MON[d.getMonth()]);
           const mid = el('div');
           const venue = el('div', 'show-venue', s.venue);
-          if (!isPast && d.getTime() === today.getTime()) venue.append(el('span', 'tag', 'Tonight'));
+          if (d.getTime() === today.getTime()) venue.append(el('span', 'tag', 'Tonight'));
           mid.append(venue);
           if (s.address) {
             const addr = el('div', 'show-addr');
@@ -130,13 +130,7 @@
           showsList.append(el('p', 'empty',
             'No dates on the books right now. Check back soon, or get in touch to book us.'));
         } else {
-          upcoming.forEach(s => showsList.append(row(s, false)));
-        }
-        const pastWrap = document.getElementById('past-shows');
-        if (pastWrap && past.length) {
-          past.slice(0, 12).forEach(s => pastWrap.append(row(s, true)));
-        } else if (pastWrap) {
-          pastWrap.closest('.section')?.remove();
+          upcoming.forEach(s => showsList.append(row(s)));
         }
       }
     }).catch(err => {

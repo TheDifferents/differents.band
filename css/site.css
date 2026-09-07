@@ -449,7 +449,6 @@ h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:.88;
 .show-time{font-family:var(--mono);font-size:.82rem;color:var(--sky);
   font-variant-numeric:tabular-nums;white-space:nowrap}
 .show.is-tonight .show-date b{color:var(--red-lift)}
-.show.is-past{opacity:.45}
 .tag{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;
   text-transform:uppercase;background:var(--red);color:#fff;padding:.15rem .45rem;
   border-radius:2px;vertical-align:middle;margin-left:.5rem}
