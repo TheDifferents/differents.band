@@ -158,18 +158,59 @@
     /* The stage keeps its box while the clip inside it swaps. That is what the
        fade rides on — replacing the element would flash the backdrop. */
     const stage = el('div', 'lightbox-stage');
-    const vid = el('video', 'lb-video');
-    vid.controls = true;
-    vid.preload = 'metadata';
-    vid.setAttribute('playsinline', '');
-    // the scrubber only shows in the phone feed, where native controls are off,
-    // but it rides with the video so the two never get separated
-    const bar2 = el('div', 'lb-progress');
-    const fill = el('div', 'lb-progress-fill');
-    bar2.append(fill);
-    const media = el('div', 'lb-media');
-    media.append(vid, bar2);
-    stage.append(media);
+    /* Two players, not one. The idle one holds the clip you are most likely to
+       reach next, already buffering, so a swipe starts playing instead of
+       waiting on the network. Two rather than three keeps the extra data to a
+       single clip. Each carries its own scrubber, which only shows in the feed
+       where native controls are off. */
+    const makePlayer = () => {
+      const v = el('video', 'lb-video');
+      v.preload = 'metadata';
+      v.setAttribute('playsinline', '');
+      const track = el('div', 'lb-progress');
+      const fill = el('div', 'lb-progress-fill');
+      track.append(fill);
+      const wrap = el('div', 'lb-media');
+      wrap.append(v, track);
+      const self = { v, track, fill, wrap };
+      const isLive = () => players[live] === self;
+
+      v.addEventListener('playing', () => { if (isLive()) { failRun = 0; showStage(); } });
+      v.addEventListener('ended', () => { if (isLive()) go(index + 1, true); });
+      v.addEventListener('error', () => {
+        if (!isLive()) return;   // a warming player failing is no reason to move on
+        showStage();
+        if (cameHereAutomatically && ++failRun < playlist.length) go(index + 1, true);
+      });
+      v.addEventListener('timeupdate', () => {
+        if (v.duration) fill.style.width = `${(v.currentTime / v.duration) * 100}%`;
+      });
+      // tap the video to pause and resume; the scrubber handles its own taps
+      wrap.addEventListener('click', (e) => {
+        if (!inFeed() || e.target.closest('.lb-progress')) return;
+        if (v.paused) v.play().catch(() => {}); else v.pause();
+      });
+      const scrub = (e) => {
+        const r = track.getBoundingClientRect();
+        const at = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+        if (v.duration) v.currentTime = at * v.duration;
+      };
+      track.addEventListener('pointerdown', (e) => {
+        track.setPointerCapture(e.pointerId);
+        scrub(e);
+        const move = (ev) => scrub(ev);
+        const up = () => { track.removeEventListener('pointermove', move);
+                           track.removeEventListener('pointerup', up); };
+        track.addEventListener('pointermove', move);
+        track.addEventListener('pointerup', up);
+      });
+      return self;
+    };
+    const players = [makePlayer(), makePlayer()];
+    let live = 0;
+    let travel = 1;            // which way you are moving, so we warm ahead of you
+    const liveVideo = () => players[live].v;
+    stage.append(players[0].wrap);
     const stageWrap = el('div', 'lb-stage-wrap');
     stageWrap.append(stage);
 
@@ -203,7 +244,11 @@
        text — and the single <video> moves into whichever one you land on.
        Twenty-two video elements on a phone would be brutal on data and memory. */
     const feed = el('div', 'lb-feed');
-    box.append(closeBtn, inner, feed);
+    /* The warming player is parked here rather than detached. A media element
+       taken out of the document is not reliably allowed to keep buffering, and
+       buffering is the entire job of the second one. */
+    const parking = el('div', 'lb-parking');
+    box.append(closeBtn, inner, feed, parking);
     document.body.append(box);
 
     const onPhone = window.matchMedia('(max-width: 700px)');
@@ -232,29 +277,55 @@
     let cameHereAutomatically = false;
     let failRun = 0;
 
-    vid.addEventListener('playing', () => { failRun = 0; showStage(); });
-    vid.addEventListener('ended', () => go(index + 1, true));
-    vid.addEventListener('error', () => {
-      // a clip that will not load must not stall the rotation, but if someone
-      // chose it themselves, leave it be rather than jumping somewhere else
-      showStage();
-      if (cameHereAutomatically && ++failRun < playlist.length) go(index + 1, true);
-    });
+    const srcFor = (item) => pickSource(item.self);
 
-    const load = (v) => {
-      vid.poster = v.self.poster || '';
-      vid.src = pickSource(v.self);
+    // if the idle player already holds this clip, promote it — that is the
+    // whole point of the second one
+    const selectFor = (item) => {
+      const src = srcFor(item);
+      if (players[1 - live].v.getAttribute('src') === src) live = 1 - live;
+      return src;
+    };
+
+    const placeLive = (container) => {
+      const w = players[live].wrap;
+      if (w.parentElement !== container) container.append(w);
+      const idle = players[1 - live].wrap;
+      if (idle.parentElement !== parking) parking.append(idle);
+    };
+
+    const warmNeighbour = (i) => {
+      const n = playlist.length;
+      if (n < 2) return;
+      const j = (((i + travel) % n) + n) % n;
+      const idle = players[1 - live];
+      const src = srcFor(playlist[j]);
+      if (idle.v.getAttribute('src') === src) return;   // already warm
+      idle.v.preload = 'auto';          // it is off screen, so buffer ahead
+      idle.v.src = src;
+    };
+
+    const load = (item, container) => {
+      const src = selectFor(item);
+      placeLive(container);
+      const p = players[live];
+      p.v.preload = 'metadata';
+      if (p.v.getAttribute('src') !== src) p.v.src = src;
+      p.v.poster = item.self.poster || '';
       // opening the box is itself a click, so this is normally allowed. On an
       // automatic change a browser may refuse; the poster and controls remain.
-      const p = vid.play();
-      if (p) p.catch(() => showStage());
+      const played = p.v.play();
+      if (played) played.catch(() => showStage());
+      warmNeighbour(index);
     };
 
     const stopPlayback = () => {
-      if (!vid.getAttribute('src')) return;
-      vid.pause();
-      vid.removeAttribute('src');
-      vid.load();                       // releases the connection
+      players.forEach(p => {
+        if (!p.v.getAttribute('src')) return;
+        p.v.pause();
+        p.v.removeAttribute('src');
+        p.v.load();                     // releases the connection
+      });
     };
 
     /* ── the phone feed ────────────────────────────────────────────── */
@@ -265,13 +336,12 @@
     const activatePanel = (i) => {
       const panel = feed.children[i];
       if (!panel) return;
-      const slot = panel.querySelector('.lb-panel-slot');
-      if (media.parentElement !== slot) slot.append(media);
+      travel = i > index ? 1 : (i < index ? -1 : travel);
       index = i;
       // keep the desktop transport in step, so turning the phone sideways
       // mid-song lands on the right title rather than the last one it saw
       syncBar();
-      load(playlist[i]);
+      load(playlist[i], panel.querySelector('.lb-panel-slot'));
     };
 
     /* Which panel you have landed on is just arithmetic: every panel is exactly
@@ -309,32 +379,6 @@
       setTimeout(() => { settling = false; }, smooth ? 450 : 60);
     };
 
-    // tap the video to pause and resume; the scrubber handles its own taps
-    media.addEventListener('click', (e) => {
-      if (!inFeed() || e.target.closest('.lb-progress')) return;
-      if (vid.paused) vid.play().catch(() => {}); else vid.pause();
-    });
-
-    vid.addEventListener('timeupdate', () => {
-      if (!vid.duration) return;
-      fill.style.width = `${(vid.currentTime / vid.duration) * 100}%`;
-    });
-
-    const scrub = (e) => {
-      const r = bar2.getBoundingClientRect();
-      const p = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
-      if (vid.duration) vid.currentTime = p * vid.duration;
-    };
-    bar2.addEventListener('pointerdown', (e) => {
-      bar2.setPointerCapture(e.pointerId);
-      scrub(e);
-      const move = (ev) => scrub(ev);
-      const up = () => { bar2.removeEventListener('pointermove', move);
-                         bar2.removeEventListener('pointerup', up); };
-      bar2.addEventListener('pointermove', move);
-      bar2.addEventListener('pointerup', up);
-    });
-
     /* ── transport ─────────────────────────────────────────────────── */
     const clampScroll = (x) =>
       Math.max(0, Math.min(list.scrollWidth - list.clientWidth, x));
@@ -370,6 +414,8 @@
       if (!n) return;
       cameHereAutomatically = !!auto;
       const next = ((i % n) + n) % n;
+      // remember the direction so the idle player warms ahead of you, not behind
+      if (next !== index) travel = i > index ? 1 : -1;
       if (inFeed()) {
         /* Scroll, and let the settling pick the song. Activating directly would
            let a failed or interrupted scroll play one clip while showing
@@ -384,7 +430,7 @@
       index = next;
       syncBar();
       hideStage();
-      setTimeout(() => load(playlist[index]), slow.matches ? 0 : 280);
+      setTimeout(() => load(playlist[index], stage), slow.matches ? 0 : 280);
     };
 
     const open = (slug) => {
@@ -401,14 +447,13 @@
       failRun = 0;
       showStage();
       if (inFeed()) {
-        vid.controls = false;          // the panel supplies its own controls
+        players.forEach(p => { p.v.controls = false; });   // the panel has its own
         scrollToPanel(index, false);
         activatePanel(index);
         return;
       }
-      vid.controls = true;
-      if (media.parentElement !== stage) stage.append(media);
-      load(playlist[index]);
+      players.forEach(p => { p.v.controls = true; });
+      load(playlist[index], stage);
     };
 
     prevBtn.addEventListener('click', () => go(index - 1));
@@ -427,17 +472,17 @@
     // turning a phone sideways crosses the breakpoint mid-song; keep playing
     onPhone.addEventListener('change', () => {
       if (!box.open) return;
-      const at = vid.currentTime;
+      const at = liveVideo().currentTime;
       if (inFeed()) {
-        vid.controls = false;
+        players.forEach(p => { p.v.controls = false; });
         scrollToPanel(index, false);
         activatePanel(index);
       } else {
-        vid.controls = true;
-        stage.append(media);
+        players.forEach(p => { p.v.controls = true; });
+        placeLive(stage);
         syncBar();
       }
-      if (at) vid.currentTime = at;
+      if (at) liveVideo().currentTime = at;
     });
     closeBtn.addEventListener('click', () => box.close());
     // clicking the scrim: the dialog fills the viewport, so any hit that lands
@@ -445,7 +490,7 @@
     box.addEventListener('click', e => { if (e.target === box) box.close(); });
     box.addEventListener('keydown', e => {
       // let the arrow keys scrub the player when it has focus
-      if (e.target === vid) return;
+      if (e.target.tagName === 'VIDEO') return;
       if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1); }
       if (e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1); }
     });

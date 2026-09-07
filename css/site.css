@@ -350,6 +350,10 @@ h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:.88;
 /* the feed is phone-only; on desktop these never render, so their blurred
    background images are never fetched */
 .lb-feed{display:none}
+/* where the warming player waits: present and buffering, but invisible and
+   untouchable. Not display:none, which would stop it loading. */
+.lb-parking{position:absolute;width:1px;height:1px;overflow:hidden;
+  opacity:0;pointer-events:none;left:-9999px;top:0}
 
 .lb-arrow{flex:none;padding:0;cursor:pointer;border:0;background:none;
   width:clamp(30px,4.5vw,64px);height:clamp(90px,26vh,260px);
