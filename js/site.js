@@ -70,6 +70,124 @@
   };
   const todayStamp = () => { const t = new Date(); t.setHours(0,0,0,0); return t; };
 
+  /* ── calendar links ───────────────────────────────────────────── */
+  // shows.json keeps the set time as one display string ("8:30–11:30pm",
+  // "6–9pm") so a gig stays a single hand-edited row. Read that back into
+  // wall-clock minutes rather than adding start/end fields to the JSON.
+  // Anything unparseable returns null and the row simply renders without
+  // calendar links — better than an event that is silently an hour out.
+  const slugify = (v) => String(v || '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+  const parseSpan = (time) => {
+    const parts = String(time || '').toLowerCase().replace(/\s+/g, '').split(/[–—-]/);
+    if (parts.length !== 2) return null;
+    const read = (s) => {
+      const m = s.match(/^(\d{1,2})(?::(\d{2}))?(am|pm)?$/);
+      if (!m) return null;
+      const h = +m[1], min = +(m[2] || 0);
+      if (min > 59 || h > 23) return null;
+      if (m[3] && (h < 1 || h > 12)) return null;   // 13pm is a typo, not a time
+      return { h, min, mer: m[3] || null };
+    };
+    const a = read(parts[0]), b = read(parts[1]);
+    if (!a || !b) return null;
+    // "8:30–11:30pm" spells the meridiem once; the start borrows it
+    const mer = b.mer || a.mer;
+    const to24 = (p, m) => (m ? (m === 'pm' ? p.h % 12 + 12 : p.h % 12) : p.h) * 60 + p.min;
+    const start = to24(a, a.mer || mer);
+    const end = to24(b, b.mer || mer);
+    // a 10pm–1am set ends on the following day
+    return { start, end: end <= start ? end + 1440 : end };
+  };
+
+  const VENUE_TZ = 'America/New_York';
+  // A wall-clock time at the venue → the actual instant, with no hard-coded
+  // offset: guess, ask Intl how that guess reads in the zone, correct by the
+  // difference. The second pass only earns its keep for a set that runs
+  // through a daylight-saving change.
+  const zoned = (y, mo, d, mins) => {
+    const fmt = new Intl.DateTimeFormat('en-US', {
+      timeZone: VENUE_TZ, hour12: false,
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit'
+    });
+    const readBack = (t) => {
+      const q = {};
+      fmt.formatToParts(new Date(t)).forEach(x => { q[x.type] = x.value; });
+      return Date.UTC(+q.year, +q.month - 1, +q.day, +q.hour % 24, +q.minute);
+    };
+    const wall = Date.UTC(y, mo, d, 0, 0) + mins * 60000;
+    let inst = wall;
+    for (let i = 0; i < 2; i++) inst = wall - (readBack(inst) - inst);
+    return new Date(inst);
+  };
+
+  const utcStamp = (dt) => dt.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+  // one place to describe a gig, so the Google link and the .ics agree
+  const calEvent = (s) => {
+    const span = parseSpan(s.time);
+    if (!span) return null;
+    const d = s._d;
+    const at = (mins) => zoned(d.getFullYear(), d.getMonth(), d.getDate(), mins);
+    return {
+      title: `The Differents at ${s.venue}`,
+      where: [s.venue, s.address].filter(Boolean).join(', '),
+      blurb: `Live music${s.time ? `, ${s.time}` : ''}. differents.band`,
+      start: at(span.start),
+      end: at(span.end)
+    };
+  };
+
+  const googleCalUrl = (ev) => 'https://calendar.google.com/calendar/render?' +
+    new URLSearchParams({
+      action: 'TEMPLATE',
+      text: ev.title,
+      dates: `${utcStamp(ev.start)}/${utcStamp(ev.end)}`,
+      location: ev.where,
+      details: ev.blurb
+    });
+
+  const icsBlobUrl = (ev, s) => {
+    const esc = (v) => String(v).replace(/([\;,])/g, '\\$1').replace(/\n/g, '\\n');
+    // RFC 5545 measures the 75-character line limit in octets, and a venue
+    // name or a time written with an en dash is not ASCII. Walk code points
+    // and count their UTF-8 length, so a fold never lands mid-character.
+    const enc = new TextEncoder();
+    const fold = (line) => {
+      const out = [];
+      let cur = '', len = 0;
+      for (const ch of line) {
+        const n = enc.encode(ch).length;
+        if (len + n > 72) { out.push(cur); cur = ' '; len = 1; }
+        cur += ch; len += n;
+      }
+      out.push(cur);
+      return out.join('\r\n');
+    };
+    const body = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//The Differents//differents.band//EN',
+      'CALSCALE:GREGORIAN',
+      'METHOD:PUBLISH',
+      'BEGIN:VEVENT',
+      `UID:${s.date}-${slugify(s.venue)}@differents.band`,
+      `DTSTAMP:${utcStamp(new Date())}`,
+      `DTSTART:${utcStamp(ev.start)}`,
+      `DTEND:${utcStamp(ev.end)}`,
+      `SUMMARY:${esc(ev.title)}`,
+      `LOCATION:${esc(ev.where)}`,
+      `DESCRIPTION:${esc(ev.blurb)}`,
+      'URL:https://differents.band/shows.html',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].map(fold).join('\r\n') + '\r\n';
+    return URL.createObjectURL(new Blob([body], { type: 'text/calendar;charset=utf-8' }));
+  };
+
+
   /* ── shows ────────────────────────────────────────────────────── */
   const showsList = document.getElementById('shows-list');
   const strip = document.getElementById('next-show');
@@ -122,6 +240,19 @@
             addr.append(a);
             mid.append(addr);
           }
+          const ev = calEvent(s);
+          if (ev) {
+            const cal = el('div', 'show-cal');
+            const gcal = el('a', null, 'Google Calendar');
+            gcal.href = googleCalUrl(ev);
+            gcal.target = '_blank'; gcal.rel = 'noopener';
+            const ical = el('a', null, 'Apple / Outlook');
+            ical.href = icsBlobUrl(ev, s);
+            ical.download = `the-differents-${slugify(s.venue)}-${s.date}.ics`;
+            cal.append(gcal, ical);
+            cal.prepend(el('span', 'show-cal-lead', 'Add to calendar'));
+            mid.append(cal);
+          }
           wrap.append(date, mid, el('div', 'show-time', s.time || ''));
           return wrap;
         };
@@ -143,6 +274,10 @@
   /* ── videos ───────────────────────────────────────────────────── */
   const videoGrid = document.getElementById('video-grid');
   if (videoGrid) {
+    // The home page hand-picks its clips by slug in data-featured; videos.html
+    // leaves it off and shows the lot. Clicking any card still opens the full
+    // playlist, so a visitor who starts on a featured clip can keep going.
+    const featured = (videoGrid.dataset.featured || '').trim().split(/\s+/).filter(Boolean);
     const limit = Number(videoGrid.dataset.limit) || Infinity;
     const slow = window.matchMedia('(prefers-reduced-motion: reduce)');
     const onPhone = window.matchMedia('(max-width: 700px)');
@@ -598,7 +733,17 @@
       });
       watchPanels();
 
-      playlist.slice(0, limit).forEach(v => {
+      // a named slug that no longer exists is dropped rather than leaving a
+      // hole in the grid, so retiring a clip can never break the home page
+      const shown = featured.length
+        ? featured.map(s => playlist.find(v => v.slug === s)).filter(Boolean)
+        : playlist.slice(0, limit);
+      if (featured.length && shown.length < featured.length) {
+        const missing = featured.filter(s => !playlist.some(v => v.slug === s));
+        console.warn('video-grid: no clip for', missing.join(', '));
+      }
+
+      shown.forEach(v => {
         const card = el('button', 'video');
         card.type = 'button';
         card.dataset.slug = v.slug;
@@ -702,4 +847,45 @@
       render();
     }));
   }
+
+  /* ── booking form ─────────────────────────────────────────────── */
+  // Posts to Web3Forms over fetch so the visitor stays on the page. The
+  // form keeps its action and its hidden access_key, so if this script
+  // never runs the browser still submits it the ordinary way.
+  const bookForm = document.getElementById('book-form');
+  if (bookForm) {
+    const status = document.getElementById('form-status');
+    const send = bookForm.querySelector('button[type="submit"]');
+    const FALLBACK = 'That didn\u2019t send. Email us at differents.charleston@gmail.com and we\u2019ll pick it up there.';
+    const say = (msg, state) => { status.textContent = msg; status.dataset.state = state || ''; };
+
+    bookForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const label = send.textContent;
+      send.textContent = 'Sending\u2026';
+      send.disabled = true;
+      say('', '');
+      try {
+        const res = await fetch(bookForm.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(bookForm)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok) {
+          bookForm.reset();
+          say('Thanks \u2014 that\u2019s in our inbox. We\u2019ll come back to you shortly.', 'ok');
+        } else {
+          say(data.message || FALLBACK, 'bad');
+        }
+      } catch (err) {
+        console.error(err);
+        say(FALLBACK, 'bad');
+      } finally {
+        send.textContent = label;
+        send.disabled = false;
+      }
+    });
+  }
+
 })();

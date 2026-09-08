@@ -514,6 +514,13 @@ h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:.88;
 .show-addr{font-size:.85rem;color:var(--paper-dim);margin-top:.3rem}
 .show-addr a{color:var(--sky);text-decoration:none;border-bottom:1px solid transparent}
 .show-addr a:hover{border-color:var(--sky)}
+.show-cal{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem .8rem;
+  margin-top:.6rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;
+  text-transform:uppercase}
+.show-cal-lead{color:var(--paper-dim)}
+.show-cal a{color:var(--gold);text-decoration:none;padding-bottom:1px;
+  border-bottom:1px solid transparent;transition:border-color .2s}
+.show-cal a:hover,.show-cal a:focus-visible{border-color:var(--gold)}
 .show-time{font-family:var(--mono);font-size:.82rem;color:var(--sky);
   font-variant-numeric:tabular-nums;white-space:nowrap}
 .show.is-tonight .show-date b{color:var(--red-lift)}
@@ -573,6 +580,64 @@ h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:.88;
 .song-set[data-set="Electric"]{background:var(--gold)}
 .empty{color:var(--paper-dim);font-style:italic;padding:2rem 0}
 
+/* ─── booking form ────────────────────────────────────────────────── */
+.book-form{max-width:46rem}
+.lede-contact{margin-top:.9rem;font-family:var(--mono);font-size:.85rem;
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .55rem;
+  color:var(--paper-dim)}
+.lede-contact a{color:var(--sky);text-decoration:none;
+  border-bottom:1px solid transparent;transition:border-color .2s}
+.lede-contact a:hover,.lede-contact a:focus-visible{border-color:var(--sky)}
+.lede-contact .sep{color:var(--paper-dim);opacity:.5}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1.25rem}
+.field{margin:0 0 1.35rem}
+.field label{display:block;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim);
+  margin-bottom:.45rem}
+.field .req{color:var(--red-lift)}
+.field input,.field select,.field textarea{
+  width:100%;background:var(--ink-2);border:1px solid var(--ink-3);border-radius:2px;
+  color:var(--paper);font-family:var(--body);font-size:1rem;line-height:1.5;
+  padding:.7rem .85rem;transition:border-color .2s,background .2s}
+.field textarea{resize:vertical;min-height:7rem}
+.field input::placeholder,.field textarea::placeholder{color:var(--paper-dim);opacity:.7}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--gold);background:var(--ink)}
+/* :user-invalid, not :invalid — an empty required field is invalid from the
+   moment it renders, and nobody wants a form that scolds them on arrival */
+.field :user-invalid{border-color:var(--red)}
+/* the date and time pickers' own glyphs are near-black on our dark field */
+.field input[type="date"]::-webkit-calendar-picker-indicator,
+.field input[type="time"]::-webkit-calendar-picker-indicator{
+  filter:invert(1);opacity:.55;cursor:pointer}
+.field input[type="date"]::-webkit-calendar-picker-indicator:hover,
+.field input[type="time"]::-webkit-calendar-picker-indicator:hover{opacity:1}
+.field select{appearance:none;cursor:pointer;padding-right:2.25rem;
+  background-image:linear-gradient(45deg,transparent 50%,var(--paper-dim) 50%),
+    linear-gradient(135deg,var(--paper-dim) 50%,transparent 50%);
+  background-position:calc(100% - 1.1rem) 55%,calc(100% - .75rem) 55%;
+  background-size:.35rem .35rem,.35rem .35rem;background-repeat:no-repeat}
+.field select option{background:var(--ink-2);color:var(--paper)}
+/* honeypot — off-screen rather than display:none, which some bots skip */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;
+  margin-top:.5rem}
+.btn-send{font-family:var(--display);font-weight:800;font-size:1.25rem;
+  letter-spacing:.02em;text-transform:uppercase;background:var(--red);color:#fff;
+  border:0;border-radius:2px;padding:.7rem 1.9rem;cursor:pointer;
+  transition:background .2s,transform .2s}
+.btn-send:hover:not(:disabled){background:var(--red-lift);transform:translateY(-2px)}
+.btn-send:disabled{opacity:.6;cursor:default}
+.form-status{margin:0;font-size:.92rem;flex:1 1 16rem}
+.form-status[data-state="ok"]{color:var(--gold)}
+.form-status[data-state="bad"]{color:var(--red-lift)}
+@media (max-width:640px){
+  .field-row{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .btn-send:hover:not(:disabled){transform:none}
+}
+
 /* ─── footer ──────────────────────────────────────────────────────── */
 .foot{background:var(--ink-2);border-top:1px solid var(--ink-3);
   padding:clamp(3rem,6vw,4.5rem) 0 2.5rem}
@@ -589,10 +654,7 @@ h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:.88;
 .socials li:nth-child(2) a:hover{background:var(--sky)}
 .socials li:nth-child(3) a:hover{background:var(--gold)}
 .socials li:nth-child(4) a:hover{background:var(--paper)}
-.foot-mail{font-family:var(--display);font-weight:800;text-transform:uppercase;
-  font-size:clamp(1.35rem,3.2vw,2rem);color:var(--gold);text-decoration:none;
-  line-height:1.05;display:inline-block;overflow-wrap:anywhere}
-.foot-mail:hover{color:var(--paper)}
+.foot-cta{margin-top:1rem}
 .foot-note{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;
   color:var(--paper-dim);margin:3rem 0 0;padding-top:1.5rem;
   border-top:1px solid var(--ink-3);text-transform:uppercase}

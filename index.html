@@ -29,7 +29,7 @@
       <a href="videos.html">Videos</a>
       <a href="shows.html">Shows</a>
       <a href="songs.html">Songs</a>
-      <a class="btn-book" href="mailto:differents.charleston@gmail.com">Book Us</a>
+      <a class="btn-book" href="book.html">Book Us</a>
       <ul class="socials nav-socials">
         <li><a href="https://www.instagram.com/TheDifferentsCharleston" target="_blank" rel="noopener" aria-label="The Differents on Instagram">
           <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-instagram"/></svg></a></li>
@@ -78,7 +78,14 @@
         <p class="lede muted">Nothing beats a live show, but if you can’t wait to hear us,
         here are some clips.</p>
       </div>
-      <div class="videos" id="video-grid" data-limit="3"></div>
+      <!-- hand-picked for the home page: slugs from data/videos.json, in this order -->
+      <div class="videos" id="video-grid" data-featured="
+        dani-california
+        last-dance-with-mary-jane
+        3am
+        drift-away
+        use-me
+        just-what-i-needed"></div>
       <p class="section-foot">
         <a class="more" href="videos.html">Watch everything
           <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-arrow"/></svg></a>
@@ -111,9 +118,9 @@
         <p class="lede muted">Bars, breweries, private parties. Tell us the date and how long you want us to play.</p>
       </div>
       <div class="hero-cta">
-        <a class="cta cta-solid" href="mailto:differents.charleston@gmail.com">
+        <a class="cta cta-solid" href="book.html">
           <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-mail"/></svg>
-          Email us
+          Book us
         </a>
         <a class="cta cta-ghost" href="songs.html">See the song list</a>
       </div>
@@ -140,7 +147,10 @@
     </div>
     <div>
       <p class="eyebrow">Book the band</p>
-      <a class="foot-mail" href="mailto:differents.charleston@gmail.com">differents.charleston<br>@gmail.com</a>
+      <a class="cta cta-solid foot-cta" href="book.html">
+        <svg class="icon" aria-hidden="true"><use href="images/icons.svg#i-mail"/></svg>
+        Book us
+      </a>
     </div>
   </div>
   <div class="wrap"><p class="foot-note">The Differents · Mount Pleasant, South Carolina</p></div>
